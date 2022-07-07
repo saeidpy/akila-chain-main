@@ -1,0 +1,47 @@
+{
+  "collectionName": "components_shared_seos",
+  "info": {
+    "name": "Seo",
+    "icon": "allergies",
+    "displayName": "Seo",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "meta_title": {
+      "type": "string",
+      "required": true
+    },
+    "meta_description": {
+      "type": "text",
+      "required": true
+    },
+    "og_image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "canonical": {
+      "type": "string"
+    },
+    "og_title": {
+      "type": "string"
+    },
+    "og_type": {
+      "type": "string",
+      "default": "website"
+    },
+    "og_site_name": {
+      "type": "string"
+    },
+    "og_url": {
+      "type": "string"
+    },
+    "apple_touch_icon": {
+      "type": "string"
+    }
+  }
+}

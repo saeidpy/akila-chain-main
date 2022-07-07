@@ -14,7 +14,7 @@ services:
 
   #turborepo
   turbo:
-    container_name: strapi_nextjs_turbo
+    container_name: akila-chain
     build:
       context: .
       dockerfile: dev.Dockerfile
@@ -22,7 +22,7 @@ services:
       - "3000:3000"
       - "1337:1337"
     environment:
-      - STRAPI_VERSION=4.0.2 #specify your strapi version here (need to be same as package.json)
+      - STRAPI_VERSION=4.2.2 #specify your strapi version here (need to be same as package.json)
     volumes:
       - ./:/app/
        # Just specify a path and let the Engine create a volume

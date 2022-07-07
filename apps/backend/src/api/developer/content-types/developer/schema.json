@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "developers",
+  "info": {
+    "singularName": "developer",
+    "pluralName": "developers",
+    "displayName": "developer",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "development_document": {
+      "type": "json"
+    },
+    "development_tool": {
+      "type": "json"
+    }
+  }
+}

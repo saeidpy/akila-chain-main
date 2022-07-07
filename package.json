@@ -3,8 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "workspaces": [
-    "apps/*",
-    "packages/*"
+    "apps/*"
   ],
   "scripts": {
     "build": "turbo run build",
@@ -25,7 +24,6 @@
         ],
         "outputs": [
           "build/**",
-          "dist/**",
           ".next/**"
         ]
       },
@@ -33,10 +31,10 @@
         "outputs": []
       },
       "dev": {
-        "cache": false
+        "cache": true
       },
       "develop": {
-        "cache": false
+        "cache": true
       }
     }
   },

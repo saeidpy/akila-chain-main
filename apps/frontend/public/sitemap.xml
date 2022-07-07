@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+ <loc>https://akila-chain.herokuapp.com</loc>
+ <lastmod>2022-01-01</lastmod>
+</url>
+<url>
+ <loc>https://akila-chain.herokuapp.com/developer</loc>
+</url>
+<url>
+ <loc>https://akila-chain.herokuapp.com/wallet</loc>
+</url>
+<url>
+ <loc>https://akila-chain.herokuapp.com/about</loc>
+</url>
+<url>
+ <loc>https://akila-chain.herokuapp.com/contact</loc>
+</url>
+<url>
+ <loc>https://akila-chain.herokuapp.com/blog</loc>
+</url>
+</urlset>
