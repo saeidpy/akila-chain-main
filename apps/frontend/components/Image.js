@@ -17,8 +17,8 @@ const Image = ({ image, className }) => {
           objectFit="contain"
           src={getMedia(image)}
           alt={alternativeText || ""}
-          blurDataURL={placeholder}
           placeholder="blur"
+          blurDataURL={placeholder}
         />
       )}
     </ImageElement>
