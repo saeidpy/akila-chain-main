@@ -24,7 +24,7 @@ const Products = ({ global }) => {
     mac_download_link,
     web_wallet_address,
     web_image,
-  } = global?.attributes;
+  } = global?.attributes ?? {};
   const [select, setSelect] = useState(0);
 
   const getIcon = (key) => {

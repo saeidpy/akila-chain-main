@@ -1,6 +1,6 @@
 FROM node:16-alpine
 
-ENV NODE_ENV development
+ENV NODE_ENV production
 
 #add turborepo
 RUN yarn global add turbo
