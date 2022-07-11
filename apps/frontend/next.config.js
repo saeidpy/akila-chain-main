@@ -1,8 +1,7 @@
-const withTM = require("next-transpile-modules")(["ui"]);
 /**
  * @type {import('next').NextConfig}
  */
-const nextConfig = withTM({
+const nextConfig = {
   compiler: {
     styledComponents: true,
   },
@@ -11,6 +10,6 @@ const nextConfig = withTM({
     loader: "default",
     domains: ["localhost", "akila-chain.herokuapp.com"],
   },
-});
+};
 
 module.exports = nextConfig;
