@@ -8,6 +8,7 @@ import { Button } from "../components/Common/Button";
 import Divider from "../components/Common/Divider";
 import { Ellipse } from "../components/Ellipse";
 import Image from "../components/Image";
+import Seo from "../components/Seo";
 import Subtract from "../components/Subtract";
 import Whitepaper from "../components/Whitepaper";
 import {
@@ -40,6 +41,7 @@ const Home = ({ recentArticle }) => {
   };
   return (
     <HomeRoot>
+      <Seo />
       <Header>
         <Element39>
           <Body>

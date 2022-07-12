@@ -41,7 +41,7 @@ export async function getStaticProps({ params }) {
   );
 
   return {
-    props: { article: articlesRes.data[0], recentArticle },
+    props: { article: articlesRes?.data?.[0], recentArticle },
     revalidate: 1,
   };
 }
@@ -53,10 +53,10 @@ const BlogDetails = ({ article, recentArticle }) => {
   };
 
   const seo = {
-    metaTitle: article.attributes.title,
-    metaDescription: article.attributes.description,
-    shareImage: article.attributes.image,
-    ogType: "article",
+    meta_title: article.attributes.title,
+    meta_description: article.attributes.description,
+    og_type: "article",
+    ...(article?.attributes?.blog_seo ?? {}),
   };
   return (
     <BlogRoot>

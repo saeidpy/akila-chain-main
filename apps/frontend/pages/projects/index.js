@@ -14,8 +14,8 @@ export async function getStaticProps() {
   return { props: { projects: projects?.data } };
 }
 const seo = {
-  metaTitle: "Projects",
-  ogType: "Projects",
+  meta_title: "Projects",
+  og_type: "Projects",
 };
 const Projects = ({ projects }) => {
   return (

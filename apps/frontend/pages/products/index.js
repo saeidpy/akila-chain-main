@@ -93,8 +93,8 @@ const Products = ({ global }) => {
     },
   ];
   const seo = {
-    metaTitle: "Products",
-    ogType: "Products",
+    meta_title: "Products",
+    og_type: "Products",
   };
   return (
     <Root>

@@ -24,8 +24,8 @@ const Developer = ({ developer }) => {
     },
   ];
   const seo = {
-    metaTitle: "Developers",
-    ogType: "Developers",
+    meta_title: "Developers",
+    og_type: "Developers",
   };
   return (
     <Root>

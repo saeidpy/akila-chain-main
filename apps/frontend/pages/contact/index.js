@@ -45,7 +45,7 @@ const Contact = ({ global }) => {
   };
 
   const seo = {
-    metaTitle: "Contact US",
+    meta_title: "Contact US",
   };
   return (
     <Root>

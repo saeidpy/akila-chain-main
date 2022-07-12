@@ -18,7 +18,7 @@ export async function getStaticProps() {
 
 const About = ({ global, team }) => {
   const seo = {
-    metaTitle: "About Us",
+    meta_title: "About Us",
   };
   return (
     <AboutRoot>

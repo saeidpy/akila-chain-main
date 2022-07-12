@@ -33,9 +33,9 @@ export async function getStaticProps({ params }) {
 
 const ProjectDetails = ({ project }) => {
   const seo = {
-    metaTitle: project?.attributes?.title,
-    metaDescription: project?.attributes?.description,
-    ogType: "Project",
+    meta_title: project?.attributes?.title,
+    meta_description: project?.attributes?.description,
+    og_type: "Project",
   };
   return (
     <BlogRoot>

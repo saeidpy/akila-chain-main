@@ -41,8 +41,8 @@ const Blog = ({ articles }) => {
   };
 
   const seo = {
-    metaTitle: "Blog",
-    ogType: "blog",
+    meta_title: "Blog",
+    og_type: "blog",
   };
   return (
     <BlogRoot>
