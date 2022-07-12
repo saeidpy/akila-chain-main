@@ -231,7 +231,8 @@ const Boxes = styled.div`
 const Element4 = styled(Button)`
   width: 100%;
   max-width: 241px;
-  background-color: ${({ selected }) =>
+  border-style: solid;
+  border-color: ${({ selected }) =>
     selected ? "var(--primary)" : "var(--primary-background)"};
   display: flex;
   flex-direction: column;
@@ -242,12 +243,7 @@ const Element4 = styled(Button)`
   padding: 14px 87px;
   margin: auto;
   color: ${({ selected }) =>
-    selected ? "var(--primary-background)" : "var(--text-secondary)"};
-  &:hover {
-    color: var(--text-secondary);
-    background-color: ${({ selected }) =>
-      selected ? "var(--primary)" : "var(--primary-background)"};
-  }
+    selected ? "var(--primary)" : "var(--text-secondary)"};
 `;
 const Screens = styled(Image)`
   width: 100%;
