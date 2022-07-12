@@ -192,7 +192,8 @@ const WhiteFlexColumn = styled.div`
   gap: 23px;
   align-items: center;
   border-radius: 10px;
-  width: fit-content;
+  max-width: 100%;
+  overflow: hidden;
 `;
 const Content = styled.div`
   display: flex;
@@ -228,7 +229,6 @@ const Text13 = styled.p`
 `;
 const ImageArticle = styled(Image)`
   border-radius: 10px 10px 0px 0px;
-
 `;
 const Paragraph1 = styled.p`
   font-size: 14px;
