@@ -12,9 +12,10 @@ export async function getStaticPaths() {
   const projects = await fetchAPI("/projects", { populate: "*" });
 
   return {
-    paths: projects?.data?.map((item) => ({
-      params: { slug: `${item?.attributes?.slug}` },
-    })),
+    paths:
+      projects?.data?.map((item) => ({
+        params: { slug: `${item?.attributes?.slug}` },
+      })) ?? [],
     fallback: false,
   };
 }

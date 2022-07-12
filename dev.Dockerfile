@@ -18,7 +18,7 @@ COPY  ["yarn.lock", "package.json", "./"]
 COPY . .
 
 # Install app dependencies
-RUN yarn install -f
+RUN yarn install --frozen-lockfile
 
 EXPOSE 3000 1337
 
