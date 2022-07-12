@@ -1,58 +1,47 @@
 import Head from "next/head";
 import { useContext } from "react";
 import { GlobalContext } from "../pages/_app";
-import { getMedia } from "../lib/media";
 
 const Seo = ({ seo }) => {
-  const { defaultSeo, site_name } = useContext(GlobalContext) ?? {};
+  const { default_seo, site_name } = useContext(GlobalContext) ?? {};
   const seoWithDefaults = {
-    ...defaultSeo,
+    ...default_seo,
     ...seo,
   };
   const fullSeo = {
     ...seoWithDefaults,
     // Add title suffix
-    metaTitle: `${
-      seoWithDefaults?.metaTitle ? seoWithDefaults?.metaTitle + "|" : ""
+    meta_title: `${
+      seoWithDefaults?.meta_title ? seoWithDefaults?.meta_title + "|" : ""
     }  ${site_name ?? ""}`,
-    // Get full image URL
-    shareImage: getMedia(seoWithDefaults.shareImage),
   };
 
   return (
     <Head>
-      {fullSeo?.metaTitle && (
+      {fullSeo?.meta_title && (
         <>
-          <title>{fullSeo?.metaTitle}</title>
-          <meta property="og:title" content={fullSeo?.metaTitle} />
-          <meta name="twitter:title" content={fullSeo?.metaTitle} />
+          <title>{fullSeo?.meta_title}</title>
+          <meta property="og:title" content={fullSeo?.meta_title} />
+          <meta name="twitter:title" content={fullSeo?.meta_title} />
         </>
       )}
-      {fullSeo?.metaDescription && (
+      {fullSeo?.meta_description && (
         <>
-          <meta name="description" content={fullSeo?.metaDescription} />
-          <meta property="og:description" content={fullSeo?.metaDescription} />
-          <meta name="twitter:description" content={fullSeo?.metaDescription} />
+          <meta name="description" content={fullSeo?.meta_description} />
+          <meta property="og:description" content={fullSeo?.meta_description} />
+          <meta name="twitter:description" content={fullSeo?.meta_description} />
         </>
       )}
-      {fullSeo?.shareImage && (
-        <>
-          <meta property="og:image" content={fullSeo?.shareImage} />
-          <meta name="twitter:image" content={fullSeo?.shareImage} />
-          <meta name="image" content={fullSeo?.shareImage} />
-        </>
-      )}
-      <meta name="twitter:card" content="summary_large_image" />
 
       {fullSeo?.canonical && <link rel="canonical" href={fullSeo?.canonical} />}
-      {fullSeo?.ogTitle && (
-        <meta property="og:title" content={fullSeo?.ogTitle} />
+      {fullSeo?.og_title && (
+        <meta property="og:title" content={fullSeo?.og_title} />
       )}
-      {fullSeo?.ogType && <meta property="og:type" content={fullSeo?.ogType} />}
-      {fullSeo?.ogSite_name && (
-        <meta property="og:site_name" content={fullSeo?.ogSite_name} />
+      {fullSeo?.og_type && <meta property="og:type" content={fullSeo?.og_type} />}
+      {fullSeo?.og_site_name && (
+        <meta property="og:site_name" content={fullSeo?.og_site_name} />
       )}
-      {fullSeo?.ogUrl && <meta property="og:url" content={fullSeo?.ogUrl} />}
+      {fullSeo?.og_url && <meta property="og:url" content={fullSeo?.og_url} />}
       {fullSeo?.apple_touch_icon && (
         <link rel="apple-touch-icon" href={fullSeo?.apple_touch_icon} />
       )}
