@@ -30,7 +30,8 @@ const Blog = ({ articles }) => {
 
   const metaData = articles?.meta;
   const mapData = articles?.data;
-  const isFirstPage = metaData?.pagination?.page === 1;
+  // const isFirstPage = metaData?.pagination?.page === 1;
+  const isFirstPage = false;
   const firstArticle = isFirstPage && mapData?.[0];
   const handlePageClick = ({ selected }) => {
     push(`/blog?page=${selected + 1}`);
@@ -99,9 +100,9 @@ const Blog = ({ articles }) => {
       <Posts>
         <Divider />
         {mapData?.map((article, index) => {
-          if (isFirstPage && index === 0) {
-            return <></>;
-          }
+          // if (isFirstPage && index === 0) {
+          //   return <></>;
+          // }
           return (
             <>
               <Main
