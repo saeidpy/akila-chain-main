@@ -32,6 +32,10 @@ export default function MyApp({ Component, pageProps }) {
             rel="shortcut icon"
             href={getMedia(global?.attributes?.favicon)}
           />
+          <meta
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+            name="viewport"
+          />
         </Head>
         <Root>
           <GlobalContext.Provider value={global?.attributes}>
