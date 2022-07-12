@@ -137,9 +137,8 @@ const Paragraph3 = styled.p`
   color: var(--text-secondary);
 `;
 const Icon3 = styled(Image)`
-  width: 223px;
-  height: 223px;
   align-self: center;
+  flex:1
 `;
 const Testomontials = styled.div`
   display: flex;
@@ -214,7 +213,7 @@ const Content = styled.div`
   justify-content: flex-start;
   align-items: start;
   gap: ${(props) => props.gap};
-  flex: 3;
+  flex: 2;
 `;
 const Element6 = styled.div`
   box-shadow: var(--box-shadow);
