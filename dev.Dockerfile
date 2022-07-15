@@ -1,6 +1,6 @@
 FROM node:16-alpine
 
-ENV NODE_ENV production
+ENV NODE_ENV development
 
 #add turborepo
 RUN yarn global add turbo
@@ -18,7 +18,7 @@ COPY  ["yarn.lock", "package.json", "./"]
 COPY . .
 
 # Install app dependencies
-RUN yarn install --frozen-lockfile --production
+RUN yarn install --frozen-lockfile
 
 EXPOSE 3000 1337
 

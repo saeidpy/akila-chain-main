@@ -8,7 +8,7 @@ import Image from "../../components/Image";
 import Seo from "../../components/Seo";
 import Whitepaper from "../../components/Whitepaper";
 import { fetchAPI } from "../../lib/api";
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const projects = await fetchAPI("/projects", { populate: "*" });
 
   return { props: { projects: projects?.data } };

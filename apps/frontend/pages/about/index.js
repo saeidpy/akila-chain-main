@@ -7,7 +7,7 @@ import Image from "../../components/Image";
 import Seo from "../../components/Seo";
 import { fetchAPI } from "../../lib/api";
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const team = await fetchAPI("/teams", { populate: "*" });
 
   return {

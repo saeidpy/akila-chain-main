@@ -18,7 +18,7 @@ import {
 } from "../constant/index";
 import { fetchAPI } from "../lib/api";
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const articlesRes = await fetchAPI("/articles", {
     populate: ["cover", "categories"],
     sort: "publishedAt:desc",
