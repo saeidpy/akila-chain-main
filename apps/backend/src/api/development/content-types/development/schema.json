@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "developments",
+  "info": {
+    "singularName": "development",
+    "pluralName": "developments",
+    "displayName": "Development",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "link": {
+      "type": "string",
+      "regex": "(http(s)?):[\\/\\/(www\\.)?a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)",
+      "required": false
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "tool",
+        "document"
+      ]
+    }
+  }
+}

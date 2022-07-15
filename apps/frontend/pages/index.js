@@ -18,7 +18,7 @@ import {
 } from "../constant/index";
 import { fetchAPI } from "../lib/api";
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps() {
   const articlesRes = await fetchAPI("/articles", {
     populate: ["cover", "categories"],
     sort: "publishedAt:desc",
@@ -27,7 +27,6 @@ export async function getStaticProps({ params }) {
 
   return {
     props: { recentArticle: articlesRes.data },
-    revalidate: 1,
   };
 }
 

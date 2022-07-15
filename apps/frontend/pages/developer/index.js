@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import styled from "styled-components";
@@ -5,24 +6,26 @@ import Header from "../../components/Header";
 import Seo from "../../components/Seo";
 import Whitepaper from "../../components/Whitepaper";
 import { fetchAPI } from "../../lib/api";
-export async function getStaticProps() {
-  const developer = await fetchAPI("/developer");
+import { groupByCategory } from "../../utils/index";
+export async function getServerSideProps() {
+  const development = await fetchAPI("/developments");
 
-  return { props: { developer: developer?.data } };
+  return { props: { development: development?.data } };
 }
-const Developer = ({ developer }) => {
-  const arrayOfGroup = [
-    {
-      name: "developer document",
-      icon: "/assets/icon/fileLine.svg",
-      data: developer?.attributes?.development_document,
-    },
-    {
-      name: "developer tool",
-      icon: "/assets/icon/codeLine.svg",
-      data: developer?.attributes?.development_tool,
-    },
-  ];
+const Developer = ({ development }) => {
+  const arrayOfGroup = Object.entries(
+    groupByCategory(
+      development?.map((item) => item?.attributes),
+      "type"
+    )
+  ).map((item, index) => ({
+    name: "develoepr " + item[0],
+    icon:
+      index % 2 === 0
+        ? "/assets/icon/fileLine.svg"
+        : "/assets/icon/codeLine.svg",
+    data: item[1],
+  }));
   const seo = {
     meta_title: "Developers",
     og_type: "Developers",
@@ -55,7 +58,9 @@ const Developer = ({ developer }) => {
                           alt="arrow icon"
                           src={"/assets/icon/arrowLine.svg"}
                         />
-                        <Text2>{title?.title}</Text2>
+                        <Link href={title.link} key={index} passHref>
+                          <Text2 target={'_blank'}>{title?.title}</Text2>
+                        </Link>
                       </Title1>
                     ))}
                   </Documents>
@@ -102,7 +107,6 @@ const Element5 = styled.div`
   align-items: start;
   border-radius: 10px;
   padding: 18px;
-  margin: auto;
 `;
 const BountyPlans = styled.p`
   font-size: 21px;
@@ -162,11 +166,15 @@ const Uilarrowtoright = styled(LazyLoadImage)`
   width: 21px;
   height: 21px;
 `;
-const Text2 = styled.p`
+const Text2 = styled.a`
   font-size: 15px;
   font-weight: 400;
   line-height: 23.33px;
   color: var(--text-secondary);
+  cursor: pointer;
+  &:hover {
+    color: var(--text-primary-color) !important;
+  }
 `;
 const Element11 = styled.div`
   box-shadow: var(--box-shadow);

@@ -44,7 +44,7 @@ export default function MyApp({ Component, pageProps }) {
               <QapStyle>
                 {loading ? <Loading /> : <Component {...pageProps} />}
               </QapStyle>
-              <Footer />
+              <Footer {...pageProps}/>
             </HomeRoot>
           </GlobalContext.Provider>
         </Root>

@@ -1,7 +1,7 @@
-export const groupByCategory = (products) =>
+export const groupByCategory = (products,key) =>
   products.reduce((group, product) => {
-    const { category } = product;
-    group[category] = group[category] ?? [];
-    group[category].push(product);
+    const  type  = product?.[key];
+    group[type] = group[type] ?? [];
+    group[type].push(product);
     return group;
   }, {});

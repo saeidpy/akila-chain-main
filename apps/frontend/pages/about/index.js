@@ -7,12 +7,11 @@ import Image from "../../components/Image";
 import Seo from "../../components/Seo";
 import { fetchAPI } from "../../lib/api";
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const team = await fetchAPI("/teams", { populate: "*" });
 
   return {
     props: { team: team?.data ?? [] },
-    revalidate: 1,
   };
 }
 
@@ -138,7 +137,7 @@ const Paragraph3 = styled.p`
 `;
 const Icon3 = styled(Image)`
   align-self: center;
-  flex:1
+  flex: 1;
 `;
 const Testomontials = styled.div`
   display: flex;
@@ -224,6 +223,7 @@ const Element6 = styled.div`
   align-items: start;
   border-radius: 10px;
   padding: 16px;
+  max-width: 364px;
 `;
 const Head = styled.div`
   display: flex;

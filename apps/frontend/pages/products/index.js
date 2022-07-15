@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React, { useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import styled from "styled-components";
@@ -19,10 +20,10 @@ const Products = ({ global }) => {
     mobile_version_date_release,
     apple_download_link,
     android_download_link,
-    linux_download_link,
-    windows_download_link,
-    mac_download_link,
-    web_wallet_address,
+    linux_download_file,
+    windows_download_file,
+    mac_download_file,
+    web_wallet_link,
     web_image,
   } = global?.attributes ?? {};
   const [select, setSelect] = useState(0);
@@ -56,15 +57,15 @@ const Products = ({ global }) => {
       links: [
         {
           name: "mac",
-          link: mac_download_link,
+          link: getMedia(mac_download_file),
         },
         {
           name: "windows",
-          link: windows_download_link,
+          link: getMedia(windows_download_file),
         },
         {
           name: "linux",
-          link: linux_download_link,
+          link: getMedia(linux_download_file),
         },
       ],
     },
@@ -89,7 +90,7 @@ const Products = ({ global }) => {
       title: "web",
       icon: <Browser />,
       image: web_image,
-      links: [{ name: "web", link: web_wallet_address }],
+      links: [{ name: "web", link: web_wallet_link }],
     },
   ];
   const seo = {
@@ -123,7 +124,10 @@ const Products = ({ global }) => {
             ))}
           </Boxes>
         </Documents>
-        <Screens image={products?.[select]?.image} />
+        {products?.map(
+          (option, index) =>
+            index === select && <Screens key={index} image={option?.image} />
+        )}
         <Documents gap={"34px"}>
           <Title13>
             <BgItem />
@@ -143,19 +147,12 @@ const Products = ({ global }) => {
             </Title7>
             <Element1 gap={"22px"}>
               {products?.[select].links?.map((link) => (
-                <Element8 padding={"11px 42px"} key={link}>
-                  <Cont
-                    target={"_blank"}
-                    href={
-                      typeof link.link === "string"
-                        ? link.link
-                        : getMedia(link.link)
-                    }
-                  >
+                <Cont target={"_blank"} key={link} href={link.link}>
+                  <Element8 padding={"11px 42px"}>
                     <Text15>{link.name}</Text15>
                     <Bxbxlapple alt="apple icon" src={getIcon(link.name)} />
-                  </Cont>
-                </Element8>
+                  </Element8>
+                </Cont>
               ))}
             </Element1>
           </Title2>
@@ -249,10 +246,11 @@ const Screens = styled(Image)`
   width: 100%;
 `;
 const Cont = styled.a`
-  width: 100%;
   display: flex;
-  flex-direction: row-reverse;
-  gap: 16px;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
 `;
 const Nav = styled.div`
   display: flex;
@@ -348,7 +346,6 @@ const Element7 = styled.p`
 `;
 const Element8 = styled(Button)`
   display: flex;
-  flex-direction: column;
   gap: 10px;
   justify-content: center;
   align-items: center;

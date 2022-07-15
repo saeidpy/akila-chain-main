@@ -3,9 +3,13 @@ import React from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { v4 } from "uuid";
 import Link from "next/link";
+import { MailLine } from "../assets/js/MailLine";
+import { TwitterLine } from "../assets/js/TwitterLine";
+import { SkypeLine } from "../assets/js/SkypeLine";
+import { InstagramLine } from "../assets/js/InstagramLine";
+import { FacebookLine } from "../assets/js/FacebookLine";
 
-export default function Footer(props) {
-  const { state, setState } = props;
+export default function Footer({ global }) {
   return (
     <FooterElement>
       <Nav>
@@ -85,33 +89,39 @@ export default function Footer(props) {
         <Element2>
           {[
             {
-              src: `/assets/icon/facebook.svg`,
+              icon: <MailLine />,
+              alt: "email icon",
+              link: global?.attributes?.email_link ?? "",
+            },
+            {
+              icon: <FacebookLine />,
               alt: "facebook icon",
-              link: "https://facebook.com/akilachain_offical",
+              link: global?.attributes?.facebook_link ?? "",
             },
             {
-              src: `/assets/icon/whatsapp.svg`,
-              alt: "whatsapp icon",
-              link: "https://whatsapp.com/akilachain_offical",
-            },
-            {
-              src: `/assets/icon/twitter.svg`,
-              alt: "twitter icon",
-              link: "https://twitter.com/akilachain_offical",
-            },
-            {
-              src: `/assets/icon/instagram.svg`,
+              icon: <InstagramLine />,
               alt: "instagram icon",
-              link: "https://instagram.com/akilachain_offical",
+              link: global?.attributes?.instagram_link ?? "",
             },
             {
-              src: `/assets/icon/telegram.svg`,
-              alt: "telegram icon",
-              link: "https://telegram.com/akilachain_offical",
+              icon: <SkypeLine />,
+              alt: "skype icon",
+              link: global?.attributes?.skype_link ?? "",
+            },
+            {
+              icon: <TwitterLine />,
+              alt: "twitter icon",
+              link: global?.attributes?.twitter_link ?? "",
             },
           ].map((data, index) => (
-            <Link key={index} target={"_blank"} href={data.link} rel="noreferrer">
-              <Riarrowrightline key={v4()} alt={data.alt} src={data.src} />
+            <Link
+              key={index}
+              target={"_blank"}
+              href={data.link}
+              rel="noreferrer"
+              passHref
+            >
+              <Line target={"_blank"}>{data.icon}</Line>
             </Link>
           ))}
         </Element2>
@@ -119,7 +129,11 @@ export default function Footer(props) {
     </FooterElement>
   );
 }
-
+const Line = styled.a`
+  &:hover {
+    color: var(--primary) !important;
+  }
+`;
 const FooterElement = styled.div`
   width: 100%;
   display: flex;
