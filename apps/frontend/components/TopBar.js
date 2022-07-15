@@ -71,14 +71,14 @@ export default function TopBar(props) {
       />
       <Element1>
         {MenuList.slice(0, 3).map((data) => (
-          <Link href={data.link} key={data}>
+          <Link href={data.link} key={data} passHref>
             <Text2 selected={data.link === pathname} key={v4()}>
               {data.childText}
             </Text2>
           </Link>
         ))}
       </Element1>
-      <Link href="/">
+      <Link href="/" passHref>
         <LazyLoadImage
           alt="akila chain logo"
           src={`/assets/icon/mainLogo.svg`}
@@ -87,7 +87,7 @@ export default function TopBar(props) {
       </Link>
       <Element1>
         {MenuList.slice(3).map((data) => (
-          <Link href={data.link} key={data}>
+          <Link href={data.link} key={data} passHref>
             <Text2 selected={data.link === pathname} key={v4()}>
               {data.childText}
             </Text2>
@@ -118,7 +118,7 @@ const Element1 = styled.div`
     display: none;
   }
 `;
-const Text2 = styled.p`
+const Text2 = styled.a`
   font-size: 16px;
   font-weight: 400;
   text-transform: capitalize;

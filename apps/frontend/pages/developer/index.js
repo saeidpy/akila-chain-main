@@ -58,7 +58,7 @@ const Developer = ({ development }) => {
                           alt="arrow icon"
                           src={"/assets/icon/arrowLine.svg"}
                         />
-                        <Link href={title.link} key={index} passHref>
+                        <Link href={title.link} key={index} >
                           <Text2 target={'_blank'}>{title?.title}</Text2>
                         </Link>
                       </Title1>
