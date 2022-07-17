@@ -123,7 +123,7 @@ const Text2 = styled.a`
   font-weight: 400;
   text-transform: capitalize;
   color: ${({ selected }) =>
-    selected ? "var(--text-primary-color)" : "var(--text-secondary)"};
+    selected ? "var(--text-primary-color) !important" : "var(--text-secondary) !important"};
   cursor: ${({ selected }) => (selected ? "default" : "pointer")};
   &:hover {
     color: var(--text-primary-color) !important;
