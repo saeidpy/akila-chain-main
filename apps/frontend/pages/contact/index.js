@@ -166,6 +166,7 @@ const Line = styled.a`
   &:hover {
     color: var(--primary) !important;
   }
+  cursor: pointer;
 `;
 
 const ContactRoot = styled.div`

@@ -40,6 +40,7 @@ const MenuList = [
 export default function TopBar(props) {
   const [open, setOpen] = useState(false);
   const { pathname } = useRouter();
+  console.log("🚀 ~ file: TopBar.js ~ line 43 ~ TopBar ~ pathname", pathname)
 
   const node = useRef();
   const menuId = "main-menu";
