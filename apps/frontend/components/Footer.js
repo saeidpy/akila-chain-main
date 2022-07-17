@@ -114,13 +114,7 @@ export default function Footer({ global }) {
               link: global?.attributes?.twitter_link ?? "",
             },
           ].map((data, index) => (
-            <Link
-              key={index}
-              target={"_blank"}
-              href={data.link}
-              rel="noreferrer"
-              passHref
-            >
+            <Link key={index} href={data.link} passHref={!!data.link}>
               <Line target={"_blank"}>{data.icon}</Line>
             </Link>
           ))}
