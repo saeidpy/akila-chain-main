@@ -1,12 +1,16 @@
 import qs from "qs";
-
 /**
  * Get full URL from path
  * @param {string} path Path of the URL
  * @returns {string} Full URL
  */
 export function getURL(path = "") {
-  return `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:1337"}${path}`;
+  const { serverRuntimeConfig, publicRuntimeConfig } = getConfig();
+  return `${
+    window === "undefined"
+      ? process.env.NEXT_PUBLIC_API_URL_SERVER
+      : process.env.NEXT_PUBLIC_API_URL_CLIENT || "http://localhost:1337"
+  }${path}`;
 }
 
 /**

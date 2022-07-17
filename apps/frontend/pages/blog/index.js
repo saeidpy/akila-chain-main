@@ -11,7 +11,7 @@ import Image from "../../components/Image";
 import Seo from "../../components/Seo";
 import { fetchAPI } from "../../lib/api";
 
-export async function getStaticProps({ query }) {
+export async function getServerSideProps({ query }) {
   const articles = await fetchAPI("/articles", {
     populate: ["cover", "categories"],
     sort: "publishedAt:desc",

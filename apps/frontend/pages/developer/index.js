@@ -7,17 +7,14 @@ import Seo from "../../components/Seo";
 import Whitepaper from "../../components/Whitepaper";
 import { fetchAPI } from "../../lib/api";
 import { groupByCategory } from "../../utils/index";
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const development = await fetchAPI("/developments");
 
   return { props: { development: development?.data } };
 }
 const Developer = ({ development }) => {
   const arrayOfGroup = Object.entries(
-    groupByCategory(
-      development?.map((item) => item?.attributes),
-      "type"
-    )
+    groupByCategory(development?.map((item) => item?.attributes) ?? [], "type")
   ).map((item, index) => ({
     name: "develoepr " + item[0],
     icon:
@@ -58,8 +55,8 @@ const Developer = ({ development }) => {
                           alt="arrow icon"
                           src={"/assets/icon/arrowLine.svg"}
                         />
-                        <Link href={title.link} key={index} >
-                          <Text2 target={'_blank'}>{title?.title}</Text2>
+                        <Link href={title.link} key={index}>
+                          <Text2 target={"_blank"}>{title?.title}</Text2>
                         </Link>
                       </Title1>
                     ))}
