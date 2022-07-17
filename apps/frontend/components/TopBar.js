@@ -40,7 +40,6 @@ const MenuList = [
 export default function TopBar(props) {
   const [open, setOpen] = useState(false);
   const { pathname } = useRouter();
-  console.log("🚀 ~ file: TopBar.js ~ line 43 ~ TopBar ~ pathname", pathname)
 
   const node = useRef();
   const menuId = "main-menu";
@@ -72,7 +71,7 @@ export default function TopBar(props) {
       />
       <Element1>
         {MenuList.slice(0, 3).map((data) => (
-          <Link href={data.link} key={data} passHref>
+          <Link href={data.link} key={data} passHref={!!data.link}>
             <Text2 selected={data.link === pathname} key={v4()}>
               {data.childText}
             </Text2>
@@ -88,7 +87,7 @@ export default function TopBar(props) {
       </Link>
       <Element1>
         {MenuList.slice(3).map((data) => (
-          <Link href={data.link} key={data} passHref>
+          <Link href={data.link} key={data} passHref={!!data.link}>
             <Text2 selected={data.link === pathname} key={v4()}>
               {data.childText}
             </Text2>

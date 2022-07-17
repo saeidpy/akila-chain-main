@@ -81,27 +81,42 @@ const Contact = ({ global }) => {
             questions.
           </Paragraph>
           <Boxes1 gap={"41px"}>
-            <Link href={global?.attributes?.email_link ?? ""} >
+            <Link
+              href={global?.attributes?.email_link ?? ""}
+              passHref={!!global?.attributes?.email_link}
+            >
               <Line target={"_blank"}>
                 <MailLine />
               </Line>
             </Link>
-            <Link href={global?.attributes?.facebook_link ?? ""} >
+            <Link
+              href={global?.attributes?.facebook_link ?? ""}
+              passHref={!!global?.attributes?.facebook_link}
+            >
               <Line target={"_blank"}>
                 <FacebookLine />
               </Line>
             </Link>
-            <Link href={global?.attributes?.instagram_link ?? ""} >
+            <Link
+              href={global?.attributes?.instagram_link ?? ""}
+              passHref={!!global?.attributes?.instagram_link}
+            >
               <Line target={"_blank"}>
                 <InstagramLine />
               </Line>
             </Link>
-            <Link href={global?.attributes?.skype_link ?? ""} >
+            <Link
+              href={global?.attributes?.skype_link ?? ""}
+              passHref={!!global?.attributes?.skype_link}
+            >
               <Line target={"_blank"}>
                 <SkypeLine />
               </Line>
             </Link>
-            <Link href={global?.attributes?.twitter_link ?? ""} >
+            <Link
+              href={global?.attributes?.twitter_link ?? ""}
+              passHref={!!global?.attributes?.twitter_link}
+            >
               <Line target={"_blank"}>
                 <TwitterLine />
               </Line>

@@ -60,7 +60,7 @@ a {
   text-decoration-line: none !important;
 }
 a, a:visited, a:active {
-  color: inherit !important;
+  color: inherit;
 }
 ul {
   margin:0 !important;
