@@ -1,4 +1,4 @@
-version: '3'
+version: '3.8'
 services:
   db:
     image: postgres
@@ -10,22 +10,6 @@ services:
       - ./db-data/:/var/lib/postgresql/data
     restart: unless-stopped
 
-  frontend:
-    build:
-      context: ./
-    restart: always
-    ports:
-      - "3000:3000"
-    volumes:
-      - ./frontend:/var/www/
-      - ./frontend:/usr/src/app/
-      - ./frontend/node_modules:/usr/src/app/node_modules
-      - ./frontend/.next:/usr/src/app/.next
-    depends_on:
-      - backend
-    networks:
-      - app
-
   backend:
     build:
       context: ./
@@ -36,6 +20,24 @@ services:
       - '1337:1337'
     depends_on:
       - db
+    networks:
+      - app
+
+  frontend:
+    build:
+      context: ./
+      dockerfile: frontend.Dockerfile
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/var/www/
+      - ./frontend:/usr/src/app/
+      - ./frontend/node_modules:/usr/src/app/node_modules
+      - ./frontend/.next:/usr/src/app/.next
+    depends_on:
+      backend:
+        condition: service_completed_successfully
     networks:
       - app
 
