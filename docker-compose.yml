@@ -10,6 +10,20 @@ services:
       - ./db-data/:/var/lib/postgresql/data
     restart: unless-stopped
 
+  backend:
+    build:
+      context: ./
+      dockerfile: backend.Dockerfile
+    restart: always
+    volumes:
+      - ./backend:/srv/app
+    ports:
+      - '1337:1337'
+    depends_on:
+      - db
+    networks:
+      - app
+
   frontend:
     build:
       context: ./
@@ -24,20 +38,6 @@ services:
       - ./frontend/.next:/usr/src/app/.next
     depends_on:
       - backend
-    networks:
-      - app
-
-  backend:
-    build:
-      context: ./
-      dockerfile: backend.Dockerfile
-    restart: always
-    volumes:
-      - ./backend:/srv/app
-    ports:
-      - '1337:1337'
-    depends_on:
-      - db
     networks:
       - app
 
