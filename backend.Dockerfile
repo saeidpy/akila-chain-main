@@ -1,4 +1,4 @@
-FROM strapi/base:4.2.2
+FROM strapi/base
 
 WORKDIR /app
 
