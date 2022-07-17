@@ -24,6 +24,7 @@
         ],
         "outputs": [
           "build/**",
+          "dist/**",
           ".next/**"
         ]
       },
@@ -31,10 +32,10 @@
         "outputs": []
       },
       "dev": {
-        "cache": true
+        "cache": false
       },
       "develop": {
-        "cache": true
+        "cache": false
       }
     }
   },
