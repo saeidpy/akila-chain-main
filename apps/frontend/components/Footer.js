@@ -127,6 +127,7 @@ const Line = styled.a`
   &:hover {
     color: var(--primary) !important;
   }
+  cursor: pointer;
 `;
 const FooterElement = styled.div`
   width: 100%;
