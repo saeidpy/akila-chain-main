@@ -5,7 +5,6 @@ import qs from "qs";
  * @returns {string} Full URL
  */
 export function getURL(path = "") {
-  const { serverRuntimeConfig, publicRuntimeConfig } = getConfig();
   return `${
     window === "undefined"
       ? process.env.NEXT_PUBLIC_API_URL_SERVER
