@@ -10,6 +10,4 @@ RUN yarn install --frozen-lockfile
 
 COPY ./apps/frontend /var/www/
 
-RUN yarn build
-
 CMD "yarn" "dev"

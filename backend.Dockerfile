@@ -8,6 +8,4 @@ RUN yarn install --frozen-lockfile
 
 COPY ./apps/backend .
 
-RUN yarn build
-
 CMD "yarn" "develop"
