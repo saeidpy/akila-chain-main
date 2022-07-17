@@ -16,7 +16,7 @@ COPY  ["yarn.lock", "package.json", "./"]
 
 # Copy source files
 COPY . .
-
+COPY --from=builder ./apps/frontend/next.config.js ./
 # Install app dependencies
 RUN yarn install --frozen-lockfile
 
