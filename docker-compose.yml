@@ -13,6 +13,7 @@ services:
   backend:
     build:
       context: ./
+    dockerfile: backend.Dockerfile
     restart: always
     volumes:
       - ./apps/backend:/srv/app
@@ -26,6 +27,7 @@ services:
   frontend:
     build:
       context: ./
+    dockerfile: frontend.Dockerfile
     restart: always
     ports:
       - "3000:3000"
