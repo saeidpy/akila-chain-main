@@ -12,8 +12,8 @@ const Image = ({ image, className }) => {
         <NextImage
           className={className}
           layout="responsive"
-          width={width || "100%"}
-          height={height || "100%"}
+          // width={width || "100%"}
+          // height={height || "100%"}
           objectFit="contain"
           src={getMedia(image)}
           alt={alternativeText || ""}
