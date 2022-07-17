@@ -1,34 +1,46 @@
-version: '3.9'
+version: '3'
 services:
   db:
-    container_name: db
     image: postgres
     ports:
       - "5432:5432"
     env_file:
-        - ./apps/backend/.env #shared env file with strapi application 
+      - ./apps/backend/.env #shared env file with strapi application 
     volumes:
       - ./db-data/:/var/lib/postgresql/data
     restart: unless-stopped
-    
 
-  #turborepo
-  turbo:
-    container_name: akila-chain
+  frontend:
     build:
-      context: .
-      dockerfile: dev.Dockerfile
+      context: ./
+      dockerfile: frontend.Dockerfile
+    restart: always
     ports:
       - "3000:3000"
-      - "1337:1337"
-    environment:
-      - STRAPI_VERSION=4.2.2 #specify your strapi version here (need to be same as package.json)
     volumes:
-      - ./:/app/
-       # Just specify a path and let the Engine create a volume
-      - /app/node_modules/
-    restart: on-failure
+      - ./frontend:/var/www/
+      - ./frontend:/usr/src/app/
+      - ./frontend/node_modules:/usr/src/app/node_modules
+      - ./frontend/.next:/usr/src/app/.next
+    depends_on:
+      - backend
+    networks:
+      - app
+
+  backend:
+    build:
+      context: ./
+      dockerfile: backend.Dockerfile
+    restart: always
+    volumes:
+      - ./backend:/srv/app
+    ports:
+      - '1337:1337'
+    depends_on:
+      - db
+    networks:
+      - app
 
 networks:
-  turbo-network:
+  app:
     driver: bridge
