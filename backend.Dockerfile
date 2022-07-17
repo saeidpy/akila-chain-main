@@ -1,4 +1,5 @@
 FROM strapi/base
+FROM node:16
 
 WORKDIR /app
 
