@@ -37,11 +37,9 @@ services:
       - ./apps/frontend/node_modules:/usr/src/app/node_modules
       - ./apps/frontend/.next:/usr/src/app/.next
     depends_on:
-      backend:
-        condition: service_completed_successfully
+      - backend
     networks:
       - app
 
 networks:
   app:
-    driver: bridge
