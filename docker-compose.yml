@@ -15,7 +15,7 @@ services:
       context: ./
     restart: always
     volumes:
-      - ./backend:/srv/app
+      - ./apps/backend:/srv/app
     ports:
       - '1337:1337'
     depends_on:
@@ -26,15 +26,14 @@ services:
   frontend:
     build:
       context: ./
-      dockerfile: frontend.Dockerfile
     restart: always
     ports:
       - "3000:3000"
     volumes:
-      - ./frontend:/var/www/
-      - ./frontend:/usr/src/app/
-      - ./frontend/node_modules:/usr/src/app/node_modules
-      - ./frontend/.next:/usr/src/app/.next
+      - ./apps/frontend:/var/www/
+      - ./apps/frontend:/usr/src/app/
+      - ./apps/frontend/node_modules:/usr/src/app/node_modules
+      - ./apps/frontend/.next:/usr/src/app/.next
     depends_on:
       backend:
         condition: service_completed_successfully
