@@ -6,14 +6,19 @@ const Image = ({ image, className }) => {
   const { placeholder, alternativeText, width, height } =
     image?.data?.attributes ?? {};
 
+  const loader = ({ src }) => {
+    return src;
+  };
+
   return (
     <ImageElement className={className}>
       {image?.data && (
         <NextImage
           className={className}
           layout="responsive"
-          // width={width || "100%"}
-          // height={height || "100%"}
+          loader={loader}
+          width={width || "100%"}
+          height={height || "100%"}
           objectFit="contain"
           src={getMedia(image)}
           alt={alternativeText || ""}
