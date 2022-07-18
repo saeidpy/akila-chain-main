@@ -3,30 +3,17 @@ import { useRouter } from "next/router";
 import React from "react";
 import Moment from "react-moment";
 import styled from "styled-components";
-import Divider from "../../components/Common/Divider";
-import Header from "../../components/Header";
-import Image from "../../components/Image";
-import Seo from "../../components/Seo";
-import Whitepaper from "../../components/Whitepaper";
-import { fetchAPI } from "../../lib/api";
+import Divider from "../../../components/Common/Divider";
+import Header from "../../../components/Header";
+import Image from "../../../components/Image";
+import Seo from "../../../components/Seo";
+import Whitepaper from "../../../components/Whitepaper";
+import { fetchAPI } from "../../../lib/api";
 
-export async function getStaticPaths() {
-  const articlesRes = await fetchAPI("/articles", { fields: ["slug"] });
-
-  return {
-    paths: articlesRes.data.map((article) => ({
-      params: {
-        slug: article.attributes.slug,
-      },
-    })),
-    fallback: 'blocking',
-  };
-}
-
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   const articlesRes = await fetchAPI("/articles", {
     filters: {
-      slug: params.slug,
+      slug: params?.slug,
     },
     populate: ["cover", "categories", "author.picture"],
   });
@@ -41,8 +28,7 @@ export async function getStaticProps({ params }) {
   );
 
   return {
-    props: { article: articlesRes?.data?.[0], recentArticle },
-    revalidate: 1,
+    props: { article: articlesRes?.data?.[0], recentArticle }
   };
 }
 const BlogDetails = ({ article, recentArticle }) => {

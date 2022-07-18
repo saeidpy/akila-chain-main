@@ -2,28 +2,16 @@ import parse from "html-react-parser";
 import React from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import styled from "styled-components";
-import Header from "../../components/Header";
-import Image from "../../components/Image";
-import Seo from "../../components/Seo";
-import Whitepaper from "../../components/Whitepaper";
-import { fetchAPI } from "../../lib/api";
+import Header from "../../../components/Header";
+import Image from "../../../components/Image";
+import Seo from "../../../components/Seo";
+import Whitepaper from "../../../components/Whitepaper";
+import { fetchAPI } from "../../../lib/api";
 
-export async function getStaticPaths() {
-  const projects = await fetchAPI("/projects", { populate: "*" });
-
-  return {
-    paths:
-      projects?.data?.map((item) => ({
-        params: { slug: `${item?.attributes?.slug}` },
-      })) ?? [],
-    fallback: 'blocking',
-  };
-}
-
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   const projects = await fetchAPI("/projects", {
     filters: {
-      slug: params.slug,
+      slug: params?.slug,
     },
     populate: "*",
   });
