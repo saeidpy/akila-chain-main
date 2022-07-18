@@ -7,8 +7,7 @@ import Seo from "../../components/Seo";
 import Whitepaper from "../../components/Whitepaper";
 import { fetchAPI } from "../../lib/api";
 import { groupByCategory } from "../../utils/index";
-export async function getServerSideProps(cex) {
-  console.log("🚀 ~ file: index.js ~ line 11 ~ getServerSideProps ~ cex", cex?.params)
+export async function getServerSideProps() {
   const development = await fetchAPI("/developments");
 
   return { props: { development: development?.data } };
@@ -56,7 +55,11 @@ const Developer = ({ development }) => {
                           alt="arrow icon"
                           src={"/assets/icon/arrowLine.svg"}
                         />
-                        <Link href={title.link} key={index}>
+                        <Link
+                          href={title.link}
+                          key={index}
+                          passHref={!!title.link}
+                        >
                           <Text2 target={"_blank"}>{title?.title}</Text2>
                         </Link>
                       </Title1>

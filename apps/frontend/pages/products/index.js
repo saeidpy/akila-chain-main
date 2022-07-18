@@ -1,4 +1,3 @@
-import Link from "next/link";
 import React, { useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import styled from "styled-components";

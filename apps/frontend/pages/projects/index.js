@@ -33,7 +33,7 @@ const Projects = ({ projects }) => {
           <Boxes gap={"32px 43px"}>
             {projects?.map((item) => {
               return (
-                <Link href={`projects/${item?.attributes?.slug}`} key={item}>
+                <Link href={`projects/${item?.attributes?.slug}`} key={item} passHref>
                   <Element11 key={item?.attributes?.slug}>
                     <Icon image={item?.attributes?.image} />
                     <Documents gap={"8px"}>
