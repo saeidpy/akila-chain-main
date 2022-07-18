@@ -1,40 +1,53 @@
-FROM node:16-alpine as BUILD_IMAGE
-
-ENV NODE_ENV production
-
-#add turborepo
-RUN yarn global add turbo
-
-#add strapi
-RUN yarn global add @strapi/strapi@${STRAPI_VERSION}
-
-# Set working directory
+# Install dependencies only when needed
+FROM node:16-alpine AS deps
+# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
+RUN apk add --no-cache libc6-compat
 WORKDIR /app
+COPY package.json yarn.lock ./
+RUN yarn install --frozen-lockfile
 
-# Install app dependencies
-COPY  ["yarn.lock", "package.json", "./"] 
+# If using npm with a `package-lock.json` comment out above and use below instead
+# COPY package.json package-lock.json ./ 
+# RUN npm ci
 
-# Copy source files
+# Rebuild the source code only when needed
+FROM node:16-alpine AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-# Install app dependencies
-RUN yarn install --frozen-lockfile
+# Next.js collects completely anonymous telemetry data about general usage.
+# Learn more here: https://nextjs.org/telemetry
+# Uncomment the following line in case you want to disable telemetry during the build.
+# ENV NEXT_TELEMETRY_DISABLED 1
 
 RUN yarn build
 
-# remove dev dependencies
-RUN npm prune --production
+# If using npm comment out above and use below instead
+# RUN npm run build
 
-FROM node:16-alpine
-
+# Production image, copy all the files and run next
+FROM node:16-alpine AS runner
 WORKDIR /app
 
-COPY --from=BUILD_IMAGE /app/frontend/public ./public
-COPY --from=BUILD_IMAGE /app/frontend/.next ./.next
-COPY --from=BUILD_IMAGE /app/frontend/node_modules ./node_modules
-COPY --from=BUILD_IMAGE /app/frontend/package.json ./package.json
-COPY --from=BUILD_IMAGE /app/frontend/next.config.js ./next.config.js
+ENV NODE_ENV production
+# Uncomment the following line in case you want to disable telemetry during runtime.
+# ENV NEXT_TELEMETRY_DISABLED 1
+
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
+# You only need to copy next.config.js if you are NOT using the default configuration
+# COPY --from=builder /app/next.config.js ./
+COPY --from=builder /app/frontend/public ./public
+COPY --from=builder /app/frontend/package.json ./package.json
+
+# Automatically leverage output traces to reduce image size 
+# https://nextjs.org/docs/advanced-features/output-file-tracing
+COPY --from=builder --chown=nextjs:nodejs /app/frontend/.next ./.next
+
+USER nextjs
 
 EXPOSE 3000 1337
 
-CMD ["yarn", "serve"]
+CMD ["yarn","serve"]
