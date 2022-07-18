@@ -19,7 +19,7 @@
     "@strapi/plugin-users-permissions": "4.2.2",
     "@strapi/strapi": "4.2.2",
     "lodash.set": "^4.3.2",
-    "pg": "8.7.3",
+    "better-sqlite3": "7.4.6",
     "strapi-plugin-import-export-entries": "^1.6.1",
     "strapi-plugin-placeholder": "^4.1.7"
   },

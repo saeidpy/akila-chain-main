@@ -6,9 +6,9 @@
     "apps/*"
   ],
   "scripts": {
-    "build": "turbo run build",
+    "build": "NODE_ENV=production turbo run build",
     "dev": "turbo run dev --parallel & turbo run develop",
-    "dev:docker": "docker-compose up -d",
+    "serve": "turbo run start",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },

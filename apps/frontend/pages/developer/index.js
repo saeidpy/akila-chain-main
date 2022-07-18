@@ -7,7 +7,8 @@ import Seo from "../../components/Seo";
 import Whitepaper from "../../components/Whitepaper";
 import { fetchAPI } from "../../lib/api";
 import { groupByCategory } from "../../utils/index";
-export async function getServerSideProps() {
+export async function getServerSideProps(cex) {
+  console.log("🚀 ~ file: index.js ~ line 11 ~ getServerSideProps ~ cex", cex?.params)
   const development = await fetchAPI("/developments");
 
   return { props: { development: development?.data } };

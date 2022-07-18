@@ -16,7 +16,7 @@ export async function getStaticPaths() {
       projects?.data?.map((item) => ({
         params: { slug: `${item?.attributes?.slug}` },
       })) ?? [],
-    fallback: false,
+    fallback: 'blocking',
   };
 }
 
