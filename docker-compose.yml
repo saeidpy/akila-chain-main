@@ -5,7 +5,6 @@ services:
     container_name: akila-chain
     build:
       context: .
-      dockerfile: dev.Dockerfile
     ports:
       - "3000:3000"
       - "1337:1337"
@@ -15,7 +14,7 @@ services:
       - ./:/app/
        # Just specify a path and let the Engine create a volume
       - /app/node_modules/
-      - /app/.next
+      - /app/apps/frontend/.next
     restart: on-failure
 
 networks:
