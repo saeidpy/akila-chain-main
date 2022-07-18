@@ -15,6 +15,7 @@ services:
       - ./:/app/
        # Just specify a path and let the Engine create a volume
       - /app/node_modules/
+      - /app/.next
     restart: on-failure
 
 networks:
