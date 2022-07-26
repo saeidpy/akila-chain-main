@@ -8,7 +8,17 @@ import { Button } from "../../components/Common/Button";
 import Header from "../../components/Header";
 import Image from "../../components/Image";
 import Seo from "../../components/Seo";
+import { fetchAPI } from "../../lib/api";
 import { getMedia } from "../../lib/media";
+
+export async function getServerSideProps({ params }) {
+  // Fetch global site settings from Strapi
+  const globalRes = await fetchAPI("/global", {
+    populate: "*",
+  });
+  // Pass the data to our page via props
+  return { props: { global: globalRes?.data ?? {} } };
+}
 
 const Products = ({ global }) => {
   const {

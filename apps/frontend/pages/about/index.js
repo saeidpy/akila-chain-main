@@ -16,7 +16,6 @@ export async function getServerSideProps() {
 }
 
 const About = ({ global, team }) => {
-console.log("🚀 ~ file: index.js ~ line 19 ~ About ~ global", global)
   const seo = {
     meta_title: "About Us",
   };

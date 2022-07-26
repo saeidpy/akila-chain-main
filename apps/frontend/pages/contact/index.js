@@ -14,24 +14,29 @@ import Header from "../../components/Header";
 import Seo from "../../components/Seo";
 import { fetchAPI } from "../../lib/api";
 
+export async function getServerSideProps({ params }) {
+  // Fetch global site settings from Strapi
+  const globalRes = await fetchAPI("/global", {
+    populate: "*",
+  });
+  // Pass the data to our page via props
+  return { props: { global: globalRes?.data ?? {} } };
+}
+
 const Contact = ({ global }) => {
   const [openSnackbar, closeSnackbar] = useSnackbar();
   const ref = useRef();
   const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(ref.current);
-    const sdfsdf = [];
+    const result = [];
     for (const [name, value] of formData) {
       result[name] = value;
     }
-    await fetchAPI(
-      "/contact-uses",
-      {},
-      {
-        body: JSON.stringify({ data: result }),
-        method: "POST",
-      }
-    )
+    await fetch(process.env.NEXT_PUBLIC_API_URL_CLIENT + "/contact-uses", {
+      body: JSON.stringify({ data: result }),
+      method: "POST",
+    })
       .then((res) => {
         if (res?.error?.message) {
           openSnackbar(res?.error?.message);

@@ -23,7 +23,7 @@ const theme = {
 //     populate: "*",
 //   });
 //   // Pass the data to our page via props
-//   return { pageProps: { global: globalRes?.data ?? {} } };
+//   return { props: { global: globalRes?.data ?? {} } };
 // }
 
 // Store Global object in context
