@@ -56,7 +56,7 @@ const Developer = ({ development }) => {
                           src={"/assets/icon/arrowLine.svg"}
                         />
                         <Link
-                          href={title.link}
+                          href={title.link ?? ""}
                           key={index}
                           passHref={!!title.link}
                         >
