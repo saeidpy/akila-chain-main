@@ -7,15 +7,18 @@ import Seo from "../../components/Seo";
 import Whitepaper from "../../components/Whitepaper";
 import { fetchAPI } from "../../lib/api";
 import { groupByCategory } from "../../utils/index";
+
 export async function getServerSideProps() {
   const development = await fetchAPI("/developments");
+  console.log("🚀 ~ file: index.js ~ line 13 ~ getServerSideProps ~ development", development)
 
   return { props: { development: development?.data } };
 }
+
 const Developer = ({ development }) => {
   const arrayOfGroup = Object.entries(
     groupByCategory(development?.map((item) => item?.attributes) ?? [], "type")
-  ).map((item, index) => ({
+  )?.map((item, index) => ({
     name: "develoepr " + item[0],
     icon:
       index % 2 === 0
