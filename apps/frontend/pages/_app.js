@@ -3,7 +3,6 @@ import Head from "next/head";
 import React, { createContext } from "react";
 import SnackbarProvider from "react-simple-snackbar";
 import styled, { ThemeProvider } from "styled-components";
-import ErrorBoundary from "../components/Common/ErrorBoundry";
 import Loading from "../components/Common/Loading";
 import Footer from "../components/Footer";
 import TopBar from "../components/TopBar";

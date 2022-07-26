@@ -10,7 +10,6 @@ import { groupByCategory } from "../../utils/index";
 
 export async function getServerSideProps() {
   const development = await fetchAPI("/developments");
-  console.log("🚀 ~ file: index.js ~ line 13 ~ getServerSideProps ~ development", development)
 
   return { props: { development: development?.data } };
 }

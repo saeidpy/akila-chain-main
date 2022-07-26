@@ -13,13 +13,14 @@ import Input from "../../components/Common/Input";
 import Header from "../../components/Header";
 import Seo from "../../components/Seo";
 import { fetchAPI } from "../../lib/api";
+
 const Contact = ({ global }) => {
   const [openSnackbar, closeSnackbar] = useSnackbar();
   const ref = useRef();
   const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(ref.current);
-    const result = {};
+    const sdfsdf = [];
     for (const [name, value] of formData) {
       result[name] = value;
     }
