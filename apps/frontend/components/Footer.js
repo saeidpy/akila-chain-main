@@ -28,13 +28,13 @@ export default function Footer({ global }) {
               <Text70>Menu</Text70>
             </Title13>
             <AboutUsBlogLegalHelp>
-              <Link href="./about">About Us</Link>
+              <Link href="/about">About Us</Link>
               <br />
-              <Link href="./blog">Blog</Link>
+              <Link href="/blog">Blog</Link>
               <br />
-              <Link href="./contact">Contact us</Link>
+              <Link href="/contact">Contact us</Link>
               <br />
-              <Link href="./developer">Developer</Link>
+              <Link href="/developer">Developer</Link>
             </AboutUsBlogLegalHelp>
           </Element34>
           <Element34>
