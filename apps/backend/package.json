@@ -2,7 +2,7 @@
   "name": "backend",
   "private": true,
   "version": "0.1.0",
-  "description": "A Strapi application",
+  "description": "Akial admin",
   "scripts": {
     "develop": "strapi develop",
     "start": "strapi start",
@@ -24,7 +24,7 @@
     "strapi-plugin-placeholder": "4.1.7"
   },
   "author": {
-    "name": "A Strapi developer"
+    "name": "saeidpy"
   },
   "strapi": {
     "uuid": ""

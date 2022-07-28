@@ -12,6 +12,10 @@ import { v4 } from "uuid";
 import { useRouter } from "next/router";
 const MenuList = [
   {
+    childText: "Home",
+    link: "/",
+  },
+  {
     childText: "Developer",
     link: "/developer",
   },
@@ -24,8 +28,16 @@ const MenuList = [
     link: "/projects",
   },
   {
-    childText: "About Us",
-    link: "/about",
+    childText: "",
+    link: "",
+  },
+  {
+    childText: "",
+    link: "",
+  },
+  {
+    childText: "",
+    link: "",
   },
   {
     childText: "Blog",
@@ -34,6 +46,10 @@ const MenuList = [
   {
     childText: "Contact us",
     link: "/contact",
+  },
+  {
+    childText: "About Us",
+    link: "/about",
   },
 ];
 
@@ -70,7 +86,7 @@ export default function TopBar(props) {
         id={menuId}
       />
       <Element1>
-        {MenuList.slice(0, 3).map((data) => (
+        {MenuList.slice(0, 4).map((data) => (
           <Link href={data.link} key={data} passHref={!!data.link}>
             <Text2 selected={data.link === pathname} key={v4()}>
               {data.childText}
@@ -86,7 +102,7 @@ export default function TopBar(props) {
         {/* <Logo image={props?.global?.attributes?.favicon} /> */}
       </Link>
       <Element1>
-        {MenuList.slice(3).map((data) => (
+        {MenuList.slice(4).map((data) => (
           <Link href={data.link} key={data} passHref={!!data.link}>
             <Text2 selected={data.link === pathname} key={v4()}>
               {data.childText}
@@ -123,7 +139,9 @@ const Text2 = styled.a`
   font-weight: 400;
   text-transform: capitalize;
   color: ${({ selected }) =>
-    selected ? "var(--text-primary-color) !important" : "var(--text-secondary) !important"};
+    selected
+      ? "var(--text-primary-color) !important"
+      : "var(--text-secondary) !important"};
   cursor: ${({ selected }) => (selected ? "default" : "pointer")};
   &:hover {
     color: var(--text-primary-color) !important;
