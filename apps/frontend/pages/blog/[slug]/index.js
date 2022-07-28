@@ -74,13 +74,6 @@ const BlogDetails = ({ article, recentArticle }) => {
           </WhiteFlexColumn>
         </Title>
         <Content gap={"53px"}>
-          <Content gap={"37px"}>
-            <Title13>
-              <BgItem />
-              <Text70>Text Widget</Text70>
-            </Title13>
-            <Paragraph3>{article?.attributes?.description}</Paragraph3>
-          </Content>
           <Content gap={"40px"}>
             <Title13>
               <BgItem />
