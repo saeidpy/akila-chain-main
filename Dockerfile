@@ -3,7 +3,9 @@ FROM node:16-alpine
 ENV NODE_ENV production
 
 #add turborepo
+RUN apk add --no-cache libc6-compat
 RUN yarn global add turbo
+
 
 #add strapi
 RUN yarn global add @strapi/strapi@${STRAPI_VERSION}
