@@ -7,8 +7,8 @@
   ],
   "scripts": {
     "build": "NODE_ENV=production turbo run build",
-    "dev": "dotenv -- turbo run dev --parallel & turbo run develop",
-    "serve": "dotenv -- turbo run start",
+    "dev": "turbo run dev --parallel & turbo run develop",
+    "serve": "turbo run start",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
