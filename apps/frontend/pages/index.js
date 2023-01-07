@@ -25,6 +25,12 @@ export async function getServerSideProps() {
     pagination: { withCount: true, limit: 3 },
   });
 
+  if (!articlesRes?.data?.length) {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: { recentArticle: articlesRes.data },
   };

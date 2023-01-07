@@ -16,6 +16,12 @@ export async function getServerSideProps({ params }) {
     populate: "*",
   });
 
+  if (!projects?.data?.[0]) {
+    return {
+      notFound: true,
+    };
+  }
+
   return { props: { project: projects?.data[0] } };
 }
 

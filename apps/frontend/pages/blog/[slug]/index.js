@@ -9,7 +9,7 @@ import Image from "../../../components/Image";
 import Seo from "../../../components/Seo";
 import Whitepaper from "../../../components/Whitepaper";
 import { fetchAPI } from "../../../lib/api";
-
+import _ from "lodash";
 export async function getServerSideProps({ params }) {
   const articlesRes = await fetchAPI("/articles", {
     filters: {
@@ -27,11 +27,18 @@ export async function getServerSideProps({ params }) {
     (item) => item?.attributes?.slug !== params?.slug
   );
 
+  if (!articlesRes?.data?.[0]) {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
-    props: { article: articlesRes?.data?.[0], recentArticle }
+    props: { article: articlesRes?.data?.[0] ?? {}, recentArticle },
   };
 }
 const BlogDetails = ({ article, recentArticle }) => {
+  console.log("🚀 ~ file: index.js ~ line 41 ~ BlogDetails ~ article", article);
   const { query, push } = useRouter();
 
   const handleBlogClick = (article) => {
@@ -39,8 +46,8 @@ const BlogDetails = ({ article, recentArticle }) => {
   };
 
   const seo = {
-    meta_title: article.attributes.title,
-    meta_description: article.attributes.description,
+    meta_title: article?.attributes.title,
+    meta_description: article?.attributes.description,
     og_type: "article",
     ...(article?.attributes?.blog_seo ?? {}),
   };
@@ -172,6 +179,7 @@ const WhiteFlexColumn = styled.div`
   align-items: center;
   border-radius: 10px;
   max-width: 100%;
+  width: 100%;
   overflow: hidden;
 `;
 const Content = styled.div`
