@@ -237,9 +237,6 @@ const Boxes = styled.div`
 const Element4 = styled(Button)`
   width: 100%;
   max-width: 241px;
-  border-style: solid;
-  border-color: ${({ selected }) =>
-    selected ? "var(--primary)" : "var(--primary-background)"};
   display: flex;
   flex-direction: column;
   gap: 10px;

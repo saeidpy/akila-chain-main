@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import React from 'react';
+import styled from "styled-components";
+import React from "react";
 
 const SimpleButton = styled.button`
   cursor: pointer;
@@ -22,6 +22,11 @@ const MuiButton = styled(SimpleButton)`
     box-shadow: var(--hover-box-shadow);
     background: var(--box-shadow-background);
   }
+  box-shadow: ${({ selected }) =>
+    selected ? "var(--hover-box-shadow)" : "var(--box-shadow)"};
+  background: ${({ selected }) =>
+    selected ? "var(--box-shadow-background)" : "var(--primary-background)"};
 `;
-
-export const Button = ({ children, ...rest }) => <MuiButton {...rest}>{children}</MuiButton>;
+export const Button = ({ children, ...rest }) => (
+  <MuiButton {...rest}>{children}</MuiButton>
+);

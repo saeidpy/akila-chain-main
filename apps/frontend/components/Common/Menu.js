@@ -8,13 +8,15 @@ const Menu = ({ open = false, menuList, ...props }) => {
   const { pathname } = useRouter();
   return (
     <StyledMenu open={open} aria-hidden={!isHidden} {...props}>
-      {menuList?.map((item) => (
-        <Link href={item.link} passHref key={item}>
-          <TextLink selected={item.link === pathname}>
-            {item.childText}
-          </TextLink>
-        </Link>
-      ))}
+      {menuList
+        .filter((item) => item.link)
+        ?.map((item) => (
+          <Link href={item.link} passHref key={item}>
+            <TextLink selected={item.link === pathname}>
+              {item.childText}
+            </TextLink>
+          </Link>
+        ))}
     </StyledMenu>
   );
 };
@@ -25,7 +27,8 @@ const StyledMenu = styled.nav`
   flex-direction: column;
   justify-content: center;
   background: ${({ theme }) => theme.primaryLight};
-  transform: ${({ open }) =>    open ? "translateX(0) !important" : "translateX(-100%) !important"};
+  transform: ${({ open }) =>
+    open ? "translateX(0) !important" : "translateX(-100%) !important"};
   height: 100vh;
   text-align: left;
   position: absolute;

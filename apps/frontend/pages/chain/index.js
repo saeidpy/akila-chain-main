@@ -4,25 +4,24 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import Moment from "react-moment";
 import styled from "styled-components";
 import { v4 } from "uuid";
-import { Button } from "../components/Common/Button";
-import Divider from "../components/Common/Divider";
-import { Ellipse } from "../components/Ellipse";
-import Image from "../components/Image";
-import Seo from "../components/Seo";
-import Subtract from "../components/Subtract";
-import Whitepaper from "../components/Whitepaper";
-import {
-  FeaturesContent,
-  roadMapContent,
-  technicalChar,
-} from "../constant/index";
-import { fetchAPI } from "../lib/api";
+import { Button } from "../../components/Common/Button";
+import Divider from "../../components/Common/Divider";
+import { Ellipse } from "../../components/Ellipse";
+import Image from "../../components/Image";
+import Seo from "../../components/Seo";
+import Subtract from "../../components/Subtract";
+import Whitepaper from "../../components/Whitepaper";
+import { FeaturesContent, technicalChar } from "../../constant/index";
+import { fetchAPI } from "../../lib/api";
 
 export async function getServerSideProps() {
   const articlesRes = await fetchAPI("/articles", {
     populate: ["cover", "categories"],
     sort: "publishedAt:desc",
     pagination: { withCount: true, limit: 3 },
+  });
+  const chainRoadMap = await fetchAPI("/chain-road-maps", {
+    populate: ["*"],
   });
 
   if (!articlesRes?.data?.length) {
@@ -32,11 +31,11 @@ export async function getServerSideProps() {
   }
 
   return {
-    props: { recentArticle: articlesRes.data },
+    props: { recentArticle: articlesRes?.data, roadMap: chainRoadMap?.data },
   };
 }
 
-const Home = ({ recentArticle }) => {
+const Home = ({ recentArticle, roadMap }) => {
   const [selectRoadMap, setSelectRoadMap] = useState(0);
   const { push } = useRouter();
   const Button1Function = (e, name) => {};
@@ -44,6 +43,7 @@ const Home = ({ recentArticle }) => {
   const articleOnClick = (e, slug) => {
     push(`blog/${slug}`);
   };
+  const roadMapContent = roadMap?.map((item) => item?.["attributes"]);
   return (
     <HomeRoot>
       <Seo />
@@ -51,24 +51,214 @@ const Home = ({ recentArticle }) => {
         <Element39>
           <Body>
             <Paragraph>
-              ___ An open, permissionless, decentralized crypto banking platform
+              ___ Meet a high secure and high speed decentralized platform
             </Paragraph>
             <Title>
-              <Text9>One Platform to</Text9>
-              <Text8>Power Smart Future</Text8>
+              <CustomEllipse />
+              <Text8>
+                Tokenize The World{" "}
+                <Text9>Redefining The Tokenization Economy</Text9>
+              </Text8>
             </Title>
             <Paragraph1>
-              Supporting a more decentralized future Grow your wealth and let it
-              be secured with <LogoTextPer>Akila</LogoTextPer>
-              <LogoTextSec>Banq</LogoTextSec>
+              AkilaCain is a Decentralized Public Blockchain Leveraging The
+              Security of Bitcoin UTXO While Enabling Cognizant Protocol to
+              Create, Store And Transfer Digital Assets From One Party To
+              Another
             </Paragraph1>
+            <Button1 onClick={(e) => Button1Function(e, "Button1")}>
+              <Text10>Learn More</Text10>
+              <Riarrowrightline
+                alt="right arrow icon"
+                src={"./assets/icon/rightArrow.svg"}
+              />
+            </Button1>
           </Body>
           <Design>
-            <Icons alt="btc eth" src={"./assets/icon/iPhone.svg"} />
+            <Element40>
+              <Height2>
+                <Height color={"rgba(0, 0,0, 0.7)"}>Height: </Height>
+                <Height color={"#0055ff"}>917523</Height>
+              </Height2>
+              <WhiteText>
+                Current Supply:
+                {[
+                  {
+                    childText: " ",
+                    color: "rgba(0, 0,0, 0.7)",
+                  },
+                  {
+                    childText: "4,370,092",
+                    color: "#0055ff",
+                  },
+                  {
+                    childText: " Of 14,000,000 ( Total supply after 23 years )",
+                    color: "rgba(0, 0,0, 0.7)",
+                  },
+                ].map((data) => (
+                  <Height key={v4()} color={data.color}>
+                    {data.childText}
+                  </Height>
+                ))}
+              </WhiteText>
+              <Icons alt="btc eth" src={"./assets/icon/BtcIcon.svg"} />
+            </Element40>
           </Design>
         </Element39>
       </Header>
-      <CustomSubtract></CustomSubtract>
+      <SpecialOffer>
+        <Element41>
+          <CustomEllipse2 />
+          <Texts1>
+            <Text13>
+              Transforming
+              <br />
+              <Text14>
+                The Tokenization Industry
+                <br /> On Blockchain
+              </Text14>
+            </Text13>
+            <Paragraph3>
+              Integration of all the best of Blockchains in one platform.
+              Create, Store and transfer tokens over Akila Blockchain. Join the
+              revolutionary movement and don’t miss the opportunity.
+            </Paragraph3>
+            <Button2 onClick={(e) => Button2Function(e, "Button2")}>
+              <Text15>Buy Tokens -25% off</Text15>
+              <Rishoppingcartline
+                alt="shopping cart icon"
+                src={"./assets/icon/shoppingCart.svg"}
+              />
+            </Button2>
+          </Texts1>
+        </Element41>
+        <Bg>
+          {/* <ParentCircle>
+            <Circle />
+            <Circle />
+            <Circle />
+            <Circle />
+            <Circle />
+            <Circle />
+            <Circle />
+            <Circle />
+            <Circle />
+            <Circle />
+          </ParentCircle> */}
+          <Text16>Token sale ends in</Text16>
+          <WhiteFlexColumn>
+            <Element11>
+              {[
+                {
+                  childText: "0",
+                  color: "#232323",
+                },
+                {
+                  childText: ":",
+                  color: "rgba(0, 0,0, 0.3)",
+                },
+                {
+                  childText: "00",
+                  color: "#232323",
+                },
+                {
+                  childText: ":",
+                  color: "rgba(0, 0,0, 0.3)",
+                },
+                {
+                  childText: "00",
+                  color: "#232323",
+                },
+                {
+                  childText: ":",
+                  color: "rgba(0, 0,0, 0.3)",
+                },
+                {
+                  childText: "00",
+                  color: "#232323",
+                },
+              ].map((data) => (
+                <Element5 key={v4()} color={data.color}>
+                  {data.childText}
+                </Element5>
+              ))}
+            </Element11>
+            <FlexRow>
+              {[
+                {
+                  childText: "days",
+                },
+                {
+                  childText: "hours",
+                },
+                {
+                  childText: "minutes",
+                },
+                {
+                  childText: "seconds",
+                },
+              ].map((data) => (
+                <Text17 key={v4()}>{data.childText}</Text17>
+              ))}
+            </FlexRow>
+          </WhiteFlexColumn>
+          <Text21>
+            $25,369,146
+            <ContributionReceived fontSize={"16px"}>
+              {" "}
+              contribution received
+            </ContributionReceived>
+          </Text21>
+          <Cap>
+            <Top1>
+              <Text22>$4m</Text22>
+              <Text22>$55m</Text22>
+            </Top1>
+            <WhiteFlexRow>
+              <BlueFlexRow>
+                <Cont>
+                  <Divider isVertical color="#fff" height={"25px"} />
+                  <Text24>30%</Text24>
+                </Cont>
+              </BlueFlexRow>
+            </WhiteFlexRow>
+            <Buttom>
+              <SoftcapInDays1 textAlign={"left"}>
+                Softcap{" "}
+                <ContributionReceived fontSize={"14px"}>
+                  in 1035 days
+                </ContributionReceived>
+              </SoftcapInDays1>
+              <SoftcapInDays1 textAlign={"right"}>Hardcap</SoftcapInDays1>
+            </Buttom>
+          </Cap>
+        </Bg>
+      </SpecialOffer>
+      <CustomSubtract>
+        <Text1>
+          <Text26 display={"block"}>
+            Bitcoin Core
+            <Text27>
+              {" "}
+              + <br />
+            </Text27>
+            <Text26 display={"contents"}>Cognizant Protocol</Text26>
+            <Text27>
+              {" "}
+              + <br />
+            </Text27>
+            <Text26 display={"contents"}>POS algorithm</Text26>
+            <Text27> = AkilaChain</Text27>
+          </Text26>
+          <Paragraph4>
+            AkilaChain is a Blockchain for tokenizing real-world assets.
+            AkilaChain is an open-source blockchain that hosts several unique
+            features. AkilaCain is a fully decentralized public blockchain with
+            PoS algorithm and 20 seconds blocktime which can carry 1000
+            transactions per seconds.
+          </Paragraph4>
+        </Text1>
+      </CustomSubtract>
       <Features>
         {FeaturesContent.map((item) => (
           <FlexColumn key={v4()}>
@@ -183,7 +373,7 @@ const Home = ({ recentArticle }) => {
                     <Text40>{index + 1}</Text40>
                   </No1>
                   <Title2>
-                    <Text41>{item.title}</Text41>
+                    <Text41>{item.name}</Text41>
                     <Text42>{item.date}</Text42>
                   </Title2>
                 </Nav>
@@ -197,15 +387,19 @@ const Home = ({ recentArticle }) => {
               </>
             ))}
           </TopbarRoadMap>
-          <Content3>
-            <Topbar gap={"2px"}>
-              <Text56>{roadMapContent[selectRoadMap].date}</Text56>
-              <Text57>{roadMapContent[selectRoadMap].title}</Text57>
-            </Topbar>
-            <Topbar gap={"11px"}>
-              <Paragraph17>{roadMapContent[selectRoadMap].content}</Paragraph17>
-            </Topbar>
-          </Content3>
+          {roadMapContent[selectRoadMap] && (
+            <Content3>
+              <Topbar gap={"2px"}>
+                <Text56>{roadMapContent[selectRoadMap].date}</Text56>
+                <Text57>{roadMapContent[selectRoadMap].name}</Text57>
+              </Topbar>
+              <Topbar gap={"11px"}>
+                <Paragraph17>
+                  {roadMapContent[selectRoadMap].description}
+                </Paragraph17>
+              </Topbar>
+            </Content3>
+          )}
         </Element42>
       </Roadmap>
       <Whitepaper />
@@ -275,7 +469,6 @@ const Header = styled.div`
   display: flex;
   flex-direction: column;
   gap: 77px;
-  width: 100%;
   justify-content: center;
   align-items: flex-start;
   @media (max-width: 1124px) {
@@ -303,14 +496,14 @@ const Paragraph = styled.p`
   color: var(--text-secondary);
 `;
 const Title = styled.div`
-  display: flex;
-  flex-direction: column;
+  position: relative;
   width: 100%;
 `;
 
 const Text8 = styled.h1`
   font-size: 49px;
-  font-weight: 600;
+  font-weight: 500;
+  line-height: 78.4px;
   text-transform: capitalize;
   color: var(--primary);
   white-space: pre-wrap;
@@ -318,18 +511,21 @@ const Text8 = styled.h1`
 `;
 const Text9 = styled.p`
   font-size: 49px;
-  font-weight: 600;
+  font-weight: 300;
+  line-height: 78.4px;
   text-transform: capitalize;
   color: var(--text-primary);
   display: contents;
 `;
 const Paragraph1 = styled.p`
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 34.57px;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 27.57px;
   color: var(--text-secondary);
 `;
 const Design = styled.div`
+  flex: 1;
+  margin-top: 256px;
   display: flex;
   justify-content: center;
   align-items: end;
@@ -347,7 +543,11 @@ const Element40 = styled.div`
   position: relative;
 `;
 const Icons = styled(LazyLoadImage)`
-  width: 100%;
+  height: 295px;
+  top: 91px;
+  position: absolute;
+  left: -50px;
+  top: 84px;
 `;
 const Height2 = styled.div`
   display: flex;
@@ -447,12 +647,6 @@ const Text15 = styled.p`
   font-size: 14px;
   font-weight: 600;
   color: var(--text-secondary-color);
-`;
-const LogoTextSec = styled.span`
-  color: var(--text-secondary-color);
-`;
-const LogoTextPer = styled.span`
-  color: var(--text-primary-color);
 `;
 const Rishoppingcartline = styled(LazyLoadImage)`
   width: 18px;
@@ -568,17 +762,8 @@ const Buttom = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
-const CustomSubtract = styled(Subtract)`
-  background: rgb(254, 152, 63);
-  background: linear-gradient(
-    37deg,
-    rgba(254, 152, 63, 0.04383760340073528) 0%,
-    rgba(240, 240, 243, 0.01) 47%,
-    rgba(0, 85, 255, 0.0578432056416317) 100%
-  );
-  border-radius: 26px;
-`;
-const Text1 = styled.div`rgba(240, 240, 243, 0.79)
+const CustomSubtract = styled(Subtract)``;
+const Text1 = styled.div`
   display: flex;
   flex-direction: row;
   gap: 19px;

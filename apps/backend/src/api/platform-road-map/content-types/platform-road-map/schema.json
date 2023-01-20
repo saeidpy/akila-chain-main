@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "platform_road_maps",
+  "info": {
+    "singularName": "platform-road-map",
+    "pluralName": "platform-road-maps",
+    "displayName": "platform-road-map"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "date": {
+      "type": "date"
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

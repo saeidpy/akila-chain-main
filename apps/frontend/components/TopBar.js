@@ -40,6 +40,10 @@ const MenuList = [
     link: "",
   },
   {
+    childText: "Chain",
+    link: "/chain",
+  },
+  {
     childText: "Blog",
     link: "/blog",
   },
@@ -95,10 +99,7 @@ export default function TopBar(props) {
         ))}
       </Element1>
       <Link href="/" passHref>
-        <LazyLoadImage
-          alt="akila chain logo"
-          src={`/assets/icon/mainLogo.svg`}
-        />
+        <LazyLoadImage alt="akila chain logo" src={`/assets/icon/Logo.svg`} />
         {/* <Logo image={props?.global?.attributes?.favicon} /> */}
       </Link>
       <Element1>
