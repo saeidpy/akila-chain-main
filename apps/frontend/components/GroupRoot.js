@@ -58,7 +58,7 @@ const Element4 = styled.div`
   align-items: flex-start;
   padding: 16px 27px;
   border-radius: 30px 30px 0px 30px;
-  background-color: #f0f0f3;
+  background-color: var(--primary-background);
   box-shadow: 0px 0px 0px 4px rgba(255, 255, 255, 0.01);
 `;
 const GroupRootRootRoot = styled.div`
@@ -127,7 +127,7 @@ const Element2 = styled.div`
   align-items: flex-start;
   padding: 16px 27px;
   border-radius: 30px 30px 0px 30px;
-  background-color: #f0f0f3;
+  background-color: var(--primary-background);
   box-shadow: 0px 0px 0px 4px rgba(255, 255, 255, 0.01);
 `;
 const Text2 = styled.div`
@@ -145,7 +145,7 @@ const Element1 = styled.div`
   align-items: flex-start;
   padding: 16px 27px;
   border-radius: 30px 30px 30px 0px;
-  background-color: #f0f0f3;
+  background-color: var(--primary-background);
   box-shadow: 0px 0px 0px 4px rgba(255, 255, 255, 0.01);
 `;
 const Text3 = styled.div`
@@ -181,7 +181,7 @@ const Element5 = styled.div`
   align-items: flex-start;
   padding: 12px 27px;
   border-radius: 30px 30px 30px 0px;
-  background-color: #f0f0f3;
+  background-color: var(--primary-background);
   box-shadow: 0px 0px 0px 4px rgba(255, 255, 255, 0.01);
 `;
 const LendingBorrowing = styled.div`

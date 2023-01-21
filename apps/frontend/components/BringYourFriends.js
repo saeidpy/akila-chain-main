@@ -64,9 +64,8 @@ const FrameRootRootRoot = styled.div`
   align-items: flex-start;
   padding: 48px 31px 37px 31px;
   border-radius: 26px;
-  background-color: #f0f0f3;
-  box-shadow: 5px 5px 15px 0px rgba(174, 174, 192, 0.7),
-    -5px -5px 15px 0px #ffffff;
+  background-color: var(--primary-background);
+  box-shadow: var(--box-shadow);
   overflow: hidden;
 `;
 const Design = styled.div`
@@ -173,9 +172,8 @@ const WhiteFlexRow = styled.div`
   align-items: flex-start;
   padding: 24px 13.4px 12.3px 13.4px;
   border-radius: 13px;
-  background-color: #f0f0f3;
-  box-shadow: 5px 5px 15px 0px rgba(174, 174, 192, 0.7),
-    -5px -5px 15px 0px #ffffff;
+  background-color: var(--primary-background);
+  box-shadow: var(--box-shadow);
 `;
 const Group3 = styled.div`
   width: 56px;

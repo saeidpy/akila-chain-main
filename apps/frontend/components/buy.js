@@ -96,7 +96,7 @@ const WhiteFlexColumn1 = styled.div`
   align-items: flex-start;
   padding: 8.5px 32px;
   border-radius: 10px;
-  background-color: #f0f0f3;
+  background-color: var(--primary-background);
   box-shadow: inset 8px 8px 16px 0px #d0d3d7, inset -8px -8px 16px 0px #ffffff;
 `;
 const Text3 = styled.div`
@@ -120,9 +120,8 @@ const FrameRootRootRoot = styled.div`
   align-items: flex-start;
   padding: 0px 21px;
   border-radius: 26px;
-  background-color: #f0f0f3;
-  box-shadow: 5px 5px 15px 0px rgba(174, 174, 192, 0.7),
-    -5px -5px 15px 0px #ffffff;
+  background-color: var(--primary-background);
+  box-shadow: var(--box-shadow);
   overflow: hidden;
 `;
 const Group5 = styled.div`
@@ -141,9 +140,8 @@ const WhiteFlexRow = styled.div`
   align-items: flex-start;
   padding: 8.5px 41px;
   border-radius: 10px;
-  background-color: #f0f0f3;
-  box-shadow: 5px 5px 15px 0px rgba(174, 174, 192, 0.7),
-    -5px -5px 15px 0px #ffffff;
+  background-color: var(--primary-background);
+  box-shadow: var(--box-shadow);
 `;
 const Element1 = styled.div`
   width: 6px;
@@ -168,7 +166,7 @@ const WhiteFlexColumn = styled.div`
   align-items: flex-start;
   padding: 8.5px 47.5px;
   border-radius: 10px;
-  background-color: #f0f0f3;
+  background-color: var(--primary-background);
   box-shadow: inset 8px 8px 16px 0px #d0d3d7, inset -8px -8px 16px 0px #ffffff;
 `;
 const Text2 = styled.div`
@@ -187,7 +185,7 @@ const WhiteFlexColumn2 = styled.div`
   align-items: flex-start;
   padding: 8.5px 39px;
   border-radius: 10px;
-  background-color: #f0f0f3;
+  background-color: var(--primary-background);
   box-shadow: inset 8px 8px 16px 0px #d0d3d7, inset -8px -8px 16px 0px #ffffff;
 `;
 const Text4 = styled.div`
@@ -279,9 +277,8 @@ const Button1 = styled.button`
   border-width: 0px;
   border-radius: 91px;
   box-sizing: content-box;
-  background-color: #f0f0f3;
-  box-shadow: 5px 5px 15px 0px rgba(174, 174, 192, 0.7),
-    -5px -5px 15px 0px #ffffff;
+  background-color: var(--primary-background);
+  box-shadow: var(--box-shadow);
   cursor: pointer;
   &: hover {
     box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.3);
@@ -335,9 +332,8 @@ const WhiteFlexColumn4 = styled.div`
   align-items: flex-start;
   padding: 14px;
   border-radius: 13px;
-  background-color: #f0f0f3;
-  box-shadow: 5px 5px 15px 0px rgba(174, 174, 192, 0.7),
-    -5px -5px 15px 0px #ffffff;
+  background-color: var(--primary-background);
+  box-shadow: var(--box-shadow);
 `;
 const Riaddcircleline = styled.img`
   width: 40px;
@@ -352,9 +348,8 @@ const WhiteFlexColumn5 = styled.div`
   align-items: flex-start;
   padding: 14px 12px 14px 24px;
   border-radius: 13px;
-  background-color: #f0f0f3;
-  box-shadow: 5px 5px 15px 0px rgba(174, 174, 192, 0.7),
-    -5px -5px 15px 0px #ffffff;
+  background-color: var(--primary-background);
+  box-shadow: var(--box-shadow);
 `;
 const Group3 = styled.div`
   width: 45px;
@@ -421,9 +416,8 @@ const WhiteFlexRow1 = styled.div`
   align-items: flex-start;
   padding: 24px 22px 22px 22px;
   border-radius: 13px;
-  background-color: #f0f0f3;
-  box-shadow: 5px 5px 15px 0px rgba(174, 174, 192, 0.7),
-    -5px -5px 15px 0px #ffffff;
+  background-color: var(--primary-background);
+  box-shadow: var(--box-shadow);
 `;
 const PayWithCurrencyUSD1 = styled.div`
   width: 73px;
@@ -453,9 +447,8 @@ const WhiteFlexColumn6 = styled.div`
   align-items: flex-start;
   padding: 13px 22px 18.7px 19px;
   border-radius: 11px;
-  background-color: #f0f0f3;
-  box-shadow: 5px 5px 15px 0px rgba(174, 174, 192, 0.7),
-    -5px -5px 15px 0px #ffffff;
+  background-color: var(--primary-background);
+  box-shadow: var(--box-shadow);
 `;
 const Text12 = styled.div`
   width: 97px;

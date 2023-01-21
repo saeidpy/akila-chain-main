@@ -1,25 +1,28 @@
-import styled from 'styled-components';
-import { Button } from './Common/Button';
-import Subtract from './Subtract';
-import React from 'react';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import styled from "styled-components";
+import { Button } from "./Common/Button";
+import Subtract from "./Subtract";
+import React from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 export default function Whitepaper(props) {
   const { state, setState } = props;
   return (
     <Subtract7>
       <Circle />
-      <Topbar gap={'36px'}>
-        <Topbar gap={'23px'}>
+      <Topbar gap={"36px"}>
+        <Topbar gap={"23px"}>
           <Text58>Whitepaper</Text58>
           <Paragraph19>
-            Cryptro connects banks, payment providers, digital asset exchanges and{'  '}corporates
-            via Cryptro to provide one.
+            Cryptro connects banks, payment providers, digital asset exchanges
+            and{"  "}corporates via Cryptro to provide one.
           </Paragraph19>
         </Topbar>
-        <Button1 width={'162px'}>
+        <Button1 width={"162px"}>
           <Text10>Whitepaper (Eng)</Text10>
-          <Riarrowrightline alt="right arrow icon" src={'/assets/icon/fileLine.svg'} />
+          <Riarrowrightline
+            alt="right arrow icon"
+            src={"/assets/icon/fileLine.svg"}
+          />
         </Button1>
       </Topbar>
     </Subtract7>
@@ -46,11 +49,12 @@ export const Subtract7 = styled(Subtract)`
   --scoop-radius: 56px;
   --border-width: 6px;
   --border-color: #eee0;
-  --background-color: var(--primary-background);
+  background-color: var(--primary-background);
   --border-stop: calc(var(--scoop-radius) + var(--border-width));
   --scoop-gradient: rgba(255, 255, 255, 0) var(--scoop-radius),
-    var(--border-color) calc(var(--scoop-radius) + 1px), var(--border-color) var(--border-stop),
-    var(--background-color) calc(var(--border-stop) + 1px);
+    var(--border-color) calc(var(--scoop-radius) + 1px),
+    var(--border-color) var(--border-stop),
+    var(--primary-background) calc(var(--border-stop) + 1px);
   background: radial-gradient(circle at 100% 100%, var(--scoop-gradient));
   background-repeat: no-repeat;
   box-sizing: border-box;

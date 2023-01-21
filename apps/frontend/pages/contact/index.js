@@ -337,7 +337,7 @@ const Text9 = styled.p`
 const WhiteRectangle = styled(Input)`
   box-shadow: var(--box-shadow);
   width: 100%;
-  background-color: #f0f0f3;
+  background-color: var(--primary-background);
   border-radius: 5px;
   height: ${(props) => props.height};
   padding: 8px;

@@ -93,9 +93,8 @@ const FrameRootRootRoot = styled.div`
   align-items: flex-start;
   padding: 0px 44px 0px 45px;
   border-radius: 26px;
-  background-color: #f0f0f3;
-  box-shadow: 5px 5px 15px 0px rgba(174, 174, 192, 0.7),
-    -5px -5px 15px 0px #ffffff;
+  background-color: var(--primary-background);
+  box-shadow: var(--box-shadow);
   overflow: hidden;
 `;
 const Group6 = styled.div`
@@ -113,7 +112,7 @@ const WhiteFlexColumn = styled.div`
   align-items: flex-start;
   padding: 8.5px 49.5px;
   border-radius: 10px;
-  background-color: #f0f0f3;
+  background-color: var(--primary-background);
   box-shadow: inset 8px 8px 16px 0px #d0d3d7, inset -8px -8px 16px 0px #ffffff;
 `;
 const Text1 = styled.div`
@@ -132,7 +131,7 @@ const WhiteFlexColumn1 = styled.div`
   align-items: flex-start;
   padding: 8.5px 47.5px;
   border-radius: 10px;
-  background-color: #f0f0f3;
+  background-color: var(--primary-background);
   box-shadow: inset 8px 8px 16px 0px #d0d3d7, inset -8px -8px 16px 0px #ffffff;
 `;
 const Text2 = styled.div`
@@ -151,7 +150,7 @@ const WhiteFlexColumn2 = styled.div`
   align-items: flex-start;
   padding: 8.5px 32px;
   border-radius: 10px;
-  background-color: #f0f0f3;
+  background-color: var(--primary-background);
   box-shadow: inset 8px 8px 16px 0px #d0d3d7, inset -8px -8px 16px 0px #ffffff;
 `;
 const Text3 = styled.div`
@@ -170,7 +169,7 @@ const WhiteFlexColumn3 = styled.div`
   align-items: flex-start;
   padding: 8.5px 39px;
   border-radius: 10px;
-  background-color: #f0f0f3;
+  background-color: var(--primary-background);
   box-shadow: inset 8px 8px 16px 0px #d0d3d7, inset -8px -8px 16px 0px #ffffff;
 `;
 const Text4 = styled.div`
@@ -190,9 +189,8 @@ const WhiteFlexRow = styled.div`
   align-items: flex-start;
   padding: 8.5px 22.5px;
   border-radius: 10px;
-  background-color: #f0f0f3;
-  box-shadow: 5px 5px 15px 0px rgba(174, 174, 192, 0.7),
-    -5px -5px 15px 0px #ffffff;
+  background-color: var(--primary-background);
+  box-shadow: var(--box-shadow);
 `;
 const Element1 = styled.div`
   width: 6px;
@@ -263,9 +261,8 @@ const WhiteFlexColumn4 = styled.div`
   align-items: flex-start;
   padding: 27px 22.5px 26.4px 20px;
   border-radius: 13px;
-  background-color: #f0f0f3;
-  box-shadow: 5px 5px 15px 0px rgba(174, 174, 192, 0.7),
-    -5px -5px 15px 0px #ffffff;
+  background-color: var(--primary-background);
+  box-shadow: var(--box-shadow);
 `;
 const Image1 = styled.img`
   width: 48px;
@@ -359,9 +356,8 @@ const Button1 = styled.button`
   border-width: 0px;
   border-radius: 91px;
   box-sizing: content-box;
-  background-color: #f0f0f3;
-  box-shadow: 5px 5px 15px 0px rgba(174, 174, 192, 0.7),
-    -5px -5px 15px 0px #ffffff;
+  background-color: var(--primary-background);
+  box-shadow: var(--box-shadow);
   cursor: pointer;
   &: hover {
     box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.3);
@@ -392,6 +388,7 @@ const Text10 = styled.div`
   font-family: Plus Jakarta Sans;
   white-space: nowrap;
 `;
+
 const Group3 = styled.div`
   height: 185px;
   gap: 23px;
@@ -410,9 +407,8 @@ const WhiteFlexColumn5 = styled.div`
   align-items: flex-start;
   padding: 15px 12px 15px 11px;
   border-radius: 13px;
-  background-color: #f0f0f3;
-  box-shadow: 5px 5px 15px 0px rgba(174, 174, 192, 0.7),
-    -5px -5px 15px 0px #ffffff;
+  background-color: var(--primary-background);
+  box-shadow: var(--box-shadow);
 `;
 const Image4 = styled.img`
   width: 34px;
@@ -443,9 +439,8 @@ const WhiteFlexColumn6 = styled.div`
   align-items: flex-start;
   padding: 15px 41px 15px 40px;
   border-radius: 13px;
-  background-color: #f0f0f3;
-  box-shadow: 5px 5px 15px 0px rgba(174, 174, 192, 0.7),
-    -5px -5px 15px 0px #ffffff;
+  background-color: var(--primary-background);
+  box-shadow: var(--box-shadow);
 `;
 const Text11 = styled.div`
   width: 84px;

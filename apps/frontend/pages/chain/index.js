@@ -363,7 +363,7 @@ const Home = ({ recentArticle, roadMap }) => {
         </Head6>
         <Element42>
           <TopbarRoadMap gap={"15px"}>
-            {roadMapContent.map((item, index) => (
+            {roadMapContent?.map((item, index) => (
               <>
                 <Nav>
                   <No1
@@ -387,7 +387,7 @@ const Home = ({ recentArticle, roadMap }) => {
               </>
             ))}
           </TopbarRoadMap>
-          {roadMapContent[selectRoadMap] && (
+          {roadMapContent?.[selectRoadMap] && (
             <Content3>
               <Topbar gap={"2px"}>
                 <Text56>{roadMapContent[selectRoadMap].date}</Text56>

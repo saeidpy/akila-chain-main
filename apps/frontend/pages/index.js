@@ -8,6 +8,7 @@ import { Button } from "../components/Common/Button";
 import Divider from "../components/Common/Divider";
 import { Ellipse } from "../components/Ellipse";
 import Image from "../components/Image";
+import IntroCard from "../components/MainPage/IntroCard";
 import Seo from "../components/Seo";
 import Subtract from "../components/Subtract";
 import Whitepaper from "../components/Whitepaper";
@@ -68,7 +69,7 @@ const Home = ({ recentArticle }) => {
           </Design>
         </Element39>
       </Header>
-      <CustomSubtract></CustomSubtract>
+      <IntroCard />
       <Features>
         {FeaturesContent.map((item) => (
           <FlexColumn key={v4()}>
@@ -414,14 +415,7 @@ const Text13 = styled.h1`
   text-transform: capitalize;
   color: var(--text-primary);
 `;
-const Text14 = styled.p`
-  font-size: 43px;
-  font-weight: 300;
-  line-height: 68.37px;
-  text-transform: capitalize;
-  color: var(--text-primary-color);
-  display: contents;
-`;
+
 const Paragraph3 = styled.p`
   width: 360px;
   font-size: 16px;
@@ -496,14 +490,7 @@ const Element11 = styled.div`
   align-items: center;
   gap: 24px;
 `;
-const FlexRow = styled.div`
-  align-self: stretch;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  gap: 24px;
-`;
+
 const Text21 = styled.p`
   text-align: center;
   font-size: 16px;
@@ -568,16 +555,7 @@ const Buttom = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
-const CustomSubtract = styled(Subtract)`
-  background: rgb(254, 152, 63);
-  background: linear-gradient(
-    37deg,
-    rgba(254, 152, 63, 0.04383760340073528) 0%,
-    rgba(240, 240, 243, 0.01) 47%,
-    rgba(0, 85, 255, 0.0578432056416317) 100%
-  );
-  border-radius: 26px;
-`;
+
 const Text1 = styled.div`rgba(240, 240, 243, 0.79)
   display: flex;
   flex-direction: row;
@@ -825,26 +803,12 @@ const Element22 = styled.div`
   }
 `;
 
-const Button1 = styled(Button)`
-  height: 48px;
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 91px;
-  padding: 4px 24px;
-  box-sizing: content-box;
-`;
 const Text10 = styled.p`
   font-size: 16px;
   font-weight: 600;
   color: var(--primary);
 `;
-const Riarrowrightline = styled(LazyLoadImage)`
-  width: 20px;
-  height: 20px;
-`;
+
 const Height = styled.p`
   font-size: 14px;
   font-weight: 400;
@@ -860,14 +824,7 @@ const Element5 = styled.p`
   text-transform: uppercase;
   color: ${(props) => props.color};
 `;
-const Text17 = styled.p`
-  text-align: center;
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 21px;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-`;
+
 const ContributionReceived = styled.p`
   font-weight: 300;
   color: var(--text-primary);
