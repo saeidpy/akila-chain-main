@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import styled from "styled-components";
 import { Button } from "../../Common/Button";
-import CardTitle1 from "../../Common/CardTitle1";
 import Subtract from "../../Subtract";
 import Borrow from "./Borrow";
 import Buy from "./Buy";
 import Earn from "./Earn";
 import Exchange from "./Exchange";
+import { TitleSection } from "./TitleSection";
 import YonaCard from "./YonaCard";
 
 const buttons = ["Buy", "Earn", "Exchange", "Borrow", "YonaCard"];
@@ -73,20 +72,7 @@ const IntroCard = () => {
         <Line3 loc={stepSize} />
       </Line2>
       <FlexRow>
-        <Group3>
-          <CardTitle1 label={STEP.label} title={STEP.title} />
-          <Paragraph2>{STEP.desc}</Paragraph2>
-          <Group5>
-            <Button2>
-              <Text18>{STEP.button}</Text18>
-              <Riarrowrightline src={"/assets/icon/leftArrow2.svg"} />
-            </Button2>
-            <Group6>
-              <Text14>Learn More</Text14>
-              <Riarrowrightline2 src={`./assets/icon/arrowButton.svg`} />
-            </Group6>
-          </Group5>
-        </Group3>
+        <TitleSection withActionButton STEP={STEP} />
         <Group4>{STEP.rightElement}</Group4>
       </FlexRow>
     </CustomSubtract>
@@ -94,26 +80,6 @@ const IntroCard = () => {
 };
 
 export default IntroCard;
-const Root = styled.div`
-  background: var(--primary-background);
-`;
-
-const Text14 = styled(Button)`
-  text-transform: capitalize;
-  display: contents;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 20px;
-  letter-spacing: 0em;
-  text-align: left;
-`;
-
-const Riarrowrightline = styled(LazyLoadImage)`
-  width: 7px;
-  height: 12px;
-`;
-
-const Riarrowrightline2 = styled(LazyLoadImage)``;
 
 const FlexRow = styled.div`
   align-self: stretch;
@@ -144,17 +110,6 @@ const Button1 = styled(Button)`
   width: 100%;
   min-width: 120px;
 `;
-const Button2 = styled(Button)`
-  height: 52px;
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 91px;
-  padding: 8px;
-  width: 185px;
-`;
 
 const CustomSubtract = styled(Subtract)`
   background: var(--primary-background);
@@ -171,10 +126,13 @@ const CustomSubtract = styled(Subtract)`
   align-items: center;
   padding: 0px;
   height: 378px;
-  margin-top: -480px;
+  margin-top: -380px;
   @media (max-width: 1100px) {
     flex-direction: column;
     height: auto;
+  }
+  @media (max-width: 1124px) {
+    margin-top: 0px;
   }
 `;
 
@@ -232,47 +190,7 @@ const Line3 = styled.div`
     display: none;
   }
 `;
-const Group3 = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 28px;
-  height: 100%;
-`;
-const Paragraph2 = styled.div`
-  font-size: 14px;
-  line-height: 26.25px;
-  letter-spacing: 0.98px;
-`;
-const Group5 = styled.div`
-  width: 100%;
-  gap: 26.5px;
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  align-items: center;
-  @media (max-width: 480px) {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-`;
-const Text18 = styled.div`
-  height: 20px;
-  color: var(--primary);
-  font-size: 16px;
-  font-weight: 600;
-  font-family: Plus Jakarta Sans;
-  white-space: nowrap;
-`;
-const Group6 = styled.div`
-  gap: 10px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 16px 0px;
-`;
+
 const Group4 = styled.div`
   gap: 22px;
   display: flex;

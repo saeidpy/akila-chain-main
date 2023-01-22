@@ -9,6 +9,8 @@ import Divider from "../components/Common/Divider";
 import { Ellipse } from "../components/Ellipse";
 import Image from "../components/Image";
 import IntroCard from "../components/MainPage/IntroCard";
+import { FrameRoot } from "../components/MainPage/FrameRoot";
+import { GroupRoot2 } from "../components/MainPage/GroupRoot2";
 import Seo from "../components/Seo";
 import Subtract from "../components/Subtract";
 import Whitepaper from "../components/Whitepaper";
@@ -18,6 +20,9 @@ import {
   technicalChar,
 } from "../constant/index";
 import { fetchAPI } from "../lib/api";
+import { GroupRoot } from "../components/MainPage/GroupRoot";
+import { GroupRoot3 } from "../components/MainPage/GroupRoot3";
+import { ContentGroup } from "../components/Common/ContentGroup";
 
 export async function getServerSideProps() {
   const articlesRes = await fetchAPI("/articles", {
@@ -68,100 +73,23 @@ const Home = ({ recentArticle }) => {
             <Icons alt="btc eth" src={"./assets/icon/iPhone.svg"} />
           </Design>
         </Element39>
+        <IntroCard />
       </Header>
-      <IntroCard />
-      <Features>
-        {FeaturesContent.map((item) => (
-          <FlexColumn key={v4()}>
-            <Head>
-              <WhiteFlexColumn1>
-                <Riawardline
-                  alt="riaward icon"
-                  src={"./assets/icon/riaward.svg"}
-                />
-              </WhiteFlexColumn1>
-              <Text30>{item.title}</Text30>
-            </Head>
-            <Paragraph5>{item.content}</Paragraph5>
-          </FlexColumn>
-        ))}
-      </Features>
-      <Section gap={"42px"}>
-        <Icon6 alt="board icon" src={"./assets/icon/iconSection.svg"} />
-        <Topbar gap={"33px"}>
-          <WhatIsAkilaChain2>
-            Technical Characteristics of{" "}
-            <WhatIsAkilaChain color={"#fe762f"}>Akila Chain</WhatIsAkilaChain>?
-          </WhatIsAkilaChain2>
-          <Paragraph11>
-            AkilaChain is a decentralized public blockchain and permissionless
-            project for tokenizing real-world assets and is fully open source.
-            Technical Characteristics of AkilaChain is as follow:
-          </Paragraph11>
-          <Element22 gap={"38px"}>
-            <Element19 gap={"7px"}>
-              <ul>
-                {technicalChar.slice(0, 6).map((item) => (
-                  <li key={item}>
-                    <Paragraph12>{item}</Paragraph12>
-                  </li>
-                ))}
-              </ul>
-            </Element19>
-            <Element19 gap={"7px"}>
-              <ul>
-                {technicalChar.slice(6).map((item) => (
-                  <li key={item}>
-                    <Paragraph12>{item}</Paragraph12>
-                  </li>
-                ))}
-              </ul>
-            </Element19>
-          </Element22>
-        </Topbar>
-      </Section>
-      <Section1>
-        <Topbar gap={"29px"}>
-          <WhatIsAkilaChain2>
-            Usage of real-world <Text37>tokenization</Text37>
-          </WhatIsAkilaChain2>
-          <Paragraph11>
-            Token-based assets are rapidly gaining widespread acceptance. Real
-            world asset tokenization has several uses and may be used to
-            tokenize a broad range of assets, including real estate, art,
-            collections, securities, equity, debts, goods, services, investment
-            funds, firms, litigation and intangible assets.
-          </Paragraph11>
-        </Topbar>
-        <Icon6 alt="board icon" src={"./assets/icon/iconSection2.svg"} />
-      </Section1>
-      <Section gap={"58px"}>
-        <Icon6 alt="board icon" src={"./assets/icon/iconSection3.svg"} />
-        <Topbar gap={"23px"}>
-          <WhatIsAkilaChain2>
-            Fungible tokens and non-fungible <Text37>tokens (NFT)</Text37>
-          </WhatIsAkilaChain2>
-          <Paragraph11 width={"807px"}>
-            The blockchain technology distinguishes between two states of
-            existence; fungible tokens and non-fungible tokens.
-            <br />
-            Fungible tokens are divisible, identical, and replaceable by another
-            identical item, such as general admission concert tickets or loyalty
-            points. If two parties have equal amounts, they can swap them
-            without losing or gaining anything. Non-fungible, on the other hand,
-            indicates a unique representation in that another item cannot
-            replace it, creating a verifiable scarcity of the asset.
-            <br />
-            Stored within each token is individual metadata. The metadata within
-            a token can include references to each token’s attributes such as
-            information about possession.
-            <br />
-            AkilaChain supports creation of NFTs easily. The most interesting
-            feature of AkilaChain is that all tokens have a unique name and no
-            two tokens can have the same name.
-          </Paragraph11>
-        </Topbar>
-      </Section>
+      <GroupRoot2 />
+      <FrameRoot />
+      <GroupRoot />
+      <GroupRoot3
+        content={
+          <ContentGroup
+            title={"Akila Blockchain"}
+            label={"(Akila Chain)"}
+            desc={
+              " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim adminim veniam, quis nostrud exercitation ullamco laboris nisi utaliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+            }
+          />
+        }
+      />
+
       <Roadmap>
         <Head6>
           <Ellipse9 />
@@ -209,54 +137,6 @@ const Home = ({ recentArticle }) => {
           </Content3>
         </Element42>
       </Roadmap>
-      <Whitepaper />
-      <Posts>
-        {recentArticle?.map((article) => (
-          <Picture key={article}>
-            <WhiteFlexColumn7>
-              <Topbar gap={"16px"}>
-                <Topbar gap={"9px"}>
-                  <Text60>{article?.attributes?.title}</Text60>
-                  <Text61>
-                    <Moment format="MMM D, YYYY">
-                      {article?.attributes?.publishedAt}
-                    </Moment>
-                  </Text61>
-                </Topbar>
-                <Divider />
-                <Paragraph20>{article?.attributes?.description}</Paragraph20>
-              </Topbar>
-              <Button4
-                onClick={(e) => articleOnClick(e, article?.attributes?.slug)}
-              >
-                <Line1 alt="arrow icon" src="./assets/icon/arrowButton.svg" />
-              </Button4>
-            </WhiteFlexColumn7>
-            <Image1 image={article?.attributes?.cover} />
-          </Picture>
-        ))}
-      </Posts>
-      <Brands>
-        <Head7>
-          <Ellipse16>
-            <Bg4 />
-          </Ellipse16>
-          <Title12>
-            <RoadMap display={"block"}>
-              Where To Trade <Text67 href="/">Akila Chain</Text67>
-              <RoadMap display={"contents"}> Coin</RoadMap>
-            </RoadMap>
-            <Paragraph23>
-              Akila Chain is listed in various popular crypto exchange
-            </Paragraph23>
-          </Title12>
-        </Head7>
-        <Element1 gap={"29px"}>
-          {[0, 1, 2, 3, 4].map((i) => (
-            <WhiteRectangle key={v4()} />
-          ))}
-        </Element1>
-      </Brands>
     </HomeRoot>
   );
 };
@@ -279,9 +159,6 @@ const Header = styled.div`
   width: 100%;
   justify-content: center;
   align-items: flex-start;
-  @media (max-width: 1124px) {
-    margin-bottom: 128px;
-  }
 `;
 const Element39 = styled.div`
   width: 100%;

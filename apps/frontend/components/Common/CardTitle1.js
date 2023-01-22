@@ -15,7 +15,7 @@ export default CardTitle1;
 const Text16 = styled.p`
   color: var(--text-primary-color);
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 15px;
   letter-spacing: 0.245em;
   text-align: left;
