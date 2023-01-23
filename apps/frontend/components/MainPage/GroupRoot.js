@@ -64,11 +64,6 @@ const GroupRootRootRoot = styled.div`
   width: 100%;
   flex-wrap: wrap;
 `;
-const Group4 = styled.div`
-  width: 317px;
-  height: 317px;
-  flex: 1;
-`;
 const Element2 = styled.div`
   position: absolute;
   top: ${({ top }) => top};

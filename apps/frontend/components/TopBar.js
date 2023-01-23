@@ -7,7 +7,6 @@ import React from "react";
 import Burger from "./Common/Burger";
 import Menu from "./Common/Menu";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import Image from "./Image";
 import { v4 } from "uuid";
 import { useRouter } from "next/router";
 const MenuList = [
@@ -57,7 +56,7 @@ const MenuList = [
   },
 ];
 
-export default function TopBar(props) {
+export default function TopBar() {
   const [open, setOpen] = useState(false);
   const { pathname } = useRouter();
 
@@ -147,9 +146,6 @@ const Text2 = styled.a`
   &:hover {
     color: var(--text-primary-color) !important;
   }
-`;
-const Logo = styled(Image)`
-  cursor: pointer;
 `;
 
 const MenuParent = styled.div`

@@ -24,12 +24,6 @@ export async function getServerSideProps() {
     populate: ["*"],
   });
 
-  if (!articlesRes?.data?.length) {
-    return {
-      notFound: true,
-    };
-  }
-
   return {
     props: { recentArticle: articlesRes?.data, roadMap: chainRoadMap?.data },
   };
@@ -38,15 +32,19 @@ export async function getServerSideProps() {
 const Home = ({ recentArticle, roadMap }) => {
   const [selectRoadMap, setSelectRoadMap] = useState(0);
   const { push } = useRouter();
-  const Button1Function = (e, name) => {};
-  const Button2Function = (e, name) => {};
+  const Button1Function = () => {};
+  const Button2Function = () => {};
   const articleOnClick = (e, slug) => {
     push(`blog/${slug}`);
   };
   const roadMapContent = roadMap?.map((item) => item?.["attributes"]);
+
+  const seo = {
+    meta_title: "Chain",
+  };
   return (
     <HomeRoot>
-      <Seo />
+      <Seo seo={seo} />
       <Header>
         <Element39>
           <Body>
@@ -279,7 +277,7 @@ const Home = ({ recentArticle, roadMap }) => {
         <Icon6 alt="board icon" src={"./assets/icon/iconSection.svg"} />
         <Topbar gap={"33px"}>
           <WhatIsAkilaChain2>
-            Technical Characteristics of{" "}
+            Technical Characteristics of
             <WhatIsAkilaChain color={"#fe762f"}>Akila Chain</WhatIsAkilaChain>?
           </WhatIsAkilaChain2>
           <Paragraph11>
@@ -367,7 +365,7 @@ const Home = ({ recentArticle, roadMap }) => {
               <>
                 <Nav>
                   <No1
-                    onClick={(e) => setSelectRoadMap(index)}
+                    onClick={() => setSelectRoadMap(index)}
                     selected={selectRoadMap === index}
                   >
                     <Text40>{index + 1}</Text40>
@@ -445,7 +443,7 @@ const Home = ({ recentArticle, roadMap }) => {
           </Title12>
         </Head7>
         <Element1 gap={"29px"}>
-          {[0, 1, 2, 3, 4].map((i) => (
+          {[0, 1, 2, 3, 4].map(() => (
             <WhiteRectangle key={v4()} />
           ))}
         </Element1>
@@ -820,21 +818,6 @@ const Text40 = styled.p`
   font-weight: 500;
   line-height: 26.46px;
 `;
-const Text52 = styled.p`
-  text-align: center;
-  display: flex;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 26.46px;
-  color: var(--text-primary);
-`;
-const Title6 = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  justify-content: center;
-  align-items: start;
-`;
 const Element42 = styled.div`
   flex: 2;
   display: flex;
@@ -1183,10 +1166,6 @@ const Element19 = styled.div`
   gap: ${(props) => props.gap};
   flex: 1;
 `;
-const Dots = styled(LazyLoadImage)`
-  width: 6px;
-  height: 66px;
-`;
 const Paragraph12 = styled.p`
   font-size: 14px;
   font-weight: 500;
@@ -1213,15 +1192,6 @@ const No1 = styled(Button)`
   background: ${({ selected }) =>
     selected && "linear-gradient(180deg, #fe983f 0%, #ff551f 100%)"};
   color: ${({ selected }) => (selected ? "#fff" : "var(--text-primary)")};
-  box-shadow: var(--box-shadow);
-`;
-const No2 = styled.div`
-  width: 61px;
-  height: 61px;
-  align-items: center;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
   box-shadow: var(--box-shadow);
 `;
 const Title2 = styled.div`
@@ -1331,23 +1301,4 @@ const CustomEllipse2 = styled(Ellipse)`
   position: absolute;
   left: -102px;
   top: -100px;
-`;
-
-const ParentCircle = styled.div`
-  display: flex;
-  position: absolute;
-  top: -20px;
-  left: 0;
-  width: 100%;
-  justify-content: space-around;
-  padding: 0px 12px;
-`;
-
-const Circle = styled.div`
-  width: 37px;
-  height: 37px;
-  border-radius: 50%;
-  border-radius: 50%;
-  background: #f0f0f3;
-  box-shadow: inset 3px 0px 13px #dfdfdf, inset 0px 0px 0px #f2f2f5;
 `;

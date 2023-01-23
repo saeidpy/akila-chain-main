@@ -14,7 +14,7 @@ import Header from "../../components/Header";
 import Seo from "../../components/Seo";
 import { fetchAPI } from "../../lib/api";
 
-export async function getServerSideProps({ params }) {
+export async function getServerSideProps() {
   // Fetch global site settings from Strapi
   const globalRes = await fetchAPI("/global", {
     populate: "*",
@@ -24,7 +24,7 @@ export async function getServerSideProps({ params }) {
 }
 
 const Contact = ({ global }) => {
-  const [openSnackbar, closeSnackbar] = useSnackbar();
+  const [openSnackbar] = useSnackbar();
   const ref = useRef();
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -221,10 +221,6 @@ const Paragraph = styled.p`
   text-transform: capitalize;
   color: var(--text-secondary);
   padding-left: 16px;
-`;
-const Image1 = styled(LazyLoadImage)`
-  cursor: pointer;
-  color: red;
 `;
 const Message = styled.form`
   box-shadow: var(--box-shadow);

@@ -1,8 +1,6 @@
 import React from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import styled from "styled-components";
-import { Button } from "../../Common/Button";
-import Subtract from "../../Subtract";
 
 const Buy = () => {
   return (

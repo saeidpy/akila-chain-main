@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-export const ContentGroup = ({ title, label, desc }) => {
+export const ContentGroup = ({ title, label, desc, className }) => {
   return (
-    <Group7>
+    <Group7 className={className}>
       <Text1>
         {title} <Text2>{label}</Text2>
       </Text1>
@@ -21,8 +21,6 @@ const Group7 = styled.div`
   gap: 28px;
 `;
 const Text1 = styled.p`
-  width: 377px;
-  height: 33px;
   font-size: 25px;
   font-weight: 600;
   line-height: 33.07500183582306px;
@@ -39,16 +37,9 @@ const Text2 = styled.p`
   text-decoration-line: underline;
 `;
 const Paragraph = styled.p`
-  width: 685px;
-  height: 92px;
   align-self: flex-end;
   color: var(--text-secondary);
   font-size: 16px;
   font-weight: 300;
   line-height: 22.768001556396484px;
-`;
-const Image1 = styled.img`
-  width: 280px;
-  height: 297px;
-  position: relative;
 `;

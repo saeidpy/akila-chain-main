@@ -126,7 +126,6 @@ const CustomSubtract = styled(Subtract)`
   align-items: center;
   padding: 0px;
   height: 378px;
-  margin-top: -380px;
   @media (max-width: 1100px) {
     flex-direction: column;
     height: auto;

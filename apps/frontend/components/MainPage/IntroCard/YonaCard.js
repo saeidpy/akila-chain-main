@@ -92,18 +92,6 @@ const Image4 = styled(LazyLoadImage)`
   width: 46px;
   height: 46px;
 `;
-const Element2 = styled.div`
-  width: 45px;
-  height: 24px;
-  position: relative;
-  border-radius: 2px;
-  background-image: linear-gradient(
-    180deg,
-    rgba(254, 152, 63, 0.16) 0%,
-    rgba(255, 85, 31, 0.16) 100%
-  );
-  backdrop-filter: blur(1px);
-`;
 const WhiteFlexColumn6 = styled.div`
   display: flex;
   flex-direction: column;

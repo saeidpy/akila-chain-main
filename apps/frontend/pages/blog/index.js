@@ -4,7 +4,6 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import Moment from "react-moment";
 import ReactPaginate from "react-paginate";
 import styled from "styled-components";
-import { Button } from "../../components/Common/Button";
 import Divider from "../../components/Common/Divider";
 import Header from "../../components/Header";
 import Image from "../../components/Image";
@@ -52,13 +51,13 @@ const Blog = ({ articles }) => {
         des="Here you can get the latest news"
         leftElement={
           <Text9>
-            <Text09 select={select === 0} onClick={(e) => setSelect(0)}>
+            <Text09 select={select === 0} onClick={() => setSelect(0)}>
               Latest
             </Text09>
-            <Text09 select={select === 1} onClick={(e) => setSelect(1)}>
+            <Text09 select={select === 1} onClick={() => setSelect(1)}>
               Announcement
             </Text09>
-            <Text09 select={select === 2} onClick={(e) => setSelect(2)}>
+            <Text09 select={select === 2} onClick={() => setSelect(2)}>
               Information
             </Text09>
           </Text9>
@@ -99,7 +98,7 @@ const Blog = ({ articles }) => {
       )}
       <Posts>
         <Divider />
-        {mapData?.map((article, index) => {
+        {mapData?.map((article) => {
           // if (isFirstPage && index === 0) {
           //   return <></>;
           // }
@@ -268,19 +267,6 @@ const Text13 = styled.p`
   line-height: 31.59px;
   color: var(--text-primary);
 `;
-const Dots = styled(LazyLoadImage)`
-  width: 6px;
-  height: 66px;
-  align-self: flex-end;
-  margin: 0px 0px 10px 0px;
-`;
-const Paragraph1 = styled.p`
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 29.09px;
-  text-transform: capitalize;
-  color: var(--text-secondary);
-`;
 const ItemBlogImage = styled(Image)`
   flex: 1;
 `;
@@ -302,16 +288,6 @@ const Pagnation = styled.div`
   flex-wrap: wrap;
   position: relative;
 `;
-const WhiteFlexRow = styled(Button)`
-  width: 48px;
-  height: 48px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  border-radius: 5px;
-  padding: 16px;
-`;
 const RightArrow = styled(LazyLoadImage)`
   width: 7px;
   height: 12px;
@@ -319,21 +295,6 @@ const RightArrow = styled(LazyLoadImage)`
 const RightArrow1 = styled(LazyLoadImage)`
   width: 6.97px;
   height: 12.2px;
-`;
-const Nav = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: ${(props) => props.gap};
-`;
-const Element1 = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: start;
-  gap: ${(props) => props.gap};
-  flex-wrap: wrap;
 `;
 const Title = styled.div`
   display: flex;
@@ -369,11 +330,6 @@ const Paragraph = styled.p`
   line-height: 24.57px;
   color: var(--text-secondary);
 `;
-const Image2 = styled(LazyLoadImage)`
-  max-width: 335px;
-  width: 100%;
-  height: 227px;
-`;
 const Main = styled.div`
   display: flex;
   flex-direction: row;
@@ -391,11 +347,6 @@ const Main = styled.div`
     flex-direction: column;
   }
 `;
-const Image5 = styled(Image)`
-  max-width: 368px;
-  width: 100%;
-  height: 149px;
-`;
 const Title2 = styled.div`
   display: flex;
   flex-direction: column;
@@ -410,34 +361,4 @@ const Text14 = styled.p`
   font-size: 18px;
   font-weight: 500;
   color: var(--text-primary);
-`;
-const WhiteText = styled(Button)`
-  text-align: center;
-  display: flex;
-  font-size: 17.42px;
-  font-weight: 400;
-  letter-spacing: 0.44px;
-  color: #212135;
-  width: 48px;
-  height: 48px;
-  flex-direction: row;
-  border-radius: 5px;
-  padding: 18px;
-  background-color: ${({ selected }) => selected && "var(--primary)"};
-  color: ${({ selected }) => (selected ? "#ffffff" : "#212135)")};
-`;
-const WhiteText1 = styled.div`
-  text-align: center;
-  display: flex;
-  font-size: 17.42px;
-  font-weight: 300;
-  letter-spacing: 0.44px;
-  color: #212135;
-  box-shadow: var(--box-shadow);
-  width: 45px;
-  height: 45px;
-  flex-direction: row;
-  justify-content: center;
-  border-radius: 5px;
-  padding: 16px;
 `;

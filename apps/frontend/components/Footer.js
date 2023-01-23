@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import React from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import { v4 } from "uuid";
 import Link from "next/link";
 import { MailLine } from "../assets/js/MailLine";
 import { TwitterLine } from "../assets/js/TwitterLine";
@@ -14,7 +13,7 @@ export default function Footer({ global }) {
     <FooterElement>
       <Nav>
         <About>
-          <Logo alt="akila chain logo" src={`/assets/icon/mainLogo.svg`} />
+          <Logo alt="akila chain logo" src={`/assets/icon/largeLogo.svg`} />
           <Paragraph24>
             AkilaCain is a Decentralized Public Blockchain Leveraging The
             Security of Bitcoin UTXO While Enabling Cognizant Protocol to
@@ -266,8 +265,4 @@ const AboutUsBlogLegalHelp = styled.p`
   line-height: 33.88px;
   color: var(--text-secondary);
   align-self: flex-end;
-`;
-
-const Riarrowrightline = styled(LazyLoadImage)`
-  cursor: pointer;
 `;

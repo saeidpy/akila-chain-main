@@ -11,7 +11,7 @@ import Seo from "../../components/Seo";
 import { fetchAPI } from "../../lib/api";
 import { getMedia } from "../../lib/media";
 
-export async function getServerSideProps({ params }) {
+export async function getServerSideProps() {
   // Fetch global site settings from Strapi
   const globalRes = await fetchAPI("/global", {
     populate: "*",
@@ -123,7 +123,7 @@ const Products = ({ global }) => {
               <Element4
                 key={index}
                 selected={select === index}
-                onClick={(e) => setSelect(index)}
+                onClick={() => setSelect(index)}
               >
                 <Nav gap={"10px"}>
                   {option?.icon}

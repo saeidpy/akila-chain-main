@@ -2,6 +2,7 @@
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
+  compress: true,
   compiler: {
     styledComponents: true,
   },

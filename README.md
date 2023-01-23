@@ -4,7 +4,6 @@
 
 <h1 align="center">Akial Chain</h1>
 
-
 ## Getting Started
 
 1. Clone this repository :
@@ -28,8 +27,8 @@ yarn install
 4. Add .env file
 
 ```
-NEXT_PUBLIC_API_URL_CLIENT=http://<your client server ip>:1337 //it can change 
-NEXT_PUBLIC_API_URL_SERVER=http://<your server ip>:1337 //it can change 
+NEXT_PUBLIC_API_URL_CLIENT=http://<your client server ip>:1337 //it can change
+NEXT_PUBLIC_API_URL_SERVER=http://<your server ip>:1337 //it can change
 
 ```
 

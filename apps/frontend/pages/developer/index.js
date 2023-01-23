@@ -111,13 +111,6 @@ const Element5 = styled.div`
   border-radius: 10px;
   padding: 18px;
 `;
-const BountyPlans = styled.p`
-  font-size: 21px;
-  font-weight: 600;
-  text-transform: capitalize;
-  color: var(--primary);
-  display: contents;
-`;
 const Documents = styled.div`
   display: flex;
   flex-direction: column;
@@ -125,11 +118,6 @@ const Documents = styled.div`
   align-items: start;
   gap: ${(props) => props.gap};
   width: 100%;
-`;
-const Bg = styled(LazyLoadImage)`
-  width: 34px;
-  height: 34px;
-  position: absolute;
 `;
 const StartFromHere = styled.p`
   font-size: 21px;
@@ -178,36 +166,6 @@ const Text2 = styled.a`
   &:hover {
     color: var(--text-primary-color) !important;
   }
-`;
-const Element11 = styled.div`
-  box-shadow: var(--box-shadow);
-  display: flex;
-  flex-direction: row;
-  gap: 27px;
-  justify-content: flex-start;
-  align-items: center;
-  border-radius: 12px;
-  padding: 16px;
-  flex: 1 1 323px;
-  width: 100%;
-  margin: auto;
-`;
-const Icon = styled(LazyLoadImage)`
-  width: 73px;
-  height: 73px;
-`;
-const Text11 = styled.p`
-  text-align: center;
-  font-size: 16px;
-  font-weight: 600;
-  text-transform: capitalize;
-  color: var(--text-primary);
-`;
-const Text12 = styled.p`
-  font-size: 14px;
-  font-weight: 300;
-  text-transform: capitalize;
-  color: #4f4f4f;
 `;
 
 const Title13 = styled.div`

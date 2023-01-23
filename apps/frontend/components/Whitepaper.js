@@ -4,8 +4,7 @@ import Subtract from "./Subtract";
 import React from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
-export default function Whitepaper(props) {
-  const { state, setState } = props;
+export default function Whitepaper() {
   return (
     <Subtract7>
       <Circle />
