@@ -130,6 +130,7 @@ const Element1 = styled.div`
   justify-content: flex-start;
   align-items: start;
   gap: var(--x4);
+  padding: 9px 0px;
   @media (max-width: 1024px) {
     display: none;
   }

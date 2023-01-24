@@ -24,10 +24,15 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 // };
 // }
 
+const seo = {
+  meta_title: "Akila",
+  meta_description: "One Platform To Power Smart Future",
+};
+
 const Home = () => {
   return (
     <HomeRoot>
-      <Seo />
+      <Seo seo={seo} />
       <Header>
         <Element39>
           <Body>
