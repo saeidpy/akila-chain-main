@@ -123,6 +123,7 @@ const TopBarElement = styled.div`
   padding-bottom: var(--x3);
   border-bottom: 1px solid var(--borders);
   margin-bottom: var(--x6);
+  min-height: 64px;
 `;
 const Element1 = styled.div`
   display: flex;

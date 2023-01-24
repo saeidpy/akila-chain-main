@@ -93,7 +93,7 @@ const FlexRow = styled.div`
   @media (max-width: 1100px) {
     padding: 28px;
   }
-  @media (max-width: 690px) {
+  @media (max-width: 790px) {
     flex-direction: column;
   }
 `;
