@@ -1,6 +1,6 @@
 import React from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import styled from "styled-components";
+import ImageNext from "next/image";
 
 export const GroupPlatform = ({ src, withPattern, className, children }) => {
   return (
@@ -36,6 +36,6 @@ const Details = styled.div`
   background-image: ${({ withPattern }) =>
     withPattern ? 'url("./assets/icon/Details.svg")' : "none"};
 `;
-const Image = styled(LazyLoadImage)`
+const Image = styled(ImageNext)`
   position: absolute;
 `;

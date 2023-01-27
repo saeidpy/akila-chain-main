@@ -1,17 +1,22 @@
 import React from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import styled from "styled-components";
+import Image from "next/image";
+import {
+  GROUP_197_SVG,
+  LOGOS_BITCOIN2_SVG,
+  PH_PERCENT_SVG,
+} from "../../../assets/static";
 
 const Earn = () => {
   return (
     <Group3>
       <Group7>
         <WhiteFlexColumn7>
-          <Phpercent src={`./assets/icon/ph_percent.svg`} />
+          <Phpercent src={PH_PERCENT_SVG} />
         </WhiteFlexColumn7>
         <WhiteFlexColumn8>
           <Group9>
-            <Phmoneyfill src={`./assets/icon/Group 197.svg`} />
+            <Phmoneyfill src={GROUP_197_SVG} />
           </Group9>
           <Group10>
             <Text12>$858.85</Text12>
@@ -27,7 +32,7 @@ const Earn = () => {
         <WhiteFlexColumn6>
           <Text10>Crypto Asset</Text10>
           <Group8>
-            <Logosbitcoin src={`./assets/icon/logos_bitcoin(2).svg`} />
+            <Logosbitcoin src={LOGOS_BITCOIN2_SVG} />
             <Text11>Bitcoin</Text11>
           </Group8>
         </WhiteFlexColumn6>
@@ -86,7 +91,7 @@ const Group8 = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
 `;
-const Logosbitcoin = styled(LazyLoadImage)`
+const Logosbitcoin = styled(Image)`
   width: 23.6px;
   height: 23.6px;
 `;
@@ -119,7 +124,7 @@ const WhiteFlexColumn7 = styled.div`
   background-color: var(--primary-background);
   box-shadow: var(--box-shadow);
 `;
-const Phpercent = styled(LazyLoadImage)`
+const Phpercent = styled(Image)`
   width: 40px;
   height: 40px;
 `;
@@ -144,7 +149,7 @@ const Group9 = styled.div`
   align-items: flex-start;
   padding: 0px 68px 0px 0px;
 `;
-const Phmoneyfill = styled(LazyLoadImage)`
+const Phmoneyfill = styled(Image)`
   width: 40px;
   height: 40px;
   left: 3px;

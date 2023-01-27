@@ -1,5 +1,4 @@
 import React from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import styled from "styled-components";
 import { FeatureSection } from "../components/MainPage/FeatureSection";
 import { FrameRoot } from "../components/MainPage/FrameRoot";
@@ -7,7 +6,8 @@ import { GroupRoot } from "../components/MainPage/GroupRoot";
 import { GroupRoot2 } from "../components/MainPage/GroupRoot2";
 import IntroCard from "../components/MainPage/IntroCard";
 import Seo from "../components/Seo";
-import "react-lazy-load-image-component/src/effects/blur.css";
+import Image from "next/image";
+import { IPHONE_SVG } from "../assets/static";
 // export async function getServerSideProps() {
 // const articlesRes = await fetchAPI("/articles", {
 //   populate: ["cover", "categories"],
@@ -50,11 +50,7 @@ const Home = () => {
             </Paragraph1>
           </Body>
           <Design>
-            <Icons
-              effect="opacity"
-              alt="Iphone"
-              src={"./assets/icon/iPhone.svg"}
-            />
+            <Image effect="opacity" alt="Iphone" src={IPHONE_SVG} />
           </Design>
         </Element39>
       </Header>
@@ -191,9 +187,6 @@ const Design = styled.div`
   @media (max-width: 1124px) {
     display: none;
   }
-`;
-const Icons = styled(LazyLoadImage)`
-  width: 100%;
 `;
 const LogoTextSec = styled.span`
   color: var(--text-secondary-color);

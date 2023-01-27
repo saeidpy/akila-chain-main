@@ -1,7 +1,8 @@
 import React from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import styled from "styled-components";
 import { TitleSection } from "./IntroCard/TitleSection";
+import Image from "next/image";
+import { DETAILS_SVG, GROUP_207_SVG, GROUP_208_SVG } from "../../assets/static";
 
 const FlexBox = styled.div`
   width: 100%;
@@ -77,7 +78,7 @@ const Group3 = styled.div`
   align-items: flex-start;
   padding: 20.4px 0px;
 `;
-const Image1 = styled(LazyLoadImage)``;
+const Image1 = styled(Image)``;
 const Group5 = styled.div`
   flex: 1;
   height: 100%;
@@ -123,7 +124,7 @@ const list = [
     label: 'THE RIGHT PLACE TO"',
     title: "Bring your friends and win rewards",
     desc: "Introduce your friends to the world of digital assets and get unlimited rewards. Receive $25 in crypto rewards with each successful referral.",
-    icon: "Group 207",
+    icon: GROUP_207_SVG,
     element: (
       <Group5>
         <Image2 src={`./assets/icon/flat-color-icons_money-transfer.svg`} />
@@ -140,7 +141,7 @@ const list = [
       </>
     ),
     desc: "Earn a revenue share by joining Yona`s Affiliate Program. Make money every time an invited user earns interest, swaps, or borrows funds.",
-    icon: "Group 208",
+    icon: GROUP_208_SVG,
     element: (
       <Text3>
         No Cap <br />
@@ -166,11 +167,11 @@ export const FrameRoot = ({}) => {
           <Group2>
             <WhiteFlexRow>
               <Group3>
-                <Image1 src={`./assets/icon/${icon}.svg`} />
+                <Image1 src={icon} />
               </Group3>
               {element}
             </WhiteFlexRow>
-            <Details src={`./assets/icon/Details.svg`} />
+            <Details src={DETAILS_SVG} />
           </Group2>
         </FrameRootEl>
       ))}

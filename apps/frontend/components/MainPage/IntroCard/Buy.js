@@ -1,17 +1,18 @@
 import React from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import styled from "styled-components";
+import Image from "next/image";
+import { GROUP_179_SVG, GROUP_194_SVG, PLUS_SVG } from "../../../assets/static";
 
 const Buy = () => {
   return (
     <>
       <Group7>
         <WhiteFlexColumn4>
-          <Riaddcircleline src={`./assets/icon/plus.svg`} />
+          <Riaddcircleline src={PLUS_SVG} />
         </WhiteFlexColumn4>
         <WhiteFlexColumn5>
           <Group8>
-            <Ricoppercoinfill src={`./assets/icon/Group 194.svg`} />
+            <Ricoppercoinfill src={GROUP_194_SVG} />
           </Group8>
           <Group9>
             <Text20>Up to 0.5%</Text20>
@@ -29,7 +30,7 @@ const Buy = () => {
         </PayWithCurrencyUSD1>
         <WhiteFlexColumn6>
           <Text22>Credit/Debit Card</Text22>
-          <Image15 src={`./assets/icon/Group 179.svg`} />
+          <Image15 src={GROUP_179_SVG} />
         </WhiteFlexColumn6>
       </WhiteFlexRow2>
     </>
@@ -69,7 +70,7 @@ const WhiteFlexColumn4 = styled.div`
   background-color: var(--primary-background);
   box-shadow: var(--box-shadow);
 `;
-const Riaddcircleline = styled(LazyLoadImage)`
+const Riaddcircleline = styled(Image)`
   width: 40px;
   height: 40px;
 `;
@@ -95,7 +96,7 @@ const Group8 = styled.div`
   align-items: flex-start;
   padding: 0px 109px 0px 0px;
 `;
-const Ricoppercoinfill = styled(LazyLoadImage)`
+const Ricoppercoinfill = styled(Image)`
   width: 40px;
   height: 40px;
   left: 3px;
@@ -161,7 +162,7 @@ const WhiteFlexColumn6 = styled.div`
   background-color: var(--primary-background);
   box-shadow: var(--box-shadow);
 `;
-const Image15 = styled(LazyLoadImage)`
+const Image15 = styled(Image)`
   width: 87.9px;
   height: 16.3px;
   align-self: flex-end;

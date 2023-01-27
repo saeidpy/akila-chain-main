@@ -6,9 +6,10 @@ import Link from "next/link";
 import React from "react";
 import Burger from "./Common/Burger";
 import Menu from "./Common/Menu";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+import Image from "next/image";
 import { v4 } from "uuid";
 import { useRouter } from "next/router";
+import { LOGO_FULL_SVG } from "../assets/static";
 const MenuList = [
   {
     childText: "Home",
@@ -98,7 +99,7 @@ export default function TopBar() {
         ))}
       </Element1>
       <Link href="/" passHref>
-        <LazyLoadImage alt="akila chain logo" src={`/assets/icon/Logo.svg`} />
+        <Image alt="akila chain logo" src={LOGO_FULL_SVG} />
         {/* <Logo image={props?.global?.attributes?.favicon} /> */}
       </Link>
       <Element1>

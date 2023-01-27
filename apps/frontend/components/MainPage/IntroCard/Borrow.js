@@ -1,15 +1,20 @@
 import React from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import styled from "styled-components";
+import Image from "next/image";
+import {
+  LOGOS_BITCOIN_SVG,
+  LOGOS_ETHEREUM_SVG,
+  PH_WALLETFILL_SVG,
+} from "../../../assets/static";
 
 const Borrow = () => {
   return (
     <Group4>
       <WhiteFlexColumn4>
-        <Logosethereum src={`./assets/icon/logos_ethereum.svg`} />
-        <Logosbitcoin src={`./assets/icon/logos_bitcoin.svg`} />
+        <Logosethereum src={LOGOS_ETHEREUM_SVG} />
+        <Logosbitcoin src={LOGOS_BITCOIN_SVG} />
         <Group3>
-          <Phwalletfill src={`./assets/icon/ph_wallet-fill.svg`} />
+          <Phwalletfill src={PH_WALLETFILL_SVG} />
         </Group3>
       </WhiteFlexColumn4>
       <WhiteFlexColumn5>
@@ -49,12 +54,12 @@ const WhiteFlexColumn4 = styled.div`
   background-color: var(--primary-background);
   box-shadow: var(--box-shadow);
 `;
-const Logosethereum = styled(LazyLoadImage)`
+const Logosethereum = styled(Image)`
   left: 10px;
   top: 35px;
   position: absolute;
 `;
-const Logosbitcoin = styled(LazyLoadImage)`
+const Logosbitcoin = styled(Image)`
   position: relative;
   align-self: flex-end;
 `;
@@ -68,7 +73,7 @@ const Group3 = styled.div`
   align-items: flex-start;
   padding: 0px 13.8px 0px 1px;
 `;
-const Phwalletfill = styled(LazyLoadImage)`
+const Phwalletfill = styled(Image)`
   left: 0px;
   top: 0px;
   position: absolute;

@@ -1,6 +1,7 @@
 import React from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import styled from "styled-components";
+import Image from "next/image";
+import { LOGO_FULL_SVG } from "../../../assets/static";
 
 const YonaCard = () => {
   return (
@@ -15,8 +16,7 @@ const YonaCard = () => {
       <WhiteFlexColumn4>
         <Image1 src={`https://file.rendit.io/n/vaeNblV6ypFVVoYifiz6.svg`} />
         <Logo1>
-          <Image2 src={`https://file.rendit.io/n/We3Czyn7voTIHk4A9g8X.svg`} />
-          <Text7>Akila</Text7>
+          <Image2 src={LOGO_FULL_SVG} />
         </Logo1>
         <Image3 src={`https://file.rendit.io/n/7QUnkWbbTnukGpggcG2r.svg`} />
       </WhiteFlexColumn4>
@@ -88,7 +88,7 @@ const WhiteFlexColumn5 = styled.div`
   width: 68px;
   border-radius: 13px;
 `;
-const Image4 = styled(LazyLoadImage)`
+const Image4 = styled(Image)`
   width: 46px;
   height: 46px;
 `;

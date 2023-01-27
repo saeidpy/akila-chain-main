@@ -1,8 +1,9 @@
 import React from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import styled from "styled-components";
 import { Button } from "../../Common/Button";
 import CardTitle1 from "../../Common/CardTitle1";
+import Image from "next/image";
+import { ARROWBUTTON_SVG, LEFTARROW2_SVG } from "../../../assets/static";
 
 export const TitleSection = ({ STEP, withActionButton, additionalElement }) => {
   return (
@@ -13,13 +14,13 @@ export const TitleSection = ({ STEP, withActionButton, additionalElement }) => {
         {withActionButton && (
           <Button2>
             <Text18>{STEP.button}</Text18>
-            <Riarrowrightline src={"/assets/icon/leftArrow2.svg"} />
+            <Riarrowrightline src={LEFTARROW2_SVG} />
           </Button2>
         )}
         {additionalElement ?? (
           <Group6>
             <Text14>Learn More</Text14>
-            <Riarrowrightline2 src={`./assets/icon/arrowButton.svg`} />
+            <Riarrowrightline2 src={ARROWBUTTON_SVG} />
           </Group6>
         )}
       </Group5>
@@ -80,12 +81,12 @@ const Button2 = styled(Button)`
   width: 185px;
 `;
 
-const Riarrowrightline = styled(LazyLoadImage)`
+const Riarrowrightline = styled(Image)`
   width: 7px;
   height: 12px;
 `;
 
-const Riarrowrightline2 = styled(LazyLoadImage)``;
+const Riarrowrightline2 = styled(Image)``;
 const Text14 = styled(Button)`
   text-transform: capitalize;
   display: contents;

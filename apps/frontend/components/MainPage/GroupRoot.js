@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+import { LARGELOGO_SVG } from "../../assets/static";
 import { GroupPlatform } from "../Common/GroupPlatform";
 import { TitleSection } from "./IntroCard/TitleSection";
-
 export const GroupRoot = ({}) => {
   return (
     <GroupRootRootRoot>
-      <GroupPlatform withPattern src={"./assets/icon/largeLogo.svg"}>
+      <GroupPlatform withPattern src={LARGELOGO_SVG}>
         <Element2 top={"50px"} left="-15px">
           <Text2>Company Shares</Text2>
         </Element2>
