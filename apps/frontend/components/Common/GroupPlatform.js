@@ -1,28 +1,37 @@
 import React from "react";
 import styled from "styled-components";
 import ImageNext from "next/image";
+import Image from "next/image";
+import { DETAILS_SVG, GROUP_213_SVG } from "../../assets/static";
 
 export const GroupPlatform = ({ src, withPattern, className, children }) => {
   return (
-    <FlexColumn className={className}>
+    <Flex className={className}>
+      <Image alt="icon" src={GROUP_213_SVG} />
+      {withPattern && (
+        <FlexColumn>
+          <Image alt="pattern" src={DETAILS_SVG} />
+        </FlexColumn>
+      )}
       <Details withPattern={withPattern}>
         {src && <ImageNext alt="icons" src={src} />}
       </Details>
       {children}
-    </FlexColumn>
+    </Flex>
   );
 };
 
-const FlexColumn = styled.div`
+const Flex = styled.div`
   width: 317px;
   height: 317px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-size: cover;
-  background-image: url("./assets/icon/Group 213.svg");
   position: relative;
+`;
+const FlexColumn = styled.div`
+  position: absolute;
 `;
 const Details = styled.div`
   width: 60%;
@@ -32,7 +41,4 @@ const Details = styled.div`
   justify-content: center;
   position: absolute;
   align-items: center;
-  background-size: cover;
-  background-image: ${({ withPattern }) =>
-    withPattern ? 'url("./assets/icon/Details.svg")' : "none"};
 `;

@@ -18,7 +18,7 @@ const theme = {
 };
 
 export async function getServerSideProps({ params }) {
-  // Fetch global site settings from Strapi
+  // Fetch global site settings from
   const globalRes = await fetchAPI("/global", {
     populate: "*",
   });

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { TitleSection } from "./IntroCard/TitleSection";
 import Image from "next/image";
 import {
+  DESIGN_SVG,
   DETAILS_SVG,
   GROUP_207_SVG,
   GROUP_208_SVG,
@@ -38,17 +39,9 @@ const FrameRootEl = styled.div`
   overflow: hidden;
 `;
 const Design = styled.div`
-  width: 171px;
-  height: 270px;
   left: 0px;
   top: 0px;
   position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 48px 121px 7.57px 31px;
-  background-size: cover;
-  background-image: url("./assets/icon/Design.svg");
 `;
 const Group2 = styled.div`
   width: 190px;
@@ -138,7 +131,9 @@ export const FrameRoot = ({}) => {
     <FlexBox>
       {list.map(({ label, title, desc, icon, element }) => (
         <FrameRootEl key={title}>
-          <Design />
+          <Design>
+            <Image alt="pattern" src={DESIGN_SVG} />
+          </Design>
           <TitleSection
             STEP={{
               label,
