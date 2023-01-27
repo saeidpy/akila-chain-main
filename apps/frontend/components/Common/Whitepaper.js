@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import { Button } from "./Common/Button";
-import Subtract from "./Subtract";
+import { Button } from "./Button";
+import Subtract from "../Subtract";
 import React from "react";
 import Image from "next/image";
-import { FILELINE_SVG } from "../assets/static";
+import { FILELINE_SVG } from "../../assets/static";
 export default function Whitepaper() {
   return (
     <Subtract7>
@@ -18,7 +18,7 @@ export default function Whitepaper() {
         </Topbar>
         <Button1 width={"162px"}>
           <Text10>Whitepaper (Eng)</Text10>
-          <Riarrowrightline alt="right arrow icon" src={FILELINE_SVG} />
+          <Image alt="right arrow icon" src={FILELINE_SVG} />
         </Button1>
       </Topbar>
     </Subtract7>
@@ -87,10 +87,6 @@ const Button1 = styled(Button)`
   border-radius: 91px;
   padding: 12px 27px;
   box-sizing: content-box;
-`;
-const Riarrowrightline = styled(Image)`
-  width: 20px;
-  height: 20px;
 `;
 
 const Text10 = styled.p`

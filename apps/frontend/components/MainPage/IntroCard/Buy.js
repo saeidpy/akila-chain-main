@@ -8,12 +8,10 @@ const Buy = () => {
     <>
       <Group7>
         <WhiteFlexColumn4>
-          <Riaddcircleline src={PLUS_SVG} />
+          <Image alt="icon" src={PLUS_SVG} />
         </WhiteFlexColumn4>
         <WhiteFlexColumn5>
-          <Group8>
-            <Ricoppercoinfill src={GROUP_194_SVG} />
-          </Group8>
+          <Image alt="%" src={GROUP_194_SVG} />
           <Group9>
             <Text20>Up to 0.5%</Text20>
             <Text21>In Crpto Rewards</Text21>
@@ -30,7 +28,7 @@ const Buy = () => {
         </PayWithCurrencyUSD1>
         <WhiteFlexColumn6>
           <Text22>Credit/Debit Card</Text22>
-          <Image15 src={GROUP_179_SVG} />
+          <Image alt="visa" src={GROUP_179_SVG} />
         </WhiteFlexColumn6>
       </WhiteFlexRow2>
     </>
@@ -70,10 +68,6 @@ const WhiteFlexColumn4 = styled.div`
   background-color: var(--primary-background);
   box-shadow: var(--box-shadow);
 `;
-const Riaddcircleline = styled(Image)`
-  width: 40px;
-  height: 40px;
-`;
 const WhiteFlexColumn5 = styled.div`
   height: 154px;
   gap: 25px;
@@ -85,23 +79,6 @@ const WhiteFlexColumn5 = styled.div`
   border-radius: 13px;
   background-color: var(--primary-background);
   box-shadow: var(--box-shadow);
-`;
-const Group8 = styled.div`
-  width: 45px;
-  height: 50px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-start;
-  padding: 0px 109px 0px 0px;
-`;
-const Ricoppercoinfill = styled(Image)`
-  width: 40px;
-  height: 40px;
-  left: 3px;
-  top: 0px;
-  position: absolute;
 `;
 const Group9 = styled.div`
   display: flex;
@@ -161,10 +138,4 @@ const WhiteFlexColumn6 = styled.div`
   border-radius: 11px;
   background-color: var(--primary-background);
   box-shadow: var(--box-shadow);
-`;
-const Image15 = styled(Image)`
-  width: 87.9px;
-  height: 16.3px;
-  align-self: flex-end;
-  margin: 0px 0.13px 0px 0px;
 `;

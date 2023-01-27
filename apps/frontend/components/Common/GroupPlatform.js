@@ -6,7 +6,7 @@ export const GroupPlatform = ({ src, withPattern, className, children }) => {
   return (
     <FlexColumn className={className}>
       <Details withPattern={withPattern}>
-        {src && <Image alt="icons" src={src} />}
+        {src && <ImageNext alt="icons" src={src} />}
       </Details>
       {children}
     </FlexColumn>
@@ -35,7 +35,4 @@ const Details = styled.div`
   background-size: cover;
   background-image: ${({ withPattern }) =>
     withPattern ? 'url("./assets/icon/Details.svg")' : "none"};
-`;
-const Image = styled(ImageNext)`
-  position: absolute;
 `;

@@ -5,7 +5,7 @@ import { Button } from "../../components/Common/Button";
 import Header from "../../components/Header";
 import Image from "../../components/Image";
 import Seo from "../../components/Seo";
-import Whitepaper from "../../components/Whitepaper";
+import Whitepaper from "../../components/Common/Whitepaper";
 import { fetchAPI } from "../../lib/api";
 export async function getServerSideProps() {
   const projects = await fetchAPI("/projects", { populate: "*" });

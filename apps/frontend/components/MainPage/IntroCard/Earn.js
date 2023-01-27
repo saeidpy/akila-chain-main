@@ -12,12 +12,10 @@ const Earn = () => {
     <Group3>
       <Group7>
         <WhiteFlexColumn7>
-          <Phpercent src={PH_PERCENT_SVG} />
+          <Image alt="icon" src={PH_PERCENT_SVG} />
         </WhiteFlexColumn7>
         <WhiteFlexColumn8>
-          <Group9>
-            <Phmoneyfill src={GROUP_197_SVG} />
-          </Group9>
+          <Image alt="%" src={GROUP_197_SVG} />
           <Group10>
             <Text12>$858.85</Text12>
             <Text13>Earned Today</Text13>
@@ -32,7 +30,7 @@ const Earn = () => {
         <WhiteFlexColumn6>
           <Text10>Crypto Asset</Text10>
           <Group8>
-            <Logosbitcoin src={LOGOS_BITCOIN2_SVG} />
+            <Image alt="bitcoin" src={LOGOS_BITCOIN2_SVG} />
             <Text11>Bitcoin</Text11>
           </Group8>
         </WhiteFlexColumn6>
@@ -91,10 +89,6 @@ const Group8 = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
 `;
-const Logosbitcoin = styled(Image)`
-  width: 23.6px;
-  height: 23.6px;
-`;
 const Text11 = styled.div`
   width: 42px;
   height: 19px;
@@ -124,10 +118,6 @@ const WhiteFlexColumn7 = styled.div`
   background-color: var(--primary-background);
   box-shadow: var(--box-shadow);
 `;
-const Phpercent = styled(Image)`
-  width: 40px;
-  height: 40px;
-`;
 const WhiteFlexColumn8 = styled.div`
   gap: 12px;
   display: flex;
@@ -138,23 +128,6 @@ const WhiteFlexColumn8 = styled.div`
   border-radius: 13px;
   background-color: var(--primary-background);
   box-shadow: var(--box-shadow);
-`;
-const Group9 = styled.div`
-  width: 45px;
-  height: 50px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-start;
-  padding: 0px 68px 0px 0px;
-`;
-const Phmoneyfill = styled(Image)`
-  width: 40px;
-  height: 40px;
-  left: 3px;
-  top: 0px;
-  position: absolute;
 `;
 const Group10 = styled.div`
   display: flex;

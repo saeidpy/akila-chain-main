@@ -57,7 +57,7 @@ export const GroupRoot2 = ({}) => {
       {list.map((item) => (
         <>
           <GroupRootRootRootRoot key={item.name}>
-            <Image1 src={item.img} />
+            <Image alt={item.name} src={item.img} />
             <FlexColumn>
               <Text1>{item.name}</Text1>
               <ProcessedInYears>{item.desc}</ProcessedInYears>
@@ -95,10 +95,6 @@ const GroupRootRootRootRoot = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-`;
-const Image1 = styled(Image)`
-  width: 78px;
-  height: 78px;
 `;
 const FlexColumn = styled.div`
   gap: 5px;

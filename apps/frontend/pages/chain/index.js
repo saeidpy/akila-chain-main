@@ -1,16 +1,26 @@
+import ImageNext from "next/image";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import Moment from "react-moment";
 import styled from "styled-components";
 import { v4 } from "uuid";
+import {
+  ARROWBUTTON_SVG,
+  BTCICON_SVG,
+  ICONSECTION2_SVG,
+  ICONSECTION3_SVG,
+  ICONSECTION_SVG,
+  RIAWARD_SVG,
+  RIGHTARROW_SVG,
+  SHOPPINGCART_SVG,
+} from "../../assets/static";
 import { Button } from "../../components/Common/Button";
 import Divider from "../../components/Common/Divider";
-import { Ellipse } from "../../components/Ellipse";
+import { Ellipse } from "../../components/Common/Ellipse";
 import Image from "../../components/Image";
 import Seo from "../../components/Seo";
 import Subtract from "../../components/Subtract";
-import Whitepaper from "../../components/Whitepaper";
+import Whitepaper from "../../components/Common/Whitepaper";
 import { FeaturesContent, technicalChar } from "../../constant/index";
 import { fetchAPI } from "../../lib/api";
 
@@ -66,10 +76,7 @@ const Home = ({ recentArticle, roadMap }) => {
             </Paragraph1>
             <Button1 onClick={(e) => Button1Function(e, "Button1")}>
               <Text10>Learn More</Text10>
-              <Riarrowrightline
-                alt="right arrow icon"
-                src={"./assets/icon/rightArrow.svg"}
-              />
+              <ImageNext alt="right arrow icon" src={RIGHTARROW_SVG} />
             </Button1>
           </Body>
           <Design>
@@ -99,7 +106,9 @@ const Home = ({ recentArticle, roadMap }) => {
                   </Height>
                 ))}
               </WhiteText>
-              <Icons alt="btc eth" src={"./assets/icon/BtcIcon.svg"} />
+              <Icons>
+                <ImageNext alt="btc eth" src={BTCICON_SVG} />
+              </Icons>
             </Element40>
           </Design>
         </Element39>
@@ -123,10 +132,7 @@ const Home = ({ recentArticle, roadMap }) => {
             </Paragraph3>
             <Button2 onClick={(e) => Button2Function(e, "Button2")}>
               <Text15>Buy Tokens -25% off</Text15>
-              <Rishoppingcartline
-                alt="shopping cart icon"
-                src={"./assets/icon/shoppingCart.svg"}
-              />
+              <ImageNext alt="shopping cart icon" src={SHOPPINGCART_SVG} />
             </Button2>
           </Texts1>
         </Element41>
@@ -262,10 +268,7 @@ const Home = ({ recentArticle, roadMap }) => {
           <FlexColumn key={v4()}>
             <Head>
               <WhiteFlexColumn1>
-                <Riawardline
-                  alt="riaward icon"
-                  src={"./assets/icon/riaward.svg"}
-                />
+                <ImageNext alt="riaward icon" src={RIAWARD_SVG} />
               </WhiteFlexColumn1>
               <Text30>{item.title}</Text30>
             </Head>
@@ -274,7 +277,7 @@ const Home = ({ recentArticle, roadMap }) => {
         ))}
       </Features>
       <Section gap={"42px"}>
-        <Icon6 alt="board icon" src={"./assets/icon/iconSection.svg"} />
+        <ImageNext alt="board icon" src={ICONSECTION_SVG} />
         <Topbar gap={"33px"}>
           <WhatIsAkilaChain2>
             Technical Characteristics of
@@ -320,10 +323,10 @@ const Home = ({ recentArticle, roadMap }) => {
             funds, firms, litigation and intangible assets.
           </Paragraph11>
         </Topbar>
-        <Icon6 alt="board icon" src={"./assets/icon/iconSection2.svg"} />
+        <ImageNext alt="board icon" src={ICONSECTION2_SVG} />
       </Section1>
       <Section gap={"58px"}>
-        <Icon6 alt="board icon" src={"./assets/icon/iconSection3.svg"} />
+        <ImageNext alt="board icon" src={ICONSECTION3_SVG} />
         <Topbar gap={"23px"}>
           <WhatIsAkilaChain2>
             Fungible tokens and non-fungible <Text37>tokens (NFT)</Text37>
@@ -404,6 +407,7 @@ const Home = ({ recentArticle, roadMap }) => {
       <Posts>
         {recentArticle?.map((article) => (
           <Picture key={article}>
+            <Image1 image={article?.attributes?.cover} />
             <WhiteFlexColumn7>
               <Topbar gap={"16px"}>
                 <Topbar gap={"9px"}>
@@ -420,10 +424,9 @@ const Home = ({ recentArticle, roadMap }) => {
               <Button4
                 onClick={(e) => articleOnClick(e, article?.attributes?.slug)}
               >
-                <Line1 alt="arrow icon" src="./assets/icon/arrowButton.svg" />
+                <ImageNext alt="arrow icon" src={ARROWBUTTON_SVG} />
               </Button4>
             </WhiteFlexColumn7>
-            <Image1 image={article?.attributes?.cover} />
           </Picture>
         ))}
       </Posts>
@@ -485,7 +488,6 @@ const Body = styled.div`
   flex: 1.4;
   gap: var(--x5);
 `;
-const Line1 = styled(LazyLoadImage)``;
 const Paragraph = styled.p`
   font-size: 14px;
   font-weight: 600;
@@ -540,9 +542,9 @@ const Element40 = styled.div`
   border-radius: 999px 999px 0px 0px;
   position: relative;
 `;
-const Icons = styled(LazyLoadImage)`
-  height: 295px;
-  top: 91px;
+const Icons = styled.div`
+  width: 300px;
+  height: 290px;
   position: absolute;
   left: -50px;
   top: 84px;
@@ -645,10 +647,6 @@ const Text15 = styled.p`
   font-size: 14px;
   font-weight: 600;
   color: var(--text-secondary-color);
-`;
-const Rishoppingcartline = styled(LazyLoadImage)`
-  width: 18px;
-  height: 18px;
 `;
 const Bg = styled.div`
   justify-content: center;
@@ -1009,10 +1007,6 @@ const Text10 = styled.p`
   font-weight: 600;
   color: var(--primary);
 `;
-const Riarrowrightline = styled(LazyLoadImage)`
-  width: 20px;
-  height: 20px;
-`;
 const Height = styled.p`
   font-size: 14px;
   font-weight: 400;
@@ -1101,10 +1095,6 @@ const WhiteFlexColumn1 = styled.div`
   border-radius: 10px;
   padding: 0px 13px 0px 14px;
 `;
-const Riawardline = styled(LazyLoadImage)`
-  width: 28px;
-  height: 28px;
-`;
 const Text30 = styled.p`
   text-align: center;
   font-size: 18px;
@@ -1132,10 +1122,6 @@ const Section = styled.div`
   @media (max-width: 1024px) {
     flex-direction: column;
   }
-`;
-const Icon6 = styled(LazyLoadImage)`
-  width: 223px;
-  height: 223px;
 `;
 const WhatIsAkilaChain2 = styled.h1`
   font-size: 25px;
@@ -1230,8 +1216,6 @@ const Paragraph17 = styled.p`
   color: var(--text-primary);
 `;
 const Picture = styled.div`
-  width: 339px;
-  height: 526px;
   position: relative;
 `;
 const WhiteFlexColumn7 = styled.div`
@@ -1240,14 +1224,12 @@ const WhiteFlexColumn7 = styled.div`
   height: 100%;
   width: 100%;
   display: flex;
-  position: absolute;
-  top: 228px;
   flex-direction: column;
   gap: 10px;
   justify-content: center;
   align-items: center;
   border-radius: 0px 0px 10px 10px;
-  padding: 0px 17px;
+  padding: 16px 24px;
 `;
 const Text60 = styled.p`
   text-align: start;
@@ -1279,9 +1261,6 @@ const Button4 = styled(Button)`
   align-self: flex-end;
 `;
 const Image1 = styled(Image)`
-  width: 339px;
-  height: 229px;
-  position: absolute;
   border-radius: 10px 10px 0 0;
 `;
 const WhiteRectangle = styled.div`

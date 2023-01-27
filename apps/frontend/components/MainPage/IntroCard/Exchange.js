@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Image from "next/image";
 import {
   GROUP_196_SVG,
+  LEFTARROW2_SVG,
   LOGOS_BITCOIN2_SVG,
   LOGOS_USD_SVG,
 } from "../../../assets/static";
@@ -11,21 +12,21 @@ const Exchange = () => {
   return (
     <Group8>
       <WhiteFlexColumn4>
-        <Image1 src={GROUP_196_SVG} />
+        <Image alt="icon" src={GROUP_196_SVG} />
       </WhiteFlexColumn4>
       <WhiteFlexRow1>
         <Group2>
           <Text10>Pay With</Text10>
           <Group4>
-            <Logosbitcoin1 src={LOGOS_USD_SVG} />
+            <Image alt="usd" src={LOGOS_USD_SVG} />
             <Text11>USD</Text11>
           </Group4>
         </Group2>
-        <Image2 src={`./assets/icon/leftArrow2.svg`} />
+        <Image alt="icon" src={LEFTARROW2_SVG} />
         <Group2>
           <Text10>Receive</Text10>
           <Group4>
-            <Logosbitcoin1 src={LOGOS_BITCOIN2_SVG} />
+            <Image alt="bitcoin" src={LOGOS_BITCOIN2_SVG} />
             <Text11>BTC</Text11>
           </Group4>
         </Group2>
@@ -48,10 +49,6 @@ const Group4 = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
 `;
-const Logosbitcoin1 = styled(Image)`
-  width: 26px;
-  height: 26px;
-`;
 
 const Group8 = styled.div`
   display: flex;
@@ -69,10 +66,6 @@ const WhiteFlexColumn4 = styled.div`
   border-radius: 13px;
   background-color: var(--primary-background);
   box-shadow: var(--box-shadow);
-`;
-const Image1 = styled(Image)`
-  width: 34px;
-  height: 34px;
 `;
 const WhiteFlexRow1 = styled.div`
   display: flex;
@@ -112,11 +105,6 @@ const Text11 = styled.div`
   line-height: 22.470001935958862px;
   white-space: nowrap;
   text-transform: capitalize;
-`;
-const Image2 = styled(Image)`
-  width: 13.5px;
-  height: 25px;
-  color: red;
 `;
 const WhiteFlexColumn5 = styled.div`
   display: flex;

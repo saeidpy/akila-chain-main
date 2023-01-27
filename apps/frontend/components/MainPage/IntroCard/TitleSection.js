@@ -14,13 +14,13 @@ export const TitleSection = ({ STEP, withActionButton, additionalElement }) => {
         {withActionButton && (
           <Button2>
             <Text18>{STEP.button}</Text18>
-            <Riarrowrightline src={LEFTARROW2_SVG} />
+            <Image alt="icon" src={LEFTARROW2_SVG} />
           </Button2>
         )}
         {additionalElement ?? (
           <Group6>
             <Text14>Learn More</Text14>
-            <Riarrowrightline2 src={ARROWBUTTON_SVG} />
+            <Image alt="icon" src={ARROWBUTTON_SVG} />
           </Group6>
         )}
       </Group5>
@@ -81,12 +81,6 @@ const Button2 = styled(Button)`
   width: 185px;
 `;
 
-const Riarrowrightline = styled(Image)`
-  width: 7px;
-  height: 12px;
-`;
-
-const Riarrowrightline2 = styled(Image)``;
 const Text14 = styled(Button)`
   text-transform: capitalize;
   display: contents;

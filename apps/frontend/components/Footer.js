@@ -14,7 +14,7 @@ export default function Footer({ global }) {
     <FooterElement>
       <Nav>
         <About>
-          <Logo alt="akila chain logo" src={LARGELOGO_SVG} />
+          <Image alt="akila chain logo" src={LARGELOGO_SVG} />
           <Paragraph24>
             AkilaCain is a Decentralized Public Blockchain Leveraging The
             Security of Bitcoin UTXO While Enabling Cognizant Protocol to
@@ -197,7 +197,6 @@ const Text75 = styled.p`
   color: var(--text-primary);
 `;
 
-const Logo = styled(Image)``;
 const Nav = styled.div`
   display: flex;
   flex-direction: row;

@@ -7,7 +7,7 @@ import Divider from "../../../components/Common/Divider";
 import Header from "../../../components/Header";
 import Image from "../../../components/Image";
 import Seo from "../../../components/Seo";
-import Whitepaper from "../../../components/Whitepaper";
+import Whitepaper from "../../../components/Common/Whitepaper";
 import { fetchAPI } from "../../../lib/api";
 export async function getServerSideProps({ params }) {
   const articlesRes = await fetchAPI("/articles", {

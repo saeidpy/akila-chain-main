@@ -11,10 +11,10 @@ const Borrow = () => {
   return (
     <Group4>
       <WhiteFlexColumn4>
-        <Logosethereum src={LOGOS_ETHEREUM_SVG} />
-        <Logosbitcoin src={LOGOS_BITCOIN_SVG} />
+        <Image alt="eth" src={LOGOS_ETHEREUM_SVG} />
+        <Image alt="bitcoin" src={LOGOS_BITCOIN_SVG} />
         <Group3>
-          <Phwalletfill src={PH_WALLETFILL_SVG} />
+          <Image alt="wallet" src={PH_WALLETFILL_SVG} />
         </Group3>
       </WhiteFlexColumn4>
       <WhiteFlexColumn5>
@@ -54,15 +54,6 @@ const WhiteFlexColumn4 = styled.div`
   background-color: var(--primary-background);
   box-shadow: var(--box-shadow);
 `;
-const Logosethereum = styled(Image)`
-  left: 10px;
-  top: 35px;
-  position: absolute;
-`;
-const Logosbitcoin = styled(Image)`
-  position: relative;
-  align-self: flex-end;
-`;
 const Group3 = styled.div`
   width: 61px;
   height: 69px;
@@ -72,11 +63,6 @@ const Group3 = styled.div`
   justify-content: flex-end;
   align-items: flex-start;
   padding: 0px 13.8px 0px 1px;
-`;
-const Phwalletfill = styled(Image)`
-  left: 0px;
-  top: 0px;
-  position: absolute;
 `;
 const WhiteFlexColumn5 = styled.div`
   display: flex;

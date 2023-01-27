@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React, { useRef } from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+import Image from "next/image";
 import { useSnackbar } from "react-simple-snackbar";
 import styled from "styled-components";
 import { FacebookLine } from "../../assets/js/FacebookLine";
@@ -13,6 +13,7 @@ import Input from "../../components/Common/Input";
 import Header from "../../components/Header";
 import Seo from "../../components/Seo";
 import { fetchAPI } from "../../lib/api";
+import { MAIL_SVG, PHONELINE_SVG } from "../../assets/static";
 
 export async function getServerSideProps() {
   // Fetch global site settings from Strapi
@@ -61,10 +62,7 @@ const Contact = ({ global }) => {
         <Content gap={"33px"}>
           <Boxes gap={"16px"}>
             <Element7>
-              <Riphoneline
-                alt="phone icon"
-                src={"/assets/icon/phoneLine.svg"}
-              />
+              <Image alt="phone icon" src={PHONELINE_SVG} />
               <Text1>
                 <Text3>Phone Number</Text3>
                 <Text4 margin={"0px 0px 4px 0px"}>
@@ -73,7 +71,7 @@ const Contact = ({ global }) => {
               </Text1>
             </Element7>
             <Element7>
-              <Riphoneline alt="mail icon" src={"/assets/icon/mail.svg"} />
+              <Image alt="mail icon" src={MAIL_SVG} />
               <Text1>
                 <Text3>Email Address</Text3>
                 <Text4 margin={"0px 0px 4px 0px"}>
@@ -297,10 +295,6 @@ const Boxes1 = styled.div`
   width: 100%;
   flex-wrap: wrap;
   padding-left: 16px;
-`;
-const Riphoneline = styled(LazyLoadImage)`
-  width: 30px;
-  height: 30px;
 `;
 const Text1 = styled.div`
   height: 84px;
