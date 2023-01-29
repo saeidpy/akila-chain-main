@@ -24,7 +24,7 @@ const list = [
     name: "5M+",
     desc: (
       <>
-        Yonachain users <br /> worldwide
+        Akilachain users <br /> worldwide
       </>
     ),
     img: GROUP_200_SVG,

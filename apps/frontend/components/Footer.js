@@ -28,59 +28,53 @@ export default function Footer({ global }) {
               <Text70>Menu</Text70>
             </Title13>
             <AboutUsBlogLegalHelp>
-              <Link href="/about">About Us</Link>
+              <Link href="/">Home</Link>
+              <br />
+              <Link href="/chain">AkilaChain</Link>
               <br />
               <Link href="/blog">Blog</Link>
               <br />
               <Link href="/contact">Contact us</Link>
               <br />
-              <Link href="/developer">Developer</Link>
+              <Link href="/about">About Us</Link>
             </AboutUsBlogLegalHelp>
           </Element34>
           <Element34>
             <Title14>
               <BgItem />
-              <Text70>Partners</Text70>
+              <Text70>Ecosystem & Projects</Text70>
             </Title14>
-            <AboutUsBlogLegalHelp>
-              OTC Trading
-              <br />
-              Add Token
-              <br />
-              Market Makers
-              <br />
-              Work With Us
-            </AboutUsBlogLegalHelp>
-          </Element34>
-          <Element34>
-            <Title15>
-              <BgItem />
-              <Text70>users</Text70>
-            </Title15>
-            <AboutUsBlogLegalHelp>
-              Support
-              <br />
-              Verification
-              <br />
-              Fees and Limits
-              <br />
-              Bug Report
-            </AboutUsBlogLegalHelp>
-          </Element34>
-          <Element34>
-            <Title16>
-              <BgItem />
-              <Text70>utility</Text70>
-            </Title16>
-            <AboutUsBlogLegalHelp>
-              API
-              <br />
-              FIX
-              <br />
-              Price Widget
-              <br />
-              System Monitor
-            </AboutUsBlogLegalHelp>
+            <Element1>
+              <AboutUsBlogLegalHelp>
+                <Link href={"/"}>Crypto Exchange</Link>
+                <br />
+                <Link href={"/"}>Fiat Currency Wallet</Link>
+                <br />
+                <Link href={"/"}>IBAN accounts</Link>
+                <br />
+                <Link href={"/"}>Akila Card</Link>
+                <br />
+                <Link href={"/"}>Investment</Link>
+              </AboutUsBlogLegalHelp>
+              <AboutUsBlogLegalHelp>
+                <Link href={"/"}>Trading</Link>
+                <br />
+                <Link href={"/"}>Lending & Borrowing</Link>
+                <br />
+                <Link href={"/"}>Hotel Booking</Link>
+                <br />
+                <Link href={"/"}>Flight Ticket</Link>
+                <br />
+                <Link href={"/"}>Mobile Top-Up</Link>
+              </AboutUsBlogLegalHelp>
+              <AboutUsBlogLegalHelp>
+                <Link href={"/"}>Bill Payment</Link>
+                <br />
+                <Link href={"/"}>Metaverse</Link>
+                <br />
+                <Link href={"/"}>Messenger</Link>
+              </AboutUsBlogLegalHelp>
+            </Element1>
           </Element34>
         </Element1>
       </Nav>
@@ -160,7 +154,7 @@ const Title13 = styled.div`
   position: relative;
 `;
 const Title14 = styled.div`
-  width: 84px;
+  width: 100%;
   height: 27px;
   position: relative;
 `;

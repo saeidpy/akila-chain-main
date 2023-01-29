@@ -7,9 +7,9 @@ import Buy from "./Buy";
 import Earn from "./Earn";
 import Exchange from "./Exchange";
 import { TitleSection } from "./TitleSection";
-import YonaCard from "./YonaCard";
+import AkilaCard from "./AkilaCard";
 
-const buttons = ["Buy", "Earn", "Exchange", "Borrow", "YonaCard"];
+const buttons = ["Buy", "Earn", "Exchange", "Borrow", "AkilaCard"];
 
 const steps = {
   Buy: {
@@ -40,12 +40,12 @@ const steps = {
     button: "Exchange Now",
     rightElement: <Borrow />,
   },
-  YonaCard: {
+  AkilaCard: {
     label: "THE RIGHT PLACE TO",
     title: "Get a Crypto Card",
     desc: "Spend without selling your digital assets with the Aqila Card and get up to 2% back on every purchase. All your expenses are financed by a credit line, starting at 0% APR.",
     button: "Exchange Now",
-    rightElement: <YonaCard />,
+    rightElement: <AkilaCard />,
   },
 };
 const IntroCard = () => {
@@ -72,7 +72,7 @@ const IntroCard = () => {
         <Line3 loc={stepSize} />
       </Line2>
       <FlexRow>
-        <TitleSection withActionButton STEP={STEP} />
+        <TitleSection STEP={STEP} />
         <Group4>{STEP.rightElement}</Group4>
       </FlexRow>
     </CustomSubtract>

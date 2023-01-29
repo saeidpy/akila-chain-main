@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import LearnMoreButton from "./LearnMoreButton";
 
 export const ContentGroup = ({ title, label, desc, className }) => {
   return (
@@ -8,6 +9,7 @@ export const ContentGroup = ({ title, label, desc, className }) => {
         {title} <Text2>{label}</Text2>
       </Text1>
       <Paragraph>{desc}</Paragraph>
+      <LearnMoreButton />
     </Group7>
   );
 };
@@ -37,7 +39,7 @@ const Text2 = styled.p`
   text-decoration-line: underline;
 `;
 const Paragraph = styled.p`
-  align-self: flex-end;
+  align-self: flex-start;
   color: var(--text-secondary);
   font-size: 16px;
   font-weight: 300;

@@ -120,25 +120,32 @@ const list = [
   },
 ];
 
-export const FeatureSection = () => {
+export const FeatureSection = ({ featuresRes }) => {
   return (
     <Flex>
-      {list.map(({ title, label, icon, desc, withSubtract }) => (
-        <GroupRoot3
-          key={title}
-          content={<ContentGroup title={title} label={label} desc={desc} />}
-          withSubtract={withSubtract}
-          platformProps={{
-            src: icon,
-            withPattern: !withSubtract,
-          }}
-        />
-      ))}
+      {featuresRes?.map((feature, index) => {
+        const { name, tagName, icon, description } = feature?.attributes ?? {};
+        const withSubtract = index % 2 === 0;
+        return (
+          <GroupRoot3
+            key={name}
+            content={
+              <ContentGroup title={name} label={tagName} desc={description} />
+            }
+            withSubtract={withSubtract}
+            platformProps={{
+              image: icon,
+              withPattern: !withSubtract,
+            }}
+          />
+        );
+      })}
     </Flex>
   );
 };
 
 const Flex = styled.div`
+  width: 100%;
   flex-direction: column;
   display: flex;
   align-item: center;

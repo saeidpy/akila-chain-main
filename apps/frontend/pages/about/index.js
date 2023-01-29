@@ -60,7 +60,7 @@ const About = ({ global, team }) => {
         <Title13>
           <BgItem />
           <Text70>
-            What they Say <WhatTheySayAboutUs>About Us</WhatTheySayAboutUs>
+            Team <WhatTheySayAboutUs>Members</WhatTheySayAboutUs>
           </Text70>
         </Title13>
         <Reviews>
@@ -151,7 +151,7 @@ const Reviews = styled.div`
   flex-direction: row;
   gap: 32px;
   justify-content: start;
-  align-items: center;
+  align-items: safe;
   flex-wrap: wrap;
   @media (max-width: 1024px) {
     justify-content: center;

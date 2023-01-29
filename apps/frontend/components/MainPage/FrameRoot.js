@@ -115,7 +115,7 @@ const list = [
         Grow with Your <br /> Community
       </>
     ),
-    desc: "Earn a revenue share by joining Yona`s Affiliate Program. Make money every time an invited user earns interest, swaps, or borrows funds.",
+    desc: "Earn a revenue share by joining Akila`s Affiliate Program. Make money every time an invited user earns interest, swaps, or borrows funds.",
     icon: GROUP_208_SVG,
     element: (
       <Text3>

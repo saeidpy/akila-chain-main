@@ -8,7 +8,7 @@ import {
   VISA_SVG,
 } from "../../../assets/static";
 
-const YonaCard = () => {
+const AkilaCard = () => {
   return (
     <Group3>
       <WhiteFlexColumn5>
@@ -31,7 +31,7 @@ const YonaCard = () => {
   );
 };
 
-export default YonaCard;
+export default AkilaCard;
 
 const WhiteFlexColumn4 = styled.div`
   display: flex;

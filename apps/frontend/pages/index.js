@@ -8,28 +8,23 @@ import IntroCard from "../components/MainPage/IntroCard";
 import Seo from "../components/Seo";
 import Image from "next/image";
 import { IPHONE_SVG } from "../assets/static";
-// export async function getServerSideProps() {
-// const articlesRes = await fetchAPI("/articles", {
-//   populate: ["cover", "categories"],
-//   sort: "publishedAt:desc",
-//   pagination: { withCount: true, limit: 3 },
-// });
-// if (!articlesRes?.data?.length) {
-//   return {
-//     notFound: true,
-//   };
-// }
-// return {
-//   props: { recentArticle: articlesRes.data },
-// };
-// }
+import { fetchAPI } from "../lib/api";
+
+export async function getServerSideProps() {
+  const featuresRes = await fetchAPI("/features", {
+    populate: "*",
+  });
+  return {
+    props: { featuresRes: featuresRes?.data ?? [] },
+  };
+}
 
 const seo = {
   meta_title: "Akila",
   meta_description: "One Platform To Power Smart Future",
 };
 
-const Home = () => {
+const Home = ({ featuresRes }) => {
   return (
     <HomeRoot>
       <Seo seo={seo} />
@@ -58,7 +53,7 @@ const Home = () => {
       <GroupRoot2 />
       <FrameRoot />
       <GroupRoot />
-      <FeatureSection />
+      <FeatureSection featuresRes={featuresRes} />
 
       {/* <Roadmap>
         <Head6>
