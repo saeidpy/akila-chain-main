@@ -2059,6 +2059,14 @@
     lodash "4.17.21"
     yup "0.32.9"
 
+"@szhsin/react-menu@^3.4.0":
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/@szhsin/react-menu/-/react-menu-3.4.0.tgz#11d1ef51cb3d230aeb05e133935a300f5c378d1b"
+  integrity sha512-BRxUF3BNmaQzL1z8UkS/eNFj+5ZPjBOpsYWP/ZtrzHNkkP6hUc+tYerBV4dwFiGYmWzkxyOP44ISn+EujwPpUw==
+  dependencies:
+    prop-types "^15.7.2"
+    react-transition-state "^1.1.5"
+
 "@szmarczak/http-timer@^4.0.5":
   version "4.0.6"
   resolved "https://registry.yarnpkg.com/@szmarczak/http-timer/-/http-timer-4.0.6.tgz#b4a914bb62e7c272d4e5989fe4440f812ab1d807"
@@ -9690,6 +9698,11 @@ react-transition-group@^4.3.0, react-transition-group@^4.4.1:
     dom-helpers "^5.0.1"
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
+
+react-transition-state@^1.1.5:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/react-transition-state/-/react-transition-state-1.1.5.tgz#22accee21d0011b1d0245be24b6262ae67f494c3"
+  integrity sha512-ITY2mZqc2dWG2eitJkYNdcSFW8aKeOlkL2A/vowRrLL8GH3J6Re/SpD/BLvQzrVOTqjsP0b5S9N10vgNNzwMUQ==
 
 react-virtualized@^9.22.3:
   version "9.22.3"
