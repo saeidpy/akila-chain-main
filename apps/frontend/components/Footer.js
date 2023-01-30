@@ -81,7 +81,7 @@ export default function Footer({ global }) {
         </Element1>
       </Nav>
       <Copyright>
-        <Text75>COPYRIGHT ©2021 AKILA CHAIN</Text75>
+        <Text75>{global?.attributes?.copyright}</Text75>
         <Element2>
           {[
             {
@@ -261,5 +261,5 @@ const AboutUsBlogLegalHelp = styled.p`
   font-weight: 400;
   line-height: 33.88px;
   color: var(--text-secondary);
-  align-self: flex-end;
+  align-self: start;
 `;

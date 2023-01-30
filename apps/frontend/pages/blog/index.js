@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Moment from "react-moment";
 import ReactPaginate from "react-paginate";
 import styled from "styled-components";
-import { RIGHTARROW2_SVG } from "../../assets/static";
+import { LEFTARROW2_SVG, RIGHTARROW2_SVG } from "../../assets/static";
 import Divider from "../../components/Common/Divider";
 import Header from "../../components/Header";
 import Image from "../../components/Image";
@@ -131,7 +131,7 @@ const Blog = ({ articles }) => {
       <Pagnation>
         <CustomReactPaginate
           breakLabel="..."
-          nextLabel={<ImageNext alt="left arrow" src={RIGHTARROW2_SVG} />}
+          nextLabel={<ImageNext alt="left arrow" src={LEFTARROW2_SVG} />}
           onPageChange={handlePageClick}
           pageRangeDisplayed={5}
           pageCount={metaData?.pagination?.pageCount}

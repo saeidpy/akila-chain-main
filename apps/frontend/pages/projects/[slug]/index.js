@@ -24,7 +24,7 @@ export async function getServerSideProps({ params }) {
   return { props: { project: projects?.data[0] } };
 }
 
-const ProjectDetails = ({ project }) => {
+const ProjectDetails = ({ project, global }) => {
   const seo = {
     meta_title: project?.attributes?.title,
     meta_description: project?.attributes?.description,
@@ -41,7 +41,7 @@ const ProjectDetails = ({ project }) => {
           {parse(project?.attributes?.content)}
         </Content>
       </Title>
-      <Whitepaper />
+      <Whitepaper like={global?.attributes?.WhitePaper} />
     </BlogRoot>
   );
 };

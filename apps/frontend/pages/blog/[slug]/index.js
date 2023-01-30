@@ -36,7 +36,7 @@ export async function getServerSideProps({ params }) {
     props: { article: articlesRes?.data?.[0] ?? {}, recentArticle },
   };
 }
-const BlogDetails = ({ article, recentArticle }) => {
+const BlogDetails = ({ article, recentArticle, global }) => {
   const { push } = useRouter();
 
   const handleBlogClick = (article) => {
@@ -118,7 +118,7 @@ const BlogDetails = ({ article, recentArticle }) => {
           </Content>
         </Content>
       </BigPost>
-      <Whitepaper />
+      <Whitepaper like={global?.attributes?.WhitePaper} />
     </BlogRoot>
   );
 };

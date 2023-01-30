@@ -1,6 +1,6 @@
 import ImageNext from "next/image";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React from "react";
 import Moment from "react-moment";
 import styled from "styled-components";
 import { v4 } from "uuid";
@@ -17,10 +17,11 @@ import {
 import { Button } from "../../components/Common/Button";
 import Divider from "../../components/Common/Divider";
 import { Ellipse } from "../../components/Common/Ellipse";
+import RoadMap from "../../components/Common/RoadMap";
+import Whitepaper from "../../components/Common/Whitepaper";
 import Image from "../../components/Image";
 import Seo from "../../components/Seo";
 import Subtract from "../../components/Subtract";
-import Whitepaper from "../../components/Common/Whitepaper";
 import { FeaturesContent, technicalChar } from "../../constant/index";
 import { fetchAPI } from "../../lib/api";
 
@@ -39,8 +40,7 @@ export async function getServerSideProps() {
   };
 }
 
-const Home = ({ recentArticle, roadMap }) => {
-  const [selectRoadMap, setSelectRoadMap] = useState(0);
+const Home = ({ recentArticle, roadMap, global }) => {
   const { push } = useRouter();
   const Button1Function = () => {};
   const Button2Function = () => {};
@@ -352,58 +352,12 @@ const Home = ({ recentArticle, roadMap }) => {
           </Paragraph11>
         </Topbar>
       </Section>
-      <Roadmap>
-        <Head6>
-          <Ellipse9 />
-          <Title1>
-            <RoadMap1>
-              road<RoadMap display={"contents"}> map</RoadMap>
-            </RoadMap1>
-            <Text55>The Proccess Of ICO Program</Text55>
-          </Title1>
-        </Head6>
-        <Element42>
-          <TopbarRoadMap gap={"15px"}>
-            {roadMapContent?.map((item, index) => (
-              <>
-                <Nav>
-                  <No1
-                    onClick={() => setSelectRoadMap(index)}
-                    selected={selectRoadMap === index}
-                  >
-                    <Text40>{index + 1}</Text40>
-                  </No1>
-                  <Title2>
-                    <Text41>{item.name}</Text41>
-                    <Text42>{item.date}</Text42>
-                  </Title2>
-                </Nav>
-                {roadMapContent.length !== index + 1 && (
-                  <RoadMapDivider
-                    isVertical
-                    height="26px"
-                    color="rgba(0, 0, 0, 0.5)"
-                  />
-                )}
-              </>
-            ))}
-          </TopbarRoadMap>
-          {roadMapContent?.[selectRoadMap] && (
-            <Content3>
-              <Topbar gap={"2px"}>
-                <Text56>{roadMapContent[selectRoadMap].date}</Text56>
-                <Text57>{roadMapContent[selectRoadMap].name}</Text57>
-              </Topbar>
-              <Topbar gap={"11px"}>
-                <Paragraph17>
-                  {roadMapContent[selectRoadMap].description}
-                </Paragraph17>
-              </Topbar>
-            </Content3>
-          )}
-        </Element42>
-      </Roadmap>
-      <Whitepaper />
+      {roadMapContent?.length ? (
+        <RoadMap roadMapContent={roadMapContent} />
+      ) : (
+        ""
+      )}
+      <Whitepaper link={global?.attributes?.whitePaper} />
       <Posts>
         {recentArticle?.map((article) => (
           <Picture key={article}>
@@ -430,27 +384,8 @@ const Home = ({ recentArticle, roadMap }) => {
           </Picture>
         ))}
       </Posts>
-      <Brands>
-        <Head7>
-          <Ellipse16>
-            <Bg4 />
-          </Ellipse16>
-          <Title12>
-            <RoadMap display={"block"}>
-              Where To Trade <Text67 href="/">Akila Chain</Text67>
-              <RoadMap display={"contents"}> Coin</RoadMap>
-            </RoadMap>
-            <Paragraph23>
-              Akila Chain is listed in various popular crypto exchange
-            </Paragraph23>
-          </Title12>
-        </Head7>
-        <Element1 gap={"29px"}>
-          {[0, 1, 2, 3, 4].map(() => (
-            <WhiteRectangle key={v4()} />
-          ))}
-        </Element1>
-      </Brands>
+      {/* THIS IS DISABLE TEMPORARY */}
+      {/* <Brands /> */}
     </HomeRoot>
   );
 };
@@ -794,146 +729,15 @@ const Section1 = styled(Subtract)`
     flex-direction: column;
   }
 `;
-const Roadmap = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 38px;
-  justify-content: center;
-  align-items: flex-start;
-  width: 100%;
-  @media (max-width: 1024px) {
-    flex-direction: column;
-  }
-`;
 
-const RoadMapDivider = styled(Divider)`
-  margin-left: 30px;
-`;
-const Text40 = styled.p`
-  text-align: center;
-  display: flex;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 26.46px;
-`;
-const Element42 = styled.div`
-  flex: 2;
-  display: flex;
-  flex-direction: row;
-  gap: 64px;
-  @media (max-width: 1024px) {
-    flex-direction: column;
-  }
-`;
-const Head6 = styled.div`
-  position: relative;
-  margin: 0 35% auto;
-  @media (max-width: 1024px) {
-    margin: unset;
-  }
-`;
-const Ellipse9 = styled(Ellipse)`
-  width: 112px;
-  height: 112px;
-`;
-const Title1 = styled.div`
-  width: 234px;
-  height: 70.5px;
-  position: absolute;
-  top: 26px;
-  left: 58px;
-`;
-const RoadMap1 = styled.h1`
-  font-size: 30px;
-  font-weight: 600;
-  line-height: 39.69px;
-  text-transform: capitalize;
-  color: var(--primary);
-`;
-const Text55 = styled.p`
-  font-size: 16.5px;
-  font-weight: 300;
-  line-height: 21.83px;
-  color: var(--text-secondary);
-`;
-const Content3 = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-  justify-content: flex-start;
-  align-items: start;
-`;
-const Text56 = styled.p`
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 21.17px;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-`;
-const Text57 = styled.p`
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 23.81px;
-  text-transform: uppercase;
-  color: var(--text-primary);
-`;
 const Posts = styled.div`
   display: flex;
   flex-direction: row;
   gap: 64px;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   flex-wrap: wrap;
   width: 100%;
-`;
-const Brands = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 67px;
-  justify-content: center;
-  align-items: center;
-`;
-const Head7 = styled.div`
-  display: flex;
-  align-items: center;
-  position: relative;
-`;
-const Bg4 = styled.div`
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background-color: var(--primary);
-  position: absolute;
-  right: 0;
-`;
-const Ellipse16 = styled(Ellipse)`
-  width: 112px;
-  height: 112px;
-  position: absolute;
-  top: -20px;
-  left: -70px;
-`;
-const Title12 = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 9px;
-  justify-content: flex-start;
-  align-items: start;
-`;
-const Text67 = styled.p`
-  font-size: 30px;
-  text-decoration: underline;
-  line-height: 39.69px;
-  text-transform: capitalize;
-  color: var(--primary);
-  display: contents;
-  cursor: pointer;
-`;
-const Paragraph23 = styled.p`
-  font-size: 16.5px;
-  font-weight: 300;
-  line-height: 21.83px;
-  color: var(--text-secondary);
 `;
 
 const Topbar = styled.div`
@@ -944,41 +748,7 @@ const Topbar = styled.div`
   align-items: start;
   gap: ${(props) => props.gap};
 `;
-const TopbarRoadMap = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: start;
-  gap: ${(props) => props.gap};
-  flex: 1;
-  border-right: 1px solid var(--borders);
-  padding-right: 32px;
-  @media (max-width: 1024px) {
-    border-right: none;
-    border-bottom: 1px solid var(--borders);
-    margin-top: 0px;
-    align-items: center;
-    flex-wrap: wrap;
-    flex-direction: row;
-    padding-right: 0px;
-    padding-bottom: 32px;
-  }
-`;
-const Nav = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-`;
-const Element1 = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: start;
-  gap: ${(props) => props.gap};
-  flex-wrap: wrap;
-`;
+
 const Element22 = styled.div`
   display: flex;
   flex-direction: row;
@@ -1168,55 +938,11 @@ const Text37 = styled.p`
   color: var(--text-secondary-color);
   display: contents;
 `;
-const No1 = styled(Button)`
-  min-width: 61px;
-  min-height: 61px;
-  align-items: center;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  background: ${({ selected }) =>
-    selected && "linear-gradient(180deg, #fe983f 0%, #ff551f 100%)"};
-  color: ${({ selected }) => (selected ? "#fff" : "var(--text-primary)")};
-  box-shadow: var(--box-shadow);
-`;
-const Title2 = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  align-items: start;
-`;
-const Text41 = styled.p`
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 21.17px;
-  text-transform: uppercase;
-  color: var(--text-primary);
-`;
-const Text42 = styled.p`
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 18.52px;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-`;
-const RoadMap = styled.h1`
-  font-size: 30px;
-  font-weight: 600;
-  line-height: 39.69px;
-  text-transform: capitalize;
-  color: var(--text-primary);
-  white-space: pre-wrap;
-  display: ${(props) => props.display};
-`;
-const Paragraph17 = styled.p`
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 26.39px;
-  color: var(--text-primary);
-`;
 const Picture = styled.div`
   position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
 `;
 const WhiteFlexColumn7 = styled.div`
   box-shadow: var(--box-shadow);
@@ -1230,6 +956,7 @@ const WhiteFlexColumn7 = styled.div`
   align-items: center;
   border-radius: 0px 0px 10px 10px;
   padding: 16px 24px;
+  flex: 2;
 `;
 const Text60 = styled.p`
   text-align: start;
@@ -1247,12 +974,16 @@ const Text61 = styled.p`
   color: var(--text-primary);
 `;
 const Paragraph20 = styled.p`
-  width: 305px;
-  height: 92px;
   font-size: 14px;
   font-weight: 400;
   line-height: 21.06px;
   color: var(--text-secondary);
+  text-align: start;
+  width: 100%;
+  height: 50px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 `;
 const Button4 = styled(Button)`
   width: 48px;
@@ -1262,12 +993,13 @@ const Button4 = styled(Button)`
 `;
 const Image1 = styled(Image)`
   border-radius: 10px 10px 0 0;
-`;
-const WhiteRectangle = styled.div`
-  box-shadow: var(--box-shadow);
-  width: 184px;
-  height: 62px;
-  border-radius: 5px;
+  flex: 1;
+  flex-basis: 200px;
+  object-fit: cover !important;
+  max-height: 200px !important;
+  > span {
+    height: 100% !important;
+  }
 `;
 
 const CustomEllipse = styled(Ellipse)`

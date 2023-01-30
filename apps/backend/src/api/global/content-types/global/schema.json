@@ -143,6 +143,19 @@
     "email_link": {
       "type": "string",
       "regex": "(http(s)?):[\\/\\/(www\\.)?a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)"
+    },
+    "whitePaper": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "files"
+      ]
+    },
+    "copyright": {
+      "type": "string",
+      "default": "COPYRIGHT ©2023 AKILA CHAIN",
+      "required": true
     }
   }
 }

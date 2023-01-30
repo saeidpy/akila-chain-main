@@ -56,6 +56,11 @@ const MenuList = [
 export default function TopBar() {
   const [open, setOpen] = useState(false);
   const { pathname } = useRouter();
+  const ref = useRef();
+
+  const onOpen = () => {
+    ref.current?.openMenu?.();
+  };
 
   const node = useRef();
   const menuId = "main-menu";
@@ -95,8 +100,13 @@ export default function TopBar() {
             if (data.menu) {
               return (
                 <MenuSelect
+                  instanceRef={ref}
                   menuButton={
-                    <Text2 selected={data.link === pathname} key={v4()}>
+                    <Text2
+                      onMouseOver={onOpen}
+                      selected={data.link === pathname}
+                      key={v4()}
+                    >
                       {data.childText}
                     </Text2>
                   }

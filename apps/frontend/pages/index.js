@@ -9,13 +9,21 @@ import Seo from "../components/Seo";
 import Image from "next/image";
 import { IPHONE_SVG } from "../assets/static";
 import { fetchAPI } from "../lib/api";
+import RoadMap from "../components/Common/RoadMap";
 
 export async function getServerSideProps() {
   const featuresRes = await fetchAPI("/feature", {
     populate: "*",
   });
+  const roadMap = await fetchAPI("/platform-road-maps", {
+    populate: ["*"],
+  });
+
   return {
-    props: { featuresRes: featuresRes?.data ?? {} },
+    props: {
+      featuresRes: featuresRes?.data ?? {},
+      roadMap: roadMap?.data ?? [],
+    },
   };
 }
 
@@ -24,7 +32,9 @@ const seo = {
   meta_description: "One Platform To Power Smart Future",
 };
 
-const Home = ({ featuresRes }) => {
+const Home = ({ featuresRes, roadMap }) => {
+  const roadMapContent = roadMap?.map((item) => item?.["attributes"]);
+
   return (
     <HomeRoot>
       <Seo seo={seo} />
@@ -53,6 +63,11 @@ const Home = ({ featuresRes }) => {
       <GroupRoot2 />
       <FrameRoot />
       <GroupRoot />
+      {roadMapContent?.length ? (
+        <RoadMap roadMapContent={roadMapContent} />
+      ) : (
+        ""
+      )}
       <FeatureSection featuresRes={featuresRes} />
 
       {/* <Roadmap>

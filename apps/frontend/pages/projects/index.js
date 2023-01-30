@@ -16,7 +16,7 @@ const seo = {
   meta_title: "Projects",
   og_type: "Projects",
 };
-const Projects = ({ projects }) => {
+const Projects = ({ projects, global }) => {
   return (
     <Root>
       <Seo seo={seo} />
@@ -50,7 +50,7 @@ const Projects = ({ projects }) => {
           </Boxes>
         </Documents>
       </BodyRoot>
-      <Whitepaper />
+      <Whitepaper like={global?.attributes?.WhitePaper} />
     </Root>
   );
 };

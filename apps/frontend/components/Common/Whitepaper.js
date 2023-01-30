@@ -4,7 +4,9 @@ import Subtract from "../Subtract";
 import React from "react";
 import Image from "next/image";
 import { FILELINE_SVG } from "../../assets/static";
-export default function Whitepaper() {
+import { getMedia } from "../../lib/media";
+export default function Whitepaper({ link }) {
+  const href = getMedia(link);
   return (
     <Subtract7>
       <Circle />
@@ -17,7 +19,9 @@ export default function Whitepaper() {
           </Paragraph19>
         </Topbar>
         <Button1 width={"162px"}>
-          <Text10>Whitepaper (Eng)</Text10>
+          <Text10 href={href} download>
+            Whitepaper (Eng)
+          </Text10>
           <Image alt="right arrow icon" src={FILELINE_SVG} />
         </Button1>
       </Topbar>
@@ -89,7 +93,7 @@ const Button1 = styled(Button)`
   box-sizing: content-box;
 `;
 
-const Text10 = styled.p`
+const Text10 = styled.a`
   font-size: 16px;
   font-weight: 600;
   color: var(--primary);

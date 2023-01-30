@@ -1,9 +1,17 @@
 import { Menu, MenuItem } from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
 import styled from "styled-components";
-export default function MenuSelect({ menuButton, items }) {
+export default function MenuSelect({ menuButton, items, instanceRef }) {
+  const onClose = () => {
+    instanceRef?.current?.closeMenu();
+  };
   return (
-    <CustomMenu menuButton={menuButton}>
+    <CustomMenu
+      id="menu"
+      instanceRef={instanceRef}
+      onMouseLeave={onClose}
+      menuButton={menuButton}
+    >
       {items.map((item, index) => (
         <CustomMenuItem key={index}>{item}</CustomMenuItem>
       ))}

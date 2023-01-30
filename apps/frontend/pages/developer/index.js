@@ -15,7 +15,7 @@ export async function getServerSideProps() {
   return { props: { development: development?.data } };
 }
 
-const Developer = ({ development }) => {
+const Developer = ({ development, global }) => {
   const arrayOfGroup = Object.entries(
     groupByCategory(development?.map((item) => item?.attributes) ?? [], "type")
   )?.map((item, index) => ({
@@ -68,7 +68,7 @@ const Developer = ({ development }) => {
           </Boxes>
         </Documents>
       </BodyRoot>
-      <Whitepaper />
+      <Whitepaper like={global?.attributes?.WhitePaper} />
     </Root>
   );
 };
