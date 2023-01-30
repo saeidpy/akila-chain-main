@@ -27,24 +27,26 @@ export default function Footer({ global }) {
               <BgItem />
               <Text70>Menu</Text70>
             </Title13>
-            <AboutUsBlogLegalHelp>
-              <Link href="/">Home</Link>
-              <br />
-              <Link href="/chain">AkilaChain</Link>
-              <br />
-              <Link href="/blog">Blog</Link>
-              <br />
-              <Link href="/contact">Contact us</Link>
-              <br />
-              <Link href="/about">About Us</Link>
-            </AboutUsBlogLegalHelp>
+            <Element3>
+              <AboutUsBlogLegalHelp>
+                <Link href="/">Home</Link>
+                <br />
+                <Link href="/chain">AkilaChain</Link>
+                <br />
+                <Link href="/blog">Blog</Link>
+                <br />
+                <Link href="/contact">Contact us</Link>
+                <br />
+                <Link href="/about">About Us</Link>
+              </AboutUsBlogLegalHelp>
+            </Element3>
           </Element34>
           <Element34>
             <Title14>
               <BgItem />
               <Text70>Ecosystem & Projects</Text70>
             </Title14>
-            <Element1>
+            <Element3>
               <AboutUsBlogLegalHelp>
                 <Link href={"/"}>Crypto Exchange</Link>
                 <br />
@@ -74,7 +76,7 @@ export default function Footer({ global }) {
                 <br />
                 <Link href={"/"}>Messenger</Link>
               </AboutUsBlogLegalHelp>
-            </Element1>
+            </Element3>
           </Element34>
         </Element1>
       </Nav>
@@ -158,16 +160,6 @@ const Title14 = styled.div`
   height: 27px;
   position: relative;
 `;
-const Title15 = styled.div`
-  width: 61px;
-  height: 27px;
-  position: relative;
-`;
-const Title16 = styled.div`
-  width: 66px;
-  height: 27px;
-  position: relative;
-`;
 const Copyright = styled.div`
   box-shadow: var(--box-shadow);
   background-color: var(--primary-background);
@@ -176,7 +168,7 @@ const Copyright = styled.div`
   justify-content: space-between;
   align-items: start;
   padding: var(--x3);
-  width: 90%;
+  width: 100%;
   flex-wrap: wrap;
   gap: var(--x4);
   @media (max-width: 690px) {
@@ -197,16 +189,27 @@ const Nav = styled.div`
   justify-content: center;
   align-items: center;
   gap: var(--x4);
-  @media (max-width: 690px) {
+  @media (max-width: 870px) {
     flex-direction: column;
   }
 `;
 const Element1 = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: start;
   align-items: start;
   flex: 3;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: var(--x4);
+`;
+const Element3 = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: start;
+  flex: 3;
+  padding: 0px 24px;
   flex-wrap: wrap;
   width: 100%;
   gap: var(--x4);

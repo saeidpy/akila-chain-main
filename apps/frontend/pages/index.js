@@ -11,11 +11,11 @@ import { IPHONE_SVG } from "../assets/static";
 import { fetchAPI } from "../lib/api";
 
 export async function getServerSideProps() {
-  const featuresRes = await fetchAPI("/features", {
+  const featuresRes = await fetchAPI("/feature", {
     populate: "*",
   });
   return {
-    props: { featuresRes: featuresRes?.data ?? [] },
+    props: { featuresRes: featuresRes?.data ?? {} },
   };
 }
 
