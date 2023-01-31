@@ -12,7 +12,7 @@ import { Button } from "../../components/Common/Button";
 import Input from "../../components/Common/Input";
 import Header from "../../components/Header";
 import Seo from "../../components/Seo";
-import { fetchAPI } from "../../lib/api";
+import { fetchAPI, postAPI } from "../../lib/api";
 import { MAIL_SVG, PHONELINE_SVG } from "../../assets/static";
 
 export async function getServerSideProps() {
@@ -30,21 +30,16 @@ const Contact = ({ global }) => {
   const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(ref.current);
-    const result = [];
-    for (const [name, value] of formData) {
-      result[name] = value;
-    }
-    await fetch(process.env.NEXT_PUBLIC_API_URL_CLIENT + "/contact-uses", {
+    const result = [...formData.entries()].reduce((init, [name, value]) => {
+      return { ...init, [name]: value };
+    }, {});
+
+    await postAPI("/contact-uses", {
       body: JSON.stringify({ data: result }),
-      method: "POST",
     })
-      .then((res) => {
-        if (res?.error?.message) {
-          openSnackbar(res?.error?.message);
-        } else {
-          openSnackbar("Success");
-          ref.current.reset();
-        }
+      .then(() => {
+        openSnackbar("Success");
+        ref.current.reset();
       })
       .catch((error) => {
         openSnackbar(new Error(error).message);
@@ -137,7 +132,7 @@ const Contact = ({ global }) => {
           <ContentInput gap={"20px"}>
             <ContentInput gap={"8px"}>
               <Text9>Your name</Text9>
-              <WhiteRectangle height={"48px"} />
+              <WhiteRectangle name="name" height={"48px"} />
             </ContentInput>
             <ContentInput gap={"8px"}>
               <Text9>Your Email</Text9>
