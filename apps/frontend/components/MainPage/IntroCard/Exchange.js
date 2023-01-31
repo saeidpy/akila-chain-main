@@ -33,7 +33,7 @@ const Exchange = () => {
       </WhiteFlexRow1>
       <WhiteFlexColumn5>
         <ExchangeFees1>
-          0%<ExchangeFees> Exchange Fees</ExchangeFees>
+          0%<ExchangeFees> Lowest Exchange Fees</ExchangeFees>
         </ExchangeFees1>
       </WhiteFlexColumn5>
     </Group8>
@@ -112,28 +112,28 @@ const WhiteFlexColumn5 = styled.div`
   justify-content: center;
   align-self: flex-start;
   align-items: flex-start;
-  padding: 21px 23px 21px 24px;
+  padding: 16px;
   border-radius: 13px;
   background-color: var(--primary-background);
   box-shadow: var(--box-shadow);
 `;
 const ExchangeFees1 = styled.div`
   width: 253px;
-  height: 43px;
+  height: 24px;
   color: var(--text-secondary-color);
-  font-size: 27px;
+  font-size: 16px;
   font-weight: 600;
-  font-family: Sora;
-  line-height: 43.33500373363495px;
+  line-height: 24px;
   white-space: nowrap;
   text-transform: capitalize;
+  text-align: center;
 `;
 const ExchangeFees = styled.div`
   display: contents;
   color: #000000;
-  font-size: 27px;
+  font-size: 16px;
   font-weight: 600;
-  font-family: Sora;
-  line-height: 43.33500373363495px;
+
+  line-height: 24px;
   text-transform: capitalize;
 `;

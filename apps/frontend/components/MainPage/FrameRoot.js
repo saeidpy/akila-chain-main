@@ -90,15 +90,15 @@ const Group5 = styled.div`
 const Text3 = styled.p`
   font-size: 14px;
   font-weight: 600;
-  font-family: Sora;
+
   text-transform: capitalize;
 `;
 
 const list = [
   {
-    label: "THE RIGHT PLACE TO",
-    title: "Bring your friends and win rewards",
-    desc: "Introduce your friends to the world of digital assets and get unlimited rewards. Receive $25 in crypto rewards with each successful referral.",
+    label: "PERFECT TO",
+    title: "Invite Your Friends and Get Rewards",
+    desc: "Reward yourself and help out your friends! Invite as many friends as you want and get unlimited rewards.",
     icon: GROUP_207_SVG,
     element: (
       <Group5>
@@ -109,13 +109,9 @@ const list = [
     ),
   },
   {
-    label: "THE RIGHT PLACE TO",
-    title: (
-      <>
-        Grow with Your <br /> Community
-      </>
-    ),
-    desc: "Earn a revenue share by joining Akila`s Affiliate Program. Make money every time an invited user earns interest, swaps, or borrows funds.",
+    label: "PERFECT TO",
+    title: "Build Your Community and Grow With It",
+    desc: "Have your marketing plan and earn a revenue share by joining Akila’s marketing plan. Make money every time an invited user do an investment or stakes coins and earns interest. Stake your Akila coin and get rewards. We believe their success is your biggest reward.",
     icon: GROUP_208_SVG,
     element: (
       <Text3>

@@ -32,14 +32,24 @@ export const GroupRoot = ({}) => {
             label: "One platform for all your needs",
             title:
               "Create your AkilaBanq account to buy, store, trade and earn interest.",
-            desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magnaaliqua. Ut enim adminim veniam, quis nostrud exercitation",
+            desc: (
+              <>
+                - Free multi-currency wallet
+                <br />
+                - Buy, Sell crypto and Cash out
+                <br />- Personal or Business Banking Account (IBAN)
+              </>
+            ),
           }}
           additionalElement={
             <Element4>
               <Text6>Earn more & beat inflation</Text6>
               <Paragraph2>
-                Borrowing Create your AkilaBanq account to buy, store, trade and
-                earn interest.
+                Invest in what you believe in. Invest in fractions of your
+                favourite companies with tokenized shares, ETFs. Diversify your
+                portfolio by investing in tokenized precious metals. Fortify
+                your portfolio with tokenized commodities and shield it against
+                inflation.
               </Paragraph2>
             </Element4>
           }

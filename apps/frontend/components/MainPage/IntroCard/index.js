@@ -13,37 +13,37 @@ const buttons = ["Buy", "Earn", "Exchange", "Borrow", "AkilaCard"];
 
 const steps = {
   Buy: {
-    label: "THE RIGHT PLACE TO",
-    title: "Buy Digital Assets in Seconds",
-    desc: "Buy 60+ assets with card in seconds. Benefit from instant transactions and up to 0.5% in crypto rewards. Wire transfers are also available for your convenience.",
+    label: "PERFECT TO",
+    title: "Buy Crypto with Credit or Debit Card instantly.",
+    desc: "A fast and simple way to buy and sell crypto. More than 300+  digital assets. Can be purchased with excellent market prices. Get up to 0.6% back.",
     button: "Buy Now",
     rightElement: <Buy />,
   },
   Earn: {
-    label: "THE RIGHT PLACE TO",
+    label: "PERFECT TO",
     title: "Grow Your Passive Income",
-    desc: "Earn daily interest on your digital assets. Top up and start growing your wealth automatically without having to do anything yourself.",
+    desc: "Invest in crypto and let your passive income to grow. AkilaBanq offers the perfect way to earn interest on your crypto portfolio. Maximize your earnings while keeping your money secure. You can start benefitting from high returns immediately. Withdrawing your money is a breeze.",
     button: "Start Earning",
     rightElement: <Earn />,
   },
   Exchange: {
-    label: "THE RIGHT PLACE TO",
-    title: "Get the Most Out of Your Swaps",
-    desc: "Exchange 500+ market pairs with zero fees. Buy, sell, or swap all major cryptocurrencies at competitive prices in seconds.",
+    label: "PERFECT TO",
+    title: "Exchange Any Crypto Instantly",
+    desc: "Fast crypto swaps, free of custody. Exchange Bitcoin and 300+ altcoins in a fast, simple and secure way. Unlimited crypto liquidity with minimum price slippage and competitive rates at best price.",
     button: "Exchange Now",
     rightElement: <Exchange />,
   },
   Borrow: {
-    label: "THE RIGHT PLACE TO",
-    title: "Borrow Against Your Digital Assets",
-    desc: "Get liquidity against your assets at 0% APR with our Instant Crypto Credit Lines. Receive cash or stablecoins to grow your portfolio or even finance your real estate purchase.",
+    label: "PERFECT TO",
+    title: "Financing Against a Wide Range of Digital Assets",
+    desc: "Rather than selling, AkilaBanq clients can use their cryptocurrencies as collateral towards a cryptocurrency-backed loan. This allows them to maintain ownership of their funds while gaining access to the USD they require.",
     button: "Exchange Now",
     rightElement: <Borrow />,
   },
   AkilaCard: {
-    label: "THE RIGHT PLACE TO",
-    title: "Get a Crypto Card",
-    desc: "Spend without selling your digital assets with the Aqila Card and get up to 2% back on every purchase. All your expenses are financed by a credit line, starting at 0% APR.",
+    label: "PERFECT TO",
+    title: "One Card for All Your Purchases",
+    desc: "Pay using cryptocurrencies or euros with over 46 million merchants worldwide. Receive salaries in cryptocurrencies, exchange crypto for euro, and make low-fee online/offline purchases with the Akila crypto debit card.",
     button: "Exchange Now",
     rightElement: <AkilaCard />,
   },
@@ -72,7 +72,7 @@ const IntroCard = () => {
         <Line3 loc={stepSize} />
       </Line2>
       <FlexRow>
-        <TitleSection STEP={STEP} />
+        <TitleSection STEP={STEP} additionalElement={<></>} />
         <Group4>{STEP.rightElement}</Group4>
       </FlexRow>
     </CustomSubtract>

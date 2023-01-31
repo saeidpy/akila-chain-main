@@ -92,7 +92,7 @@ const Text20 = styled.div`
   color: var(--text-secondary-color);
   font-size: 27px;
   font-weight: 600;
-  font-family: Sora;
+
   line-height: 43.33500373363495px;
   white-space: nowrap;
   text-transform: capitalize;
@@ -124,7 +124,7 @@ const PayWithCurrencyUSD = styled.div`
   display: contents;
   font-size: 15px;
   font-weight: 600;
-  font-family: Sora;
+
   line-height: 24.075002074241638px;
   text-transform: capitalize;
 `;

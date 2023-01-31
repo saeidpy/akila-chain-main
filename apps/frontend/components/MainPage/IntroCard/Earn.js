@@ -17,7 +17,7 @@ const Earn = () => {
         <WhiteFlexColumn8>
           <Image alt="%" src={GROUP_197_SVG} />
           <Group10>
-            <Text12>$858.85</Text12>
+            <Text12>$667.23</Text12>
             <Text13>Earned Today</Text13>
           </Group10>
         </WhiteFlexColumn8>
@@ -140,7 +140,7 @@ const Text12 = styled.div`
   height: 43px;
   font-size: 27px;
   font-weight: 600;
-  font-family: Sora;
+
   line-height: 43.33500373363495px;
   white-space: nowrap;
   text-transform: capitalize;

@@ -88,7 +88,7 @@ const Text11 = styled.div`
   color: var(--primary);
   font-size: 18px;
   font-weight: 700;
-  font-family: Sora;
+
   line-height: 32.670003175735474px;
   text-align: center;
   white-space: nowrap;
@@ -97,7 +97,7 @@ const Text11 = styled.div`
 const Text12 = styled.div`
   position: relative;
   font-size: 14px;
-  font-family: Sora;
+
   line-height: 25.41000247001648px;
   text-align: center;
   white-space: nowrap;

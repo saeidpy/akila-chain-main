@@ -60,7 +60,7 @@ const Home = ({ featuresRes, roadMap }) => {
         </Element39>
       </Header>
       <IntroCard />
-      <GroupRoot2 />
+      {/* <GroupRoot2 /> */}
       <FrameRoot />
       <GroupRoot />
       {roadMapContent?.length ? (

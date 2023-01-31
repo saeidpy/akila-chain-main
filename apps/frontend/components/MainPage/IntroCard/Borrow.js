@@ -19,7 +19,7 @@ const Borrow = () => {
       </WhiteFlexColumn4>
       <WhiteFlexColumn5>
         <Text10>
-          You can now borrow form just <Text11>0%</Text11>
+          Borrow at minimum <Text11>0%</Text11>
           <Text12> APR</Text12>
         </Text10>
       </WhiteFlexColumn5>
@@ -76,9 +76,8 @@ const WhiteFlexColumn5 = styled.div`
 `;
 const Text10 = styled.div`
   width: 194px;
-  height: 50px;
   font-size: 14px;
-  font-family: Sora;
+
   line-height: 25.41000247001648px;
   text-align: center;
   text-transform: capitalize;
@@ -87,14 +86,14 @@ const Text11 = styled.div`
   display: contents;
   font-size: 14px;
   font-weight: 700;
-  font-family: Sora;
+
   line-height: 25.41000247001648px;
   text-transform: capitalize;
 `;
 const Text12 = styled.div`
   display: contents;
   font-size: 14px;
-  font-family: Sora;
+
   line-height: 25.41000247001648px;
   text-transform: capitalize;
 `;

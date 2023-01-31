@@ -33,7 +33,7 @@ const Text2 = styled.p`
   color: var(--text-secondary-color);
   font-size: 25px;
   font-weight: 300;
-  font-family: Sora;
+
   line-height: 33.07500183582306px;
   text-transform: capitalize;
   text-decoration-line: underline;

@@ -56,11 +56,12 @@ const BlogDetails = ({ article, recentArticle, global }) => {
         title="News"
         des="Here you can get the latest news"
         leftElement={
-          <Text9>
-            <Text09>Latest</Text09>
-            <Text10>Announcement</Text10>
-            <Text10>Information</Text10>
-          </Text9>
+          <></>
+          // <Text9>
+          //   <Text09>Latest</Text09>
+          //   <Text10>Announcement</Text10>
+          //   <Text10>Information</Text10>
+          // </Text9>
         }
       />
       <BigPost>

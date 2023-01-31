@@ -51,17 +51,18 @@ const Blog = ({ articles }) => {
         title="News"
         des="Here you can get the latest news"
         leftElement={
-          <Text9>
-            <Text09 select={select === 0} onClick={() => setSelect(0)}>
-              Latest
-            </Text09>
-            <Text09 select={select === 1} onClick={() => setSelect(1)}>
-              Announcement
-            </Text09>
-            <Text09 select={select === 2} onClick={() => setSelect(2)}>
-              Information
-            </Text09>
-          </Text9>
+          <></>
+          // <Text9>
+          //   <Text09 select={select === 0} onClick={() => setSelect(0)}>
+          //     Latest
+          //   </Text09>
+          //   <Text09 select={select === 1} onClick={() => setSelect(1)}>
+          //     Announcement
+          //   </Text09>
+          //   <Text09 select={select === 2} onClick={() => setSelect(2)}>
+          //     Information
+          //   </Text09>
+          // </Text9>
         }
       />
       {isFirstPage && (
