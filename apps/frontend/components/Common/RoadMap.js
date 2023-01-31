@@ -5,7 +5,7 @@ import { Button } from "./Button";
 import Divider from "./Divider";
 import { Ellipse } from "./Ellipse";
 
-function RoadMap({ roadMapContent, title = "The Proccess Of ICO Program" }) {
+function RoadMap({ roadMapContent, title = "The Proccess Of our Program" }) {
   const [selectRoadMap, setSelectRoadMap] = useState(0);
 
   return (

@@ -41,7 +41,7 @@ const ProjectDetails = ({ project, global }) => {
           {parse(project?.attributes?.content)}
         </Content>
       </Title>
-      <Whitepaper like={global?.attributes?.WhitePaper} />
+      <Whitepaper link={global?.attributes?.whitePaper} />
     </BlogRoot>
   );
 };

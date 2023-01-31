@@ -119,7 +119,7 @@ const BlogDetails = ({ article, recentArticle, global }) => {
           </Content>
         </Content>
       </BigPost>
-      <Whitepaper like={global?.attributes?.WhitePaper} />
+      <Whitepaper link={global?.attributes?.whitePaper} />
     </BlogRoot>
   );
 };

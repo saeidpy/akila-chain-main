@@ -175,8 +175,6 @@ const Products = ({ global }) => {
           </Title2>
         </Documents>
       </Body>
-
-      {/* <Whitepaper /> */}
     </Root>
   );
 };

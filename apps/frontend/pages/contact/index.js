@@ -149,17 +149,18 @@ const Contact = ({ global }) => {
             </ContentInput>
             <ContentInput gap={"8px"}>
               <Text9>Your Message</Text9>
-              <WhiteRectangle
+              <WhiteRectangleTextarea
                 name="message"
                 type="textarea"
                 height={"86.4px"}
+                rows="4"
+                cols="50"
               />
             </ContentInput>
             <Text13 type="submit">Send Message</Text13>
           </ContentInput>
         </Message>
       </ContactRoot>
-      {/* <Whitepaper /> */}
     </Root>
   );
 };
@@ -326,6 +327,17 @@ const WhiteRectangle = styled(Input)`
   border-radius: 5px;
   height: ${(props) => props.height};
   padding: 8px;
+  box-sizing: border-box;
+`;
+const WhiteRectangleTextarea = styled.textarea`
+  box-shadow: var(--box-shadow);
+  width: 100%;
+  background-color: var(--primary-background);
+  border-radius: 5px;
+  resize: none;
+  height: ${(props) => props.height};
+  padding: 8px;
+  border: none;
   box-sizing: border-box;
 `;
 const Title13 = styled.div`

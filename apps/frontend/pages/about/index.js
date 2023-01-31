@@ -78,7 +78,6 @@ const About = ({ global, team }) => {
           ))}
         </Reviews>
       </Testomontials>
-      {/* <Whitepaper /> */}
     </AboutRoot>
   );
 };

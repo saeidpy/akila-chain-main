@@ -6,13 +6,13 @@ import styled from "styled-components";
 import { v4 } from "uuid";
 import {
   ARROWBUTTON_SVG,
-  BTCICON_SVG,
+  BTCICON_AKILA_SVG,
   ICONSECTION2_SVG,
   ICONSECTION3_SVG,
   ICONSECTION_SVG,
+  LOGO_TOKEN_SVG,
   RIAWARD_SVG,
   RIGHTARROW_SVG,
-  SHOPPINGCART_SVG,
 } from "../../assets/static";
 import { Button } from "../../components/Common/Button";
 import Divider from "../../components/Common/Divider";
@@ -83,7 +83,7 @@ const Home = ({ recentArticle, roadMap, global }) => {
             <Element40>
               <Height2>
                 <Height color={"rgba(0, 0,0, 0.7)"}>Height: </Height>
-                <Height color={"#0055ff"}>917523</Height>
+                <Height color={"#0055ff"}>0</Height>
               </Height2>
               <WhiteText>
                 Current Supply:
@@ -93,11 +93,11 @@ const Home = ({ recentArticle, roadMap, global }) => {
                     color: "rgba(0, 0,0, 0.7)",
                   },
                   {
-                    childText: "4,370,092",
+                    childText: " 0",
                     color: "#0055ff",
                   },
                   {
-                    childText: " Of 14,000,000 ( Total supply after 23 years )",
+                    childText: " Of 0 ( Total supply after 0 years )",
                     color: "rgba(0, 0,0, 0.7)",
                   },
                 ].map((data) => (
@@ -107,7 +107,7 @@ const Home = ({ recentArticle, roadMap, global }) => {
                 ))}
               </WhiteText>
               <Icons>
-                <ImageNext alt="btc eth" src={BTCICON_SVG} />
+                <ImageNext alt="btc eth" src={BTCICON_AKILA_SVG} />
               </Icons>
             </Element40>
           </Design>
@@ -130,13 +130,19 @@ const Home = ({ recentArticle, roadMap, global }) => {
               Create, Store and transfer tokens over Akila Blockchain. Join the
               revolutionary movement and don’t miss the opportunity.
             </Paragraph3>
-            <Button2 onClick={(e) => Button2Function(e, "Button2")}>
+            {/* <Button2 onClick={(e) => Button2Function(e, "Button2")}>
               <Text15>Buy Tokens -25% off</Text15>
               <ImageNext alt="shopping cart icon" src={SHOPPINGCART_SVG} />
-            </Button2>
+            </Button2> */}
           </Texts1>
         </Element41>
         <Bg>
+          <ImageNext
+            alt="logo"
+            height={"250px"}
+            width={"400px"}
+            src={LOGO_TOKEN_SVG}
+          />
           {/* <ParentCircle>
             <Circle />
             <Circle />
@@ -149,7 +155,7 @@ const Home = ({ recentArticle, roadMap, global }) => {
             <Circle />
             <Circle />
           </ParentCircle> */}
-          <Text16>Token sale ends in</Text16>
+          {/* <Text16>Token sale ends in</Text16>
           <WhiteFlexColumn>
             <Element11>
               {[
@@ -235,7 +241,7 @@ const Home = ({ recentArticle, roadMap, global }) => {
               </SoftcapInDays1>
               <SoftcapInDays1 textAlign={"right"}>Hardcap</SoftcapInDays1>
             </Buttom>
-          </Cap>
+          </Cap> */}
         </Bg>
       </SpecialOffer>
       <CustomSubtract>
@@ -598,6 +604,7 @@ const Bg = styled.div`
   width: 100%;
   position: relative;
   background: var(--primary-background);
+  height: 350px;
 `;
 const Text16 = styled.p`
   text-align: center;

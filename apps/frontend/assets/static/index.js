@@ -1,4 +1,6 @@
 export { default as BTCICON_SVG } from "../../public/assets/icon/BtcIcon.svg";
+export { default as BTCICON_AKILA_SVG } from "../../public/assets/icon/BitcoinAkila.svg";
+export { default as LOGO_TOKEN_SVG } from "../../public/assets/icon/LogoWithToken.svg";
 export { default as DESIGN_SVG } from "../../public/assets/icon/Design.svg";
 export { default as DETAILS_SVG } from "../../public/assets/icon/Details.svg";
 export { default as GROUP_179_SVG } from "../../public/assets/icon/Group 179.svg";

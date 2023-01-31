@@ -6,6 +6,7 @@ import Image from "next/image";
 import { FILELINE_SVG } from "../../assets/static";
 import { getMedia } from "../../lib/media";
 export default function Whitepaper({ link }) {
+  console.log("🚀 ~ file: Whitepaper.js ~ line 9 ~ Whitepaper ~ link", link);
   const href = getMedia(link);
   return (
     <Subtract7>

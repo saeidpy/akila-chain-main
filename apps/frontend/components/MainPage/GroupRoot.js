@@ -119,9 +119,7 @@ const Text6 = styled.div`
   text-transform: uppercase;
 `;
 const Paragraph2 = styled.div`
-  width: 337px;
   font-size: 18px;
-  text-transform: capitalize;
   font-weight: 400;
   line-height: 28px;
 `;

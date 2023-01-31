@@ -50,7 +50,7 @@ const Projects = ({ projects, global }) => {
           </Boxes>
         </Documents>
       </BodyRoot>
-      <Whitepaper like={global?.attributes?.WhitePaper} />
+      <Whitepaper link={global?.attributes?.whitePaper} />
     </Root>
   );
 };

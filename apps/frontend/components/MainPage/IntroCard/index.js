@@ -14,14 +14,14 @@ const buttons = ["Buy", "Earn", "Exchange", "Borrow", "AkilaCard"];
 const steps = {
   Buy: {
     label: "PERFECT TO",
-    title: "Buy Crypto with Credit or Debit Card instantly.",
+    title: "Buy Crypto with Credit or Debit Card instantly",
     desc: "A fast and simple way to buy and sell crypto. More than 300+  digital assets. Can be purchased with excellent market prices. Get up to 0.6% back.",
     button: "Buy Now",
     rightElement: <Buy />,
   },
   Earn: {
     label: "PERFECT TO",
-    title: "Grow Your Passive Income",
+    title: "Earn Interest on Crypto",
     desc: "Invest in crypto and let your passive income to grow. AkilaBanq offers the perfect way to earn interest on your crypto portfolio. Maximize your earnings while keeping your money secure. You can start benefitting from high returns immediately. Withdrawing your money is a breeze.",
     button: "Start Earning",
     rightElement: <Earn />,
