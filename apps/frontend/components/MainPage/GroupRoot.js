@@ -31,7 +31,7 @@ export const GroupRoot = ({}) => {
           STEP={{
             label: "One platform for all your needs",
             title:
-              "Create your AkilaBanq account to buy, store, trade and earn interest.",
+              "Create your AkilaBanq account to buy, store, trade and earn interest",
             desc: (
               <>
                 - Free multi-currency wallet
