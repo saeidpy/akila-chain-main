@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React, { useRef } from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+import Image from "next/image";
 import { useSnackbar } from "react-simple-snackbar";
 import styled from "styled-components";
 import { FacebookLine } from "../../assets/js/FacebookLine";
@@ -12,7 +12,8 @@ import { Button } from "../../components/Common/Button";
 import Input from "../../components/Common/Input";
 import Header from "../../components/Header";
 import Seo from "../../components/Seo";
-import { fetchAPI } from "../../lib/api";
+import { fetchAPI, postAPI } from "../../lib/api";
+import { MAIL_SVG, PHONELINE_SVG } from "../../assets/static";
 
 export async function getServerSideProps() {
   // Fetch global site settings from Strapi
@@ -29,21 +30,16 @@ const Contact = ({ global }) => {
   const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(ref.current);
-    const result = [];
-    for (const [name, value] of formData) {
-      result[name] = value;
-    }
-    await fetch(process.env.NEXT_PUBLIC_API_URL_CLIENT + "/contact-uses", {
+    const result = [...formData.entries()].reduce((init, [name, value]) => {
+      return { ...init, [name]: value };
+    }, {});
+
+    await postAPI("/contact-uses", {
       body: JSON.stringify({ data: result }),
-      method: "POST",
     })
-      .then((res) => {
-        if (res?.error?.message) {
-          openSnackbar(res?.error?.message);
-        } else {
-          openSnackbar("Success");
-          ref.current.reset();
-        }
+      .then(() => {
+        openSnackbar("Success");
+        ref.current.reset();
       })
       .catch((error) => {
         openSnackbar(new Error(error).message);
@@ -61,10 +57,7 @@ const Contact = ({ global }) => {
         <Content gap={"33px"}>
           <Boxes gap={"16px"}>
             <Element7>
-              <Riphoneline
-                alt="phone icon"
-                src={"/assets/icon/phoneLine.svg"}
-              />
+              <Image alt="phone icon" src={PHONELINE_SVG} />
               <Text1>
                 <Text3>Phone Number</Text3>
                 <Text4 margin={"0px 0px 4px 0px"}>
@@ -73,7 +66,7 @@ const Contact = ({ global }) => {
               </Text1>
             </Element7>
             <Element7>
-              <Riphoneline alt="mail icon" src={"/assets/icon/mail.svg"} />
+              <Image alt="mail icon" src={MAIL_SVG} />
               <Text1>
                 <Text3>Email Address</Text3>
                 <Text4 margin={"0px 0px 4px 0px"}>
@@ -139,7 +132,7 @@ const Contact = ({ global }) => {
           <ContentInput gap={"20px"}>
             <ContentInput gap={"8px"}>
               <Text9>Your name</Text9>
-              <WhiteRectangle height={"48px"} />
+              <WhiteRectangle name="name" height={"48px"} />
             </ContentInput>
             <ContentInput gap={"8px"}>
               <Text9>Your Email</Text9>
@@ -156,17 +149,18 @@ const Contact = ({ global }) => {
             </ContentInput>
             <ContentInput gap={"8px"}>
               <Text9>Your Message</Text9>
-              <WhiteRectangle
+              <WhiteRectangleTextarea
                 name="message"
                 type="textarea"
                 height={"86.4px"}
+                rows="4"
+                cols="50"
               />
             </ContentInput>
             <Text13 type="submit">Send Message</Text13>
           </ContentInput>
         </Message>
       </ContactRoot>
-      {/* <Whitepaper /> */}
     </Root>
   );
 };
@@ -298,10 +292,6 @@ const Boxes1 = styled.div`
   flex-wrap: wrap;
   padding-left: 16px;
 `;
-const Riphoneline = styled(LazyLoadImage)`
-  width: 30px;
-  height: 30px;
-`;
 const Text1 = styled.div`
   height: 84px;
   display: flex;
@@ -337,6 +327,17 @@ const WhiteRectangle = styled(Input)`
   border-radius: 5px;
   height: ${(props) => props.height};
   padding: 8px;
+  box-sizing: border-box;
+`;
+const WhiteRectangleTextarea = styled.textarea`
+  box-shadow: var(--box-shadow);
+  width: 100%;
+  background-color: var(--primary-background);
+  border-radius: 5px;
+  resize: none;
+  height: ${(props) => props.height};
+  padding: 8px;
+  border: none;
   box-sizing: border-box;
 `;
 const Title13 = styled.div`

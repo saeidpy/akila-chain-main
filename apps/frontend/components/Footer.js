@@ -1,19 +1,20 @@
 import styled from "styled-components";
 import React from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+import Image from "next/image";
 import Link from "next/link";
 import { MailLine } from "../assets/js/MailLine";
 import { TwitterLine } from "../assets/js/TwitterLine";
 import { SkypeLine } from "../assets/js/SkypeLine";
 import { InstagramLine } from "../assets/js/InstagramLine";
 import { FacebookLine } from "../assets/js/FacebookLine";
+import { LARGELOGO_SVG } from "../assets/static";
 
 export default function Footer({ global }) {
   return (
     <FooterElement>
       <Nav>
         <About>
-          <Logo alt="akila chain logo" src={`/assets/icon/largeLogo.svg`} />
+          <Image alt="akila chain logo" src={LARGELOGO_SVG} />
           <Paragraph24>
             AkilaCain is a Decentralized Public Blockchain Leveraging The
             Security of Bitcoin UTXO While Enabling Cognizant Protocol to
@@ -26,65 +27,61 @@ export default function Footer({ global }) {
               <BgItem />
               <Text70>Menu</Text70>
             </Title13>
-            <AboutUsBlogLegalHelp>
-              <Link href="/about">About Us</Link>
-              <br />
-              <Link href="/blog">Blog</Link>
-              <br />
-              <Link href="/contact">Contact us</Link>
-              <br />
-              <Link href="/developer">Developer</Link>
-            </AboutUsBlogLegalHelp>
+            <Element3>
+              <AboutUsBlogLegalHelp>
+                <Link href="/">Home</Link>
+                <br />
+                <Link href="/chain">AkilaChain</Link>
+                <br />
+                <Link href="/blog">Blog</Link>
+                <br />
+                <Link href="/contact">Contact us</Link>
+                <br />
+                <Link href="/about">About Us</Link>
+              </AboutUsBlogLegalHelp>
+            </Element3>
           </Element34>
           <Element34>
             <Title14>
               <BgItem />
-              <Text70>Partners</Text70>
+              <Text70>Ecosystem & Projects</Text70>
             </Title14>
-            <AboutUsBlogLegalHelp>
-              OTC Trading
-              <br />
-              Add Token
-              <br />
-              Market Makers
-              <br />
-              Work With Us
-            </AboutUsBlogLegalHelp>
-          </Element34>
-          <Element34>
-            <Title15>
-              <BgItem />
-              <Text70>users</Text70>
-            </Title15>
-            <AboutUsBlogLegalHelp>
-              Support
-              <br />
-              Verification
-              <br />
-              Fees and Limits
-              <br />
-              Bug Report
-            </AboutUsBlogLegalHelp>
-          </Element34>
-          <Element34>
-            <Title16>
-              <BgItem />
-              <Text70>utility</Text70>
-            </Title16>
-            <AboutUsBlogLegalHelp>
-              API
-              <br />
-              FIX
-              <br />
-              Price Widget
-              <br />
-              System Monitor
-            </AboutUsBlogLegalHelp>
+            <Element3>
+              <AboutUsBlogLegalHelp>
+                <Link href={"/"}>Crypto Exchange</Link>
+                <br />
+                <Link href={"/"}>Fiat Currency Wallet</Link>
+                <br />
+                <Link href={"/"}>IBAN accounts</Link>
+                <br />
+                <Link href={"/"}>Akila Card</Link>
+                <br />
+                <Link href={"/"}>Investment</Link>
+              </AboutUsBlogLegalHelp>
+              <AboutUsBlogLegalHelp>
+                <Link href={"/"}>Trading</Link>
+                <br />
+                <Link href={"/"}>Lending & Borrowing</Link>
+                <br />
+                <Link href={"/"}>Hotel Booking</Link>
+                <br />
+                <Link href={"/"}>Flight Ticket</Link>
+                <br />
+                <Link href={"/"}>Mobile Top-Up</Link>
+              </AboutUsBlogLegalHelp>
+              <AboutUsBlogLegalHelp>
+                <Link href={"/"}>Bill Payment</Link>
+                <br />
+                <Link href={"/"}>Metaverse</Link>
+                <br />
+                <Link href={"/"}>Messenger</Link>
+              </AboutUsBlogLegalHelp>
+            </Element3>
           </Element34>
         </Element1>
       </Nav>
       <Copyright>
-        <Text75>COPYRIGHT ©2021 AKILA CHAIN</Text75>
+        <Text75>{global?.attributes?.copyright}</Text75>
         <Element2>
           {[
             {
@@ -159,17 +156,7 @@ const Title13 = styled.div`
   position: relative;
 `;
 const Title14 = styled.div`
-  width: 84px;
-  height: 27px;
-  position: relative;
-`;
-const Title15 = styled.div`
-  width: 61px;
-  height: 27px;
-  position: relative;
-`;
-const Title16 = styled.div`
-  width: 66px;
+  width: 100%;
   height: 27px;
   position: relative;
 `;
@@ -181,7 +168,7 @@ const Copyright = styled.div`
   justify-content: space-between;
   align-items: start;
   padding: var(--x3);
-  width: 90%;
+  width: 100%;
   flex-wrap: wrap;
   gap: var(--x4);
   @media (max-width: 690px) {
@@ -196,23 +183,33 @@ const Text75 = styled.p`
   color: var(--text-primary);
 `;
 
-const Logo = styled(LazyLoadImage)``;
 const Nav = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: var(--x4);
-  @media (max-width: 690px) {
+  @media (max-width: 870px) {
     flex-direction: column;
   }
 `;
 const Element1 = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: start;
   align-items: start;
   flex: 3;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: var(--x4);
+`;
+const Element3 = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: start;
+  flex: 3;
+  padding: 0px 24px;
   flex-wrap: wrap;
   width: 100%;
   gap: var(--x4);
@@ -264,5 +261,5 @@ const AboutUsBlogLegalHelp = styled.p`
   font-weight: 400;
   line-height: 33.88px;
   color: var(--text-secondary);
-  align-self: flex-end;
+  align-self: start;
 `;

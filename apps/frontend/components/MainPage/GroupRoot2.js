@@ -1,7 +1,13 @@
 import React from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import styled from "styled-components";
 import Divider from "../Common/Divider";
+import Image from "next/image";
+import {
+  GROUP_198_SVG,
+  GROUP_199_SVG,
+  GROUP_200_SVG,
+  GROUP_201_SVG,
+} from "../../assets/static";
 
 const list = [
   {
@@ -11,17 +17,17 @@ const list = [
         Processed in <br /> 5+ years
       </>
     ),
-    img: "201",
+    img: GROUP_201_SVG,
     divider: true,
   },
   {
     name: "5M+",
     desc: (
       <>
-        Yonachain users <br /> worldwide
+        Akilachain users <br /> worldwide
       </>
     ),
-    img: "200",
+    img: GROUP_200_SVG,
     divider: true,
   },
   {
@@ -31,7 +37,7 @@ const list = [
         Supported <br /> cryptocurrencies
       </>
     ),
-    img: "199",
+    img: GROUP_199_SVG,
     divider: true,
   },
   {
@@ -41,7 +47,7 @@ const list = [
         Available <br /> jurisdictions
       </>
     ),
-    img: "198",
+    img: GROUP_198_SVG,
   },
 ];
 
@@ -51,7 +57,7 @@ export const GroupRoot2 = ({}) => {
       {list.map((item) => (
         <>
           <GroupRootRootRootRoot key={item.name}>
-            <Image1 src={`./assets/icon/Group ${item.img}.svg`} />
+            <Image alt={item.name} src={item.img} />
             <FlexColumn>
               <Text1>{item.name}</Text1>
               <ProcessedInYears>{item.desc}</ProcessedInYears>
@@ -89,10 +95,6 @@ const GroupRootRootRootRoot = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-`;
-const Image1 = styled(LazyLoadImage)`
-  width: 78px;
-  height: 78px;
 `;
 const FlexColumn = styled.div`
   gap: 5px;

@@ -7,7 +7,7 @@ import Divider from "../../../components/Common/Divider";
 import Header from "../../../components/Header";
 import Image from "../../../components/Image";
 import Seo from "../../../components/Seo";
-import Whitepaper from "../../../components/Whitepaper";
+import Whitepaper from "../../../components/Common/Whitepaper";
 import { fetchAPI } from "../../../lib/api";
 export async function getServerSideProps({ params }) {
   const articlesRes = await fetchAPI("/articles", {
@@ -36,7 +36,7 @@ export async function getServerSideProps({ params }) {
     props: { article: articlesRes?.data?.[0] ?? {}, recentArticle },
   };
 }
-const BlogDetails = ({ article, recentArticle }) => {
+const BlogDetails = ({ article, recentArticle, global }) => {
   const { push } = useRouter();
 
   const handleBlogClick = (article) => {
@@ -56,11 +56,12 @@ const BlogDetails = ({ article, recentArticle }) => {
         title="News"
         des="Here you can get the latest news"
         leftElement={
-          <Text9>
-            <Text09>Latest</Text09>
-            <Text10>Announcement</Text10>
-            <Text10>Information</Text10>
-          </Text9>
+          <></>
+          // <Text9>
+          //   <Text09>Latest</Text09>
+          //   <Text10>Announcement</Text10>
+          //   <Text10>Information</Text10>
+          // </Text9>
         }
       />
       <BigPost>
@@ -118,7 +119,7 @@ const BlogDetails = ({ article, recentArticle }) => {
           </Content>
         </Content>
       </BigPost>
-      <Whitepaper />
+      <Whitepaper link={global?.attributes?.whitePaper} />
     </BlogRoot>
   );
 };

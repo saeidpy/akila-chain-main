@@ -1,8 +1,10 @@
+import Image from "next/image";
 import React from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import styled from "styled-components";
+import { LEFTARROW2_SVG } from "../../../assets/static";
 import { Button } from "../../Common/Button";
 import CardTitle1 from "../../Common/CardTitle1";
+import LearnMoreButton from "../../Common/LearnMoreButton";
 
 export const TitleSection = ({ STEP, withActionButton, additionalElement }) => {
   return (
@@ -13,15 +15,10 @@ export const TitleSection = ({ STEP, withActionButton, additionalElement }) => {
         {withActionButton && (
           <Button2>
             <Text18>{STEP.button}</Text18>
-            <Riarrowrightline src={"/assets/icon/leftArrow2.svg"} />
+            <Image alt="icon" src={LEFTARROW2_SVG} />
           </Button2>
         )}
-        {additionalElement ?? (
-          <Group6>
-            <Text14>Learn More</Text14>
-            <Riarrowrightline2 src={`./assets/icon/arrowButton.svg`} />
-          </Group6>
-        )}
+        {additionalElement ?? <LearnMoreButton />}
       </Group5>
     </Group3>
   );
@@ -60,14 +57,6 @@ const Text18 = styled.div`
   font-family: Plus Jakarta Sans;
   white-space: nowrap;
 `;
-const Group6 = styled.div`
-  gap: 10px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 16px 0px;
-`;
 const Button2 = styled(Button)`
   height: 52px;
   display: flex;
@@ -78,20 +67,4 @@ const Button2 = styled(Button)`
   border-radius: 91px;
   padding: 8px;
   width: 185px;
-`;
-
-const Riarrowrightline = styled(LazyLoadImage)`
-  width: 7px;
-  height: 12px;
-`;
-
-const Riarrowrightline2 = styled(LazyLoadImage)``;
-const Text14 = styled(Button)`
-  text-transform: capitalize;
-  display: contents;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 20px;
-  letter-spacing: 0em;
-  text-align: left;
 `;

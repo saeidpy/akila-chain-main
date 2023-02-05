@@ -1,14 +1,23 @@
 import React from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import styled from "styled-components";
 import { TitleSection } from "./IntroCard/TitleSection";
+import Image from "next/image";
+import {
+  DESIGN_SVG,
+  DETAILS_SVG,
+  GROUP_207_SVG,
+  GROUP_208_SVG,
+  LOGOS_BITCOIN_SVG,
+  LOGOS_ETHEREUM_SVG,
+  MONEY_TRANSFER_SVG,
+} from "../../assets/static";
 
 const FlexBox = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  align-items: center;
+  align-items: stretch;
   gap: 64px;
   @media (max-width: 960px) {
     flex-direction: column;
@@ -30,17 +39,9 @@ const FrameRootEl = styled.div`
   overflow: hidden;
 `;
 const Design = styled.div`
-  width: 171px;
-  height: 270px;
   left: 0px;
   top: 0px;
   position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 48px 121px 7.57px 31px;
-  background-size: cover;
-  background-image: url("./assets/icon/Design.svg");
 `;
 const Group2 = styled.div`
   width: 190px;
@@ -77,7 +78,6 @@ const Group3 = styled.div`
   align-items: flex-start;
   padding: 20.4px 0px;
 `;
-const Image1 = styled(LazyLoadImage)``;
 const Group5 = styled.div`
   flex: 1;
   height: 100%;
@@ -87,60 +87,32 @@ const Group5 = styled.div`
   justify-content: flex-end;
   align-items: flex-start;
 `;
-const Image2 = styled.img`
-  width: 38.6px;
-  height: 38.6px;
-  left: 39px;
-  top: 3px;
-  position: absolute;
-`;
-const Logosethereum = styled.img`
-  width: 37.3px;
-  height: 42.2px;
-  left: 0px;
-  top: 0px;
-  position: absolute;
-`;
-const Logosbitcoin = styled.img`
-  width: 50.7px;
-  height: 50.7px;
-  position: relative;
-`;
-const Details = styled.img`
-  width: 200px;
-  height: 144px;
-  position: relative;
-`;
 const Text3 = styled.p`
   font-size: 14px;
   font-weight: 600;
-  font-family: Sora;
+
   text-transform: capitalize;
 `;
 
 const list = [
   {
-    label: 'THE RIGHT PLACE TO"',
-    title: "Bring your friends and win rewards",
-    desc: "Introduce your friends to the world of digital assets and get unlimited rewards. Receive $25 in crypto rewards with each successful referral.",
-    icon: "Group 207",
+    label: "PERFECT TO",
+    title: "Invite Your Friends and Get Rewards",
+    desc: "Reward yourself and help out your friends! Invite as many friends as you want and get unlimited rewards.",
+    icon: GROUP_207_SVG,
     element: (
       <Group5>
-        <Image2 src={`./assets/icon/flat-color-icons_money-transfer.svg`} />
-        <Logosethereum src={`./assets/icon/logos_bitcoin.svg`} />
-        <Logosbitcoin src={`./assets/icon/logos_ethereum.svg`} />
+        <Image alt="money" src={MONEY_TRANSFER_SVG} />
+        <Image alt="bit-coin" src={LOGOS_BITCOIN_SVG} />
+        <Image alt="eth" src={LOGOS_ETHEREUM_SVG} />
       </Group5>
     ),
   },
   {
-    label: 'THE RIGHT PLACE TO"',
-    title: (
-      <>
-        Grow with Your <br /> Community
-      </>
-    ),
-    desc: "Earn a revenue share by joining Yona`s Affiliate Program. Make money every time an invited user earns interest, swaps, or borrows funds.",
-    icon: "Group 208",
+    label: "PERFECT TO",
+    title: "Build Your Community and Grow With It",
+    desc: "Have your marketing plan and earn a revenue share by joining Akila’s marketing plan. Make money every time an invited user do an investment or stakes coins and earns interest. Stake your Akila coin and get rewards. We believe their success is your biggest reward.",
+    icon: GROUP_208_SVG,
     element: (
       <Text3>
         No Cap <br />
@@ -155,7 +127,9 @@ export const FrameRoot = ({}) => {
     <FlexBox>
       {list.map(({ label, title, desc, icon, element }) => (
         <FrameRootEl key={title}>
-          <Design />
+          <Design>
+            <Image alt="pattern" src={DESIGN_SVG} />
+          </Design>
           <TitleSection
             STEP={{
               label,
@@ -166,11 +140,11 @@ export const FrameRoot = ({}) => {
           <Group2>
             <WhiteFlexRow>
               <Group3>
-                <Image1 src={`./assets/icon/${icon}.svg`} />
+                <Image alt={title} src={icon} />
               </Group3>
               {element}
             </WhiteFlexRow>
-            <Details src={`./assets/icon/Details.svg`} />
+            <Image alt="pattern" src={DETAILS_SVG} />
           </Group2>
         </FrameRootEl>
       ))}

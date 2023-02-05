@@ -1,20 +1,25 @@
 import React from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import styled from "styled-components";
+import Image from "next/image";
+import {
+  LOGOS_BITCOIN_SVG,
+  LOGOS_ETHEREUM_SVG,
+  PH_WALLETFILL_SVG,
+} from "../../../assets/static";
 
 const Borrow = () => {
   return (
     <Group4>
       <WhiteFlexColumn4>
-        <Logosethereum src={`./assets/icon/logos_ethereum.svg`} />
-        <Logosbitcoin src={`./assets/icon/logos_bitcoin.svg`} />
+        <Image alt="eth" src={LOGOS_ETHEREUM_SVG} />
+        <Image alt="bitcoin" src={LOGOS_BITCOIN_SVG} />
         <Group3>
-          <Phwalletfill src={`./assets/icon/ph_wallet-fill.svg`} />
+          <Image alt="wallet" src={PH_WALLETFILL_SVG} />
         </Group3>
       </WhiteFlexColumn4>
       <WhiteFlexColumn5>
         <Text10>
-          You can now borrow form just <Text11>0%</Text11>
+          Borrow at minimum <Text11>0%</Text11>
           <Text12> APR</Text12>
         </Text10>
       </WhiteFlexColumn5>
@@ -49,15 +54,6 @@ const WhiteFlexColumn4 = styled.div`
   background-color: var(--primary-background);
   box-shadow: var(--box-shadow);
 `;
-const Logosethereum = styled(LazyLoadImage)`
-  left: 10px;
-  top: 35px;
-  position: absolute;
-`;
-const Logosbitcoin = styled(LazyLoadImage)`
-  position: relative;
-  align-self: flex-end;
-`;
 const Group3 = styled.div`
   width: 61px;
   height: 69px;
@@ -67,11 +63,6 @@ const Group3 = styled.div`
   justify-content: flex-end;
   align-items: flex-start;
   padding: 0px 13.8px 0px 1px;
-`;
-const Phwalletfill = styled(LazyLoadImage)`
-  left: 0px;
-  top: 0px;
-  position: absolute;
 `;
 const WhiteFlexColumn5 = styled.div`
   display: flex;
@@ -85,9 +76,8 @@ const WhiteFlexColumn5 = styled.div`
 `;
 const Text10 = styled.div`
   width: 194px;
-  height: 50px;
   font-size: 14px;
-  font-family: Sora;
+
   line-height: 25.41000247001648px;
   text-align: center;
   text-transform: capitalize;
@@ -96,14 +86,14 @@ const Text11 = styled.div`
   display: contents;
   font-size: 14px;
   font-weight: 700;
-  font-family: Sora;
+
   line-height: 25.41000247001648px;
   text-transform: capitalize;
 `;
 const Text12 = styled.div`
   display: contents;
   font-size: 14px;
-  font-family: Sora;
+
   line-height: 25.41000247001648px;
   text-transform: capitalize;
 `;

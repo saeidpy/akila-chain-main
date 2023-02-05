@@ -5,7 +5,7 @@ import { Button } from "../../components/Common/Button";
 import Header from "../../components/Header";
 import Image from "../../components/Image";
 import Seo from "../../components/Seo";
-import Whitepaper from "../../components/Whitepaper";
+import Whitepaper from "../../components/Common/Whitepaper";
 import { fetchAPI } from "../../lib/api";
 export async function getServerSideProps() {
   const projects = await fetchAPI("/projects", { populate: "*" });
@@ -16,7 +16,7 @@ const seo = {
   meta_title: "Projects",
   og_type: "Projects",
 };
-const Projects = ({ projects }) => {
+const Projects = ({ projects, global }) => {
   return (
     <Root>
       <Seo seo={seo} />
@@ -50,7 +50,7 @@ const Projects = ({ projects }) => {
           </Boxes>
         </Documents>
       </BodyRoot>
-      <Whitepaper />
+      <Whitepaper link={global?.attributes?.whitePaper} />
     </Root>
   );
 };

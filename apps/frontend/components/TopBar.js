@@ -6,41 +6,38 @@ import Link from "next/link";
 import React from "react";
 import Burger from "./Common/Burger";
 import Menu from "./Common/Menu";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+import Image from "next/image";
 import { v4 } from "uuid";
 import { useRouter } from "next/router";
+import { LOGO_FULL_SVG } from "../assets/static";
+import MenuSelect from "./Common/MenuSelect";
 const MenuList = [
   {
     childText: "Home",
     link: "/",
   },
   {
-    childText: "Developer",
-    link: "/developer",
-  },
-  {
-    childText: "Products",
-    link: "/products",
-  },
-  {
-    childText: "Projects",
-    link: "/projects",
-  },
-  {
-    childText: "",
-    link: "",
-  },
-  {
-    childText: "",
-    link: "",
-  },
-  {
-    childText: "",
-    link: "",
-  },
-  {
-    childText: "Chain",
+    childText: "AkilaChain",
     link: "/chain",
+  },
+  {
+    childText: "Ecosystem & Projects",
+    menu: true,
+    children: [
+      "Crypto Exchange ",
+      "Fiat Currency Wallet ",
+      "IBAN account ",
+      "Akila Card ",
+      "Investment ",
+      "Trading ",
+      "Lending and Borrowing ",
+      "Hotel Booking ",
+      "Flight Ticket ",
+      "Mobile Top-Up ",
+      "Bill Payment ",
+      "Metaverse ",
+      "Messenger",
+    ],
   },
   {
     childText: "Blog",
@@ -59,6 +56,11 @@ const MenuList = [
 export default function TopBar() {
   const [open, setOpen] = useState(false);
   const { pathname } = useRouter();
+  const ref = useRef();
+
+  const onOpen = () => {
+    ref.current?.openMenu?.();
+  };
 
   const node = useRef();
   const menuId = "main-menu";
@@ -88,28 +90,40 @@ export default function TopBar() {
         setOpen={setOpen}
         id={menuId}
       />
-      <Element1>
-        {MenuList.slice(0, 4).map((data) => (
-          <Link href={data.link} key={data} passHref={!!data.link}>
-            <Text2 selected={data.link === pathname} key={v4()}>
-              {data.childText}
-            </Text2>
-          </Link>
-        ))}
-      </Element1>
-      <Link href="/" passHref>
-        <LazyLoadImage alt="akila chain logo" src={`/assets/icon/Logo.svg`} />
-        {/* <Logo image={props?.global?.attributes?.favicon} /> */}
-      </Link>
-      <Element1>
-        {MenuList.slice(4).map((data) => (
-          <Link href={data.link} key={data} passHref={!!data.link}>
-            <Text2 selected={data.link === pathname} key={v4()}>
-              {data.childText}
-            </Text2>
-          </Link>
-        ))}
-      </Element1>
+      <Element>
+        <Link href="/" passHref>
+          <Image alt="akila chain logo" src={LOGO_FULL_SVG} />
+          {/* <Logo image={props?.global?.attributes?.favicon} /> */}
+        </Link>
+        <Element1>
+          {MenuList.map((data) => {
+            if (data.menu) {
+              return (
+                <MenuSelect
+                  instanceRef={ref}
+                  menuButton={
+                    <Text2
+                      onMouseOver={onOpen}
+                      selected={data.link === pathname}
+                      key={v4()}
+                    >
+                      {data.childText}
+                    </Text2>
+                  }
+                  items={data.children}
+                />
+              );
+            } else
+              return (
+                <Link href={data.link} key={data} passHref={!!data.link}>
+                  <Text2 selected={data.link === pathname} key={v4()}>
+                    {data.childText}
+                  </Text2>
+                </Link>
+              );
+          })}
+        </Element1>
+      </Element>
     </TopBarElement>
   );
 }
@@ -129,12 +143,19 @@ const Element1 = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  align-items: start;
+  align-items: center;
   gap: var(--x4);
   padding: 9px 0px;
   @media (max-width: 1024px) {
     display: none;
   }
+`;
+const Element = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 64px;
 `;
 const Text2 = styled.a`
   font-size: 16px;

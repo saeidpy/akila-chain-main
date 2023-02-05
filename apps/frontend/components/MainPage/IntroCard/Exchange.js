@@ -1,33 +1,39 @@
 import React from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import styled from "styled-components";
+import Image from "next/image";
+import {
+  GROUP_196_SVG,
+  LEFTARROW2_SVG,
+  LOGOS_BITCOIN2_SVG,
+  LOGOS_USD_SVG,
+} from "../../../assets/static";
 
 const Exchange = () => {
   return (
     <Group8>
       <WhiteFlexColumn4>
-        <Image1 src={`./assets/icon/Group 196.svg`} />
+        <Image alt="icon" src={GROUP_196_SVG} />
       </WhiteFlexColumn4>
       <WhiteFlexRow1>
         <Group2>
           <Text10>Pay With</Text10>
           <Group4>
-            <Logosbitcoin1 src={`./assets/icon/logos_usd.svg`} />
+            <Image alt="usd" src={LOGOS_USD_SVG} />
             <Text11>USD</Text11>
           </Group4>
         </Group2>
-        <Image2 src={`./assets/icon/leftArrow2.svg`} />
+        <Image alt="icon" src={LEFTARROW2_SVG} />
         <Group2>
           <Text10>Receive</Text10>
           <Group4>
-            <Logosbitcoin1 src={`./assets/icon/logos_bitcoin(2).svg`} />
+            <Image alt="bitcoin" src={LOGOS_BITCOIN2_SVG} />
             <Text11>BTC</Text11>
           </Group4>
         </Group2>
       </WhiteFlexRow1>
       <WhiteFlexColumn5>
         <ExchangeFees1>
-          0%<ExchangeFees> Exchange Fees</ExchangeFees>
+          0%<ExchangeFees> Lowest Exchange Fees</ExchangeFees>
         </ExchangeFees1>
       </WhiteFlexColumn5>
     </Group8>
@@ -42,10 +48,6 @@ const Group4 = styled.div`
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
-`;
-const Logosbitcoin1 = styled(LazyLoadImage)`
-  width: 26px;
-  height: 26px;
 `;
 
 const Group8 = styled.div`
@@ -64,10 +66,6 @@ const WhiteFlexColumn4 = styled.div`
   border-radius: 13px;
   background-color: var(--primary-background);
   box-shadow: var(--box-shadow);
-`;
-const Image1 = styled(LazyLoadImage)`
-  width: 34px;
-  height: 34px;
 `;
 const WhiteFlexRow1 = styled.div`
   display: flex;
@@ -108,39 +106,34 @@ const Text11 = styled.div`
   white-space: nowrap;
   text-transform: capitalize;
 `;
-const Image2 = styled(LazyLoadImage)`
-  width: 13.5px;
-  height: 25px;
-  color: red;
-`;
 const WhiteFlexColumn5 = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-self: flex-start;
   align-items: flex-start;
-  padding: 21px 23px 21px 24px;
+  padding: 16px;
   border-radius: 13px;
   background-color: var(--primary-background);
   box-shadow: var(--box-shadow);
 `;
 const ExchangeFees1 = styled.div`
   width: 253px;
-  height: 43px;
+  height: 24px;
   color: var(--text-secondary-color);
-  font-size: 27px;
+  font-size: 16px;
   font-weight: 600;
-  font-family: Sora;
-  line-height: 43.33500373363495px;
+  line-height: 24px;
   white-space: nowrap;
   text-transform: capitalize;
+  text-align: center;
 `;
 const ExchangeFees = styled.div`
   display: contents;
   color: #000000;
-  font-size: 27px;
+  font-size: 16px;
   font-weight: 600;
-  font-family: Sora;
-  line-height: 43.33500373363495px;
+
+  line-height: 24px;
   text-transform: capitalize;
 `;

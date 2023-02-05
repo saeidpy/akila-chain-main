@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+import ImageNext from "next/image";
 import styled from "styled-components";
 import Browser from "../../assets/js/Browser";
 import Desktop from "../../assets/js/Desktop";
@@ -10,6 +10,14 @@ import Image from "../../components/Image";
 import Seo from "../../components/Seo";
 import { fetchAPI } from "../../lib/api";
 import { getMedia } from "../../lib/media";
+import {
+  ANDROID_SVG,
+  APPLE_SVG,
+  BROWSERICON_SVG,
+  CHIP_SVG,
+  LINUX_SVG,
+  WINDOWS_SVG,
+} from "../../assets/static";
 
 export async function getServerSideProps() {
   // Fetch global site settings from Strapi
@@ -40,17 +48,17 @@ const Products = ({ global }) => {
   const getIcon = (key) => {
     switch (key) {
       case "mac":
-        return "/assets/icon/apple.svg";
+        return APPLE_SVG;
       case "windows":
-        return "/assets/icon/windows.svg";
+        return WINDOWS_SVG;
       case "linux":
-        return "/assets/icon/linux.svg";
+        return LINUX_SVG;
       case "apple":
-        return "/assets/icon/apple.svg";
+        return APPLE_SVG;
       case "android":
-        return "/assets/icon/android.svg";
+        return ANDROID_SVG;
       case "web":
-        return "/assets/icon/browserIcon.svg";
+        return BROWSERICON_SVG;
       default:
         break;
     }
@@ -146,7 +154,7 @@ const Products = ({ global }) => {
           </Title13>
           <Title2 gap={"396px"}>
             <Title7>
-              <Chip alt="chip icon" src={"/assets/icon/chip.svg"} />
+              <ImageNext alt="chip icon" src={CHIP_SVG} />
               <Element20>
                 <Text14>Main Core</Text14>
                 <Element7>{`${products?.[select]?.version ?? ""} ${
@@ -159,7 +167,7 @@ const Products = ({ global }) => {
                 <Cont target={"_blank"} key={link} href={link.link}>
                   <Element8 padding={"11px 42px"}>
                     <Text15>{link.name}</Text15>
-                    <Bxbxlapple alt="apple icon" src={getIcon(link.name)} />
+                    <ImageNext alt="apple icon" src={getIcon(link.name)} />
                   </Element8>
                 </Cont>
               ))}
@@ -167,8 +175,6 @@ const Products = ({ global }) => {
           </Title2>
         </Documents>
       </Body>
-
-      {/* <Whitepaper /> */}
     </Root>
   );
 };
@@ -321,11 +327,6 @@ const Title7 = styled.div`
   justify-content: center;
   align-items: flex-end;
 `;
-const Chip = styled(LazyLoadImage)`
-  width: 47px;
-  height: 47px;
-  margin: 0px 0px 4px 0px;
-`;
 const Element20 = styled.div`
   align-self: stretch;
   width: 146px;
@@ -364,8 +365,4 @@ const Text15 = styled.p`
   line-height: 24.15px;
   text-transform: capitalize;
   color: var(--text-primary);
-`;
-const Bxbxlapple = styled(LazyLoadImage)`
-  width: 24px;
-  height: 24px;
 `;

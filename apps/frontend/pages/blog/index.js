@@ -1,9 +1,10 @@
 import { useRouter } from "next/router";
+import ImageNext from "next/image";
 import React, { useState } from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import Moment from "react-moment";
 import ReactPaginate from "react-paginate";
 import styled from "styled-components";
+import { LEFTARROW2_SVG, RIGHTARROW2_SVG } from "../../assets/static";
 import Divider from "../../components/Common/Divider";
 import Header from "../../components/Header";
 import Image from "../../components/Image";
@@ -50,17 +51,18 @@ const Blog = ({ articles }) => {
         title="News"
         des="Here you can get the latest news"
         leftElement={
-          <Text9>
-            <Text09 select={select === 0} onClick={() => setSelect(0)}>
-              Latest
-            </Text09>
-            <Text09 select={select === 1} onClick={() => setSelect(1)}>
-              Announcement
-            </Text09>
-            <Text09 select={select === 2} onClick={() => setSelect(2)}>
-              Information
-            </Text09>
-          </Text9>
+          <></>
+          // <Text9>
+          //   <Text09 select={select === 0} onClick={() => setSelect(0)}>
+          //     Latest
+          //   </Text09>
+          //   <Text09 select={select === 1} onClick={() => setSelect(1)}>
+          //     Announcement
+          //   </Text09>
+          //   <Text09 select={select === 2} onClick={() => setSelect(2)}>
+          //     Information
+          //   </Text09>
+          // </Text9>
         }
       />
       {isFirstPage && (
@@ -130,19 +132,12 @@ const Blog = ({ articles }) => {
       <Pagnation>
         <CustomReactPaginate
           breakLabel="..."
-          nextLabel={
-            <RightArrow1 alt="left arrow" src={"/assets/icon/leftArrow2.svg"} />
-          }
+          nextLabel={<ImageNext alt="left arrow" src={LEFTARROW2_SVG} />}
           onPageChange={handlePageClick}
           pageRangeDisplayed={5}
           pageCount={metaData?.pagination?.pageCount}
           forcePage={metaData?.pagination?.page - 1}
-          previousLabel={
-            <RightArrow
-              alt="right arrow"
-              src={"/assets/icon/rightArrow2.svg"}
-            />
-          }
+          previousLabel={<ImageNext alt="right arrow" src={RIGHTARROW2_SVG} />}
         />
       </Pagnation>
     </BlogRoot>
@@ -287,14 +282,6 @@ const Pagnation = styled.div`
   gap: 32px;
   flex-wrap: wrap;
   position: relative;
-`;
-const RightArrow = styled(LazyLoadImage)`
-  width: 7px;
-  height: 12px;
-`;
-const RightArrow1 = styled(LazyLoadImage)`
-  width: 6.97px;
-  height: 12.2px;
 `;
 const Title = styled.div`
   display: flex;

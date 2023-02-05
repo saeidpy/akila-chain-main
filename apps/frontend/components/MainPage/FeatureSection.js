@@ -1,128 +1,150 @@
 import React from "react";
 import styled from "styled-components";
+import {
+  IMAGE10_SVG,
+  IMAGE11_SVG,
+  IMAGE12_SVG,
+  IMAGE13_SVG,
+  IMAGE14_SVG,
+  IMAGE2_SVG,
+  IMAGE3_SVG,
+  IMAGE4_SVG,
+  IMAGE5_SVG,
+  IMAGE6_SVG,
+  IMAGE7_SVG,
+  IMAGE8_SVG,
+  IMAGE9_SVG,
+  LARGELOGO_SVG,
+} from "../../assets/static";
 import { ContentGroup } from "../Common/ContentGroup";
 import { GroupRoot3 } from "./GroupRoot3";
 
-const list = [
-  {
+const list = {
+  akilaChain: {
     title: "Akila Blockchain ",
     label: "(Akila Chain)",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-    icon: "largeLogo",
+    icon: LARGELOGO_SVG,
     withSubtract: true,
   },
-  {
+  cryptoExchange: {
     title: "Decentralized ",
     label: "Crypto Exchange",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-    icon: "image2",
+    icon: IMAGE2_SVG,
     withSubtract: false,
   },
-  {
+  wallet: {
     title: "Fiat Currency ",
     label: "Wallet",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-    icon: "image3",
+    icon: IMAGE3_SVG,
     withSubtract: true,
   },
-  {
+  iban: {
     title: "International Bank Account Number ",
     label: "(IBAN)",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-    icon: "image4",
+    icon: IMAGE4_SVG,
     withSubtract: false,
   },
-  {
+  akilaCard: {
     title: "AkilaCard ",
     label: "(Visa or MasterCard)",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-    icon: "image5",
+    icon: IMAGE5_SVG,
     withSubtract: true,
   },
-  {
+  assetManagment: {
     title: "Investment and ",
     label: "Asset Management ",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-    icon: "image6",
+    icon: IMAGE6_SVG,
     withSubtract: false,
   },
-  {
+  etfs: {
     title: "Trade tokenized stocks, ",
     label: "ETFs",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-    icon: "image7",
+    icon: IMAGE7_SVG,
     withSubtract: true,
   },
-  {
+  borrowing: {
     title: "Lending & ",
     label: "Borrowing",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-    icon: "image8",
+    icon: IMAGE8_SVG,
     withSubtract: false,
   },
-  {
+  hotelBooking: {
     title: "Hotel ",
     label: "Booking",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-    icon: "image9",
+    icon: IMAGE9_SVG,
     withSubtract: true,
   },
-  {
+  flightTicket: {
     title: "Flight ",
     label: "Ticket",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-    icon: "image10",
+    icon: IMAGE10_SVG,
     withSubtract: false,
   },
-  {
+  mobileTopUp: {
     title: "Mobile ",
     label: "Top-up",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-    icon: "image11",
+    icon: IMAGE11_SVG,
     withSubtract: true,
   },
-  {
+  billPayment: {
     title: "Bill ",
     label: "Payment",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-    icon: "image12",
+    icon: IMAGE12_SVG,
     withSubtract: false,
   },
-  {
+  citizenship: {
     title: "Metaverse Decentralized Country and",
     label: "Citizenship",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-    icon: "image13",
+    icon: IMAGE13_SVG,
     withSubtract: true,
   },
-  {
+  messenger: {
     title: "Decentralized",
     label: "Messenger",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-    icon: "image14",
+    icon: IMAGE14_SVG,
     withSubtract: false,
   },
-];
+};
 
-export const FeatureSection = () => {
+export const FeatureSection = ({ featuresRes }) => {
+  const remoteData = featuresRes?.attributes ?? {};
+  const features = Object.entries(list ?? {})
+    .map((item) => {
+      const description = remoteData?.[item[0]] ?? "";
+      if (description) {
+        return {
+          ...item[1],
+          description: description,
+        };
+      }
+      return false;
+    })
+    .filter((item) => item);
   return (
     <Flex>
-      {list.map(({ title, label, icon, desc, withSubtract }) => (
-        <GroupRoot3
-          key={title}
-          content={<ContentGroup title={title} label={label} desc={desc} />}
-          withSubtract={withSubtract}
-          platformProps={{
-            src: `./assets/icon/${icon}.svg`,
-            withPattern: !withSubtract,
-          }}
-        />
-      ))}
+      {features?.map((feature, index) => {
+        const { title, label, icon, description } = feature ?? {};
+        const withSubtract = index % 2 === 0;
+        return (
+          <GroupRoot3
+            key={title}
+            content={
+              <ContentGroup title={title} label={label} desc={description} />
+            }
+            withSubtract={withSubtract}
+            platformProps={{
+              src: icon,
+              withPattern: !withSubtract,
+            }}
+          />
+        );
+      })}
     </Flex>
   );
 };
 
 const Flex = styled.div`
+  width: 100%;
   flex-direction: column;
   display: flex;
   align-item: center;

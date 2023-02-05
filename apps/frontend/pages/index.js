@@ -1,5 +1,4 @@
 import React from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import styled from "styled-components";
 import { FeatureSection } from "../components/MainPage/FeatureSection";
 import { FrameRoot } from "../components/MainPage/FrameRoot";
@@ -7,29 +6,35 @@ import { GroupRoot } from "../components/MainPage/GroupRoot";
 import { GroupRoot2 } from "../components/MainPage/GroupRoot2";
 import IntroCard from "../components/MainPage/IntroCard";
 import Seo from "../components/Seo";
-import "react-lazy-load-image-component/src/effects/blur.css";
-// export async function getServerSideProps() {
-// const articlesRes = await fetchAPI("/articles", {
-//   populate: ["cover", "categories"],
-//   sort: "publishedAt:desc",
-//   pagination: { withCount: true, limit: 3 },
-// });
-// if (!articlesRes?.data?.length) {
-//   return {
-//     notFound: true,
-//   };
-// }
-// return {
-//   props: { recentArticle: articlesRes.data },
-// };
-// }
+import Image from "next/image";
+import { IPHONE_SVG } from "../assets/static";
+import { fetchAPI } from "../lib/api";
+import RoadMap from "../components/Common/RoadMap";
+
+export async function getServerSideProps() {
+  const featuresRes = await fetchAPI("/feature", {
+    populate: "*",
+  });
+  const roadMap = await fetchAPI("/platform-road-maps", {
+    populate: ["*"],
+  });
+
+  return {
+    props: {
+      featuresRes: featuresRes?.data ?? {},
+      roadMap: roadMap?.data ?? [],
+    },
+  };
+}
 
 const seo = {
   meta_title: "Akila",
   meta_description: "One Platform To Power Smart Future",
 };
 
-const Home = () => {
+const Home = ({ featuresRes, roadMap }) => {
+  const roadMapContent = roadMap?.map((item) => item?.["attributes"]);
+
   return (
     <HomeRoot>
       <Seo seo={seo} />
@@ -50,19 +55,20 @@ const Home = () => {
             </Paragraph1>
           </Body>
           <Design>
-            <Icons
-              effect="opacity"
-              alt="Iphone"
-              src={"./assets/icon/iPhone.svg"}
-            />
+            <Image effect="opacity" alt="Iphone" src={IPHONE_SVG} />
           </Design>
         </Element39>
       </Header>
       <IntroCard />
-      <GroupRoot2 />
+      {/* <GroupRoot2 /> */}
       <FrameRoot />
       <GroupRoot />
-      <FeatureSection />
+      {roadMapContent?.length ? (
+        <RoadMap roadMapContent={roadMapContent} />
+      ) : (
+        ""
+      )}
+      <FeatureSection featuresRes={featuresRes} />
 
       {/* <Roadmap>
         <Head6>
@@ -191,9 +197,6 @@ const Design = styled.div`
   @media (max-width: 1124px) {
     display: none;
   }
-`;
-const Icons = styled(LazyLoadImage)`
-  width: 100%;
 `;
 const LogoTextSec = styled.span`
   color: var(--text-secondary-color);

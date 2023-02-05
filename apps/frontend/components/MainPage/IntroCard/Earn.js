@@ -1,20 +1,23 @@
 import React from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import styled from "styled-components";
+import Image from "next/image";
+import {
+  GROUP_197_SVG,
+  LOGOS_BITCOIN2_SVG,
+  PH_PERCENT_SVG,
+} from "../../../assets/static";
 
 const Earn = () => {
   return (
     <Group3>
       <Group7>
         <WhiteFlexColumn7>
-          <Phpercent src={`./assets/icon/ph_percent.svg`} />
+          <Image alt="icon" src={PH_PERCENT_SVG} />
         </WhiteFlexColumn7>
         <WhiteFlexColumn8>
-          <Group9>
-            <Phmoneyfill src={`./assets/icon/Group 197.svg`} />
-          </Group9>
+          <Image alt="%" src={GROUP_197_SVG} />
           <Group10>
-            <Text12>$858.85</Text12>
+            <Text12>$667.23</Text12>
             <Text13>Earned Today</Text13>
           </Group10>
         </WhiteFlexColumn8>
@@ -27,7 +30,7 @@ const Earn = () => {
         <WhiteFlexColumn6>
           <Text10>Crypto Asset</Text10>
           <Group8>
-            <Logosbitcoin src={`./assets/icon/logos_bitcoin(2).svg`} />
+            <Image alt="bitcoin" src={LOGOS_BITCOIN2_SVG} />
             <Text11>Bitcoin</Text11>
           </Group8>
         </WhiteFlexColumn6>
@@ -86,10 +89,6 @@ const Group8 = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
 `;
-const Logosbitcoin = styled(LazyLoadImage)`
-  width: 23.6px;
-  height: 23.6px;
-`;
 const Text11 = styled.div`
   width: 42px;
   height: 19px;
@@ -119,10 +118,6 @@ const WhiteFlexColumn7 = styled.div`
   background-color: var(--primary-background);
   box-shadow: var(--box-shadow);
 `;
-const Phpercent = styled(LazyLoadImage)`
-  width: 40px;
-  height: 40px;
-`;
 const WhiteFlexColumn8 = styled.div`
   gap: 12px;
   display: flex;
@@ -133,23 +128,6 @@ const WhiteFlexColumn8 = styled.div`
   border-radius: 13px;
   background-color: var(--primary-background);
   box-shadow: var(--box-shadow);
-`;
-const Group9 = styled.div`
-  width: 45px;
-  height: 50px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-start;
-  padding: 0px 68px 0px 0px;
-`;
-const Phmoneyfill = styled(LazyLoadImage)`
-  width: 40px;
-  height: 40px;
-  left: 3px;
-  top: 0px;
-  position: absolute;
 `;
 const Group10 = styled.div`
   display: flex;
@@ -162,7 +140,7 @@ const Text12 = styled.div`
   height: 43px;
   font-size: 27px;
   font-weight: 600;
-  font-family: Sora;
+
   line-height: 43.33500373363495px;
   white-space: nowrap;
   text-transform: capitalize;

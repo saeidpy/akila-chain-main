@@ -1,12 +1,13 @@
 import Link from "next/link";
 import React from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+import Image from "next/image";
 import styled from "styled-components";
 import Header from "../../components/Header";
 import Seo from "../../components/Seo";
-import Whitepaper from "../../components/Whitepaper";
+import Whitepaper from "../../components/Common/Whitepaper";
 import { fetchAPI } from "../../lib/api";
 import { groupByCategory } from "../../utils/index";
+import { ARROWLINE_SVG, CODELINE_SVG, FILELINE_SVG } from "../../assets/static";
 
 export async function getServerSideProps() {
   const development = await fetchAPI("/developments");
@@ -14,15 +15,12 @@ export async function getServerSideProps() {
   return { props: { development: development?.data } };
 }
 
-const Developer = ({ development }) => {
+const Developer = ({ development, global }) => {
   const arrayOfGroup = Object.entries(
     groupByCategory(development?.map((item) => item?.attributes) ?? [], "type")
   )?.map((item, index) => ({
     name: "develoepr " + item[0],
-    icon:
-      index % 2 === 0
-        ? "/assets/icon/fileLine.svg"
-        : "/assets/icon/codeLine.svg",
+    icon: index % 2 === 0 ? FILELINE_SVG : CODELINE_SVG,
     data: item[1],
   }));
   const seo = {
@@ -47,16 +45,13 @@ const Developer = ({ development }) => {
               return (
                 <Element5 key={index}>
                   <Title1 gap={"10px"}>
-                    <Rifileline alt="file icon" src={item.icon} />
+                    <Image alt="file icon" src={item.icon} />
                     <Text1>{item?.name}</Text1>
                   </Title1>
                   <Documents gap={"9px"}>
                     {item?.data?.map((title, index) => (
                       <Title1 gap={"7px"} key={index}>
-                        <Uilarrowtoright
-                          alt="arrow icon"
-                          src={"/assets/icon/arrowLine.svg"}
-                        />
+                        <Image alt="arrow icon" src={ARROWLINE_SVG} />
                         <Link
                           href={title.link ?? ""}
                           key={index}
@@ -73,7 +68,7 @@ const Developer = ({ development }) => {
           </Boxes>
         </Documents>
       </BodyRoot>
-      <Whitepaper />
+      <Whitepaper link={global?.attributes?.whitePaper} />
     </Root>
   );
 };
@@ -143,19 +138,11 @@ const Title1 = styled.div`
   align-items: center;
   gap: ${(props) => props.gap};
 `;
-const Rifileline = styled(LazyLoadImage)`
-  width: 30px;
-  height: 30px;
-`;
 const Text1 = styled.p`
   font-size: 16px;
   font-weight: 700;
   text-transform: capitalize;
   color: var(--text-primary);
-`;
-const Uilarrowtoright = styled(LazyLoadImage)`
-  width: 21px;
-  height: 21px;
 `;
 const Text2 = styled.a`
   font-size: 15px;

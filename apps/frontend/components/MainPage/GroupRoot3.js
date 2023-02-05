@@ -1,13 +1,18 @@
 import React from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import styled from "styled-components";
 import { GroupPlatform } from "../Common/GroupPlatform";
 import Subtract from "../Subtract";
+import Image from "next/image";
+import { DETAILS_SVG } from "../../assets/static";
 
 export const GroupRoot3 = ({ content, platformProps, withSubtract }) => {
   return (
     <Subtract1 withSubtract={withSubtract}>
-      {withSubtract && <Details src={`./assets/icon/Details.svg`} />}
+      {withSubtract && (
+        <Details>
+          <Image alt="pattern" src={DETAILS_SVG} />
+        </Details>
+      )}
       <div style={{ flex: 2 }}>{content}</div>
       <CustomGroupPlatform {...platformProps} />
     </Subtract1>
@@ -36,7 +41,7 @@ const Subtract1 = styled(Subtract)`
     flex-direction: column;
   }
 `;
-const Details = styled(LazyLoadImage)`
+const Details = styled.div`
   width: 200px;
   height: 144px;
   top: -10px;

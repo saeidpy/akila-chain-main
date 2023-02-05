@@ -12,6 +12,10 @@ export function getURL(path = "") {
   }${path}`;
 }
 
+const DEFAULT_HEADER = {
+  "Content-Type": "application/json",
+};
+
 /**
  * Helper to make GET requests to API endpoints
  * @param {string} path Path of the API route
@@ -22,9 +26,7 @@ export function getURL(path = "") {
 export async function fetchAPI(path, urlParamsObject = {}, options = {}) {
   // Merge default and user options
   const mergedOptions = {
-    headers: {
-      "Content-Type": "application/json",
-    },
+    headers: DEFAULT_HEADER,
     ...options,
   };
 
@@ -41,6 +43,28 @@ export async function fetchAPI(path, urlParamsObject = {}, options = {}) {
   if (!response.ok) {
     console.error(response.statusText);
     // throw new Error(`An error occurred please try again`);
+  }
+  const data = await response.json();
+  return data;
+}
+
+export async function postAPI(path, options = {}) {
+  // Merge default and user options
+  const mergedOptions = {
+    headers: DEFAULT_HEADER,
+    method: "POST",
+    ...options,
+  };
+
+  // Build request URL
+  const requestUrl = `${getURL(`/api${path}`)}`;
+
+  // Trigger API call
+  const response = await fetch(requestUrl, mergedOptions);
+
+  // Handle response
+  if (!response.ok) {
+    throw new Error(`An error occurred please try again`);
   }
   const data = await response.json();
   return data;

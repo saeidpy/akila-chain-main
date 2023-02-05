@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+import { LARGELOGO_SVG } from "../../assets/static";
 import { GroupPlatform } from "../Common/GroupPlatform";
 import { TitleSection } from "./IntroCard/TitleSection";
-
 export const GroupRoot = ({}) => {
   return (
     <GroupRootRootRoot>
-      <GroupPlatform withPattern src={"./assets/icon/largeLogo.svg"}>
+      <GroupPlatform withPattern src={LARGELOGO_SVG}>
         <Element2 top={"50px"} left="-15px">
           <Text2>Company Shares</Text2>
         </Element2>
@@ -31,15 +31,25 @@ export const GroupRoot = ({}) => {
           STEP={{
             label: "One platform for all your needs",
             title:
-              "Create your AkilaBanq account to buy, store, trade and earn interest.",
-            desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magnaaliqua. Ut enim adminim veniam, quis nostrud exercitation",
+              "Create your AkilaBanq account to buy, store, trade and earn interest",
+            desc: (
+              <>
+                - Free multi-currency wallet
+                <br />
+                - Buy, Sell crypto and Cash out
+                <br />- Personal or Business Banking Account (IBAN)
+              </>
+            ),
           }}
           additionalElement={
             <Element4>
               <Text6>Earn more & beat inflation</Text6>
               <Paragraph2>
-                Borrowing Create your AkilaBanq account to buy, store, trade and
-                earn interest.
+                Invest in what you believe in. Invest in fractions of your
+                favourite companies with tokenized shares, ETFs. Diversify your
+                portfolio by investing in tokenized precious metals. Fortify
+                your portfolio with tokenized commodities and shield it against
+                inflation.
               </Paragraph2>
             </Element4>
           }
@@ -109,9 +119,7 @@ const Text6 = styled.div`
   text-transform: uppercase;
 `;
 const Paragraph2 = styled.div`
-  width: 337px;
   font-size: 18px;
-  text-transform: capitalize;
   font-weight: 400;
   line-height: 28px;
 `;

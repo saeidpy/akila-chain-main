@@ -18,6 +18,12 @@
     },
     "message": {
       "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
     }
   }
 }

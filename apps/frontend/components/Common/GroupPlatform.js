@@ -1,28 +1,47 @@
 import React from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import styled from "styled-components";
+import ImageNext from "next/image";
+import { DETAILS_SVG, GROUP_213_SVG } from "../../assets/static";
+import Image from "../Image";
 
-export const GroupPlatform = ({ src, withPattern, className, children }) => {
+export const GroupPlatform = ({
+  src,
+  image,
+  withPattern,
+  className,
+  children,
+}) => {
   return (
-    <FlexColumn className={className}>
+    <Flex className={className}>
+      <ImageNext alt="icon" src={GROUP_213_SVG} />
+      {withPattern && (
+        <FlexColumn>
+          <ImageNext alt="pattern" src={DETAILS_SVG} />
+        </FlexColumn>
+      )}
       <Details withPattern={withPattern}>
-        {src && <Image alt="icons" src={src} />}
+        {src && <ImageNext alt="icons" src={src} />}
+        {image && <CustomImage alt="icons" image={image} />}
       </Details>
       {children}
-    </FlexColumn>
+    </Flex>
   );
 };
 
-const FlexColumn = styled.div`
+const Flex = styled.div`
   width: 317px;
   height: 317px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-size: cover;
-  background-image: url("./assets/icon/Group 213.svg");
   position: relative;
+`;
+const FlexColumn = styled.div`
+  position: absolute;
+`;
+const CustomImage = styled(Image)`
+  width: 50%;
 `;
 const Details = styled.div`
   width: 60%;
@@ -32,10 +51,4 @@ const Details = styled.div`
   justify-content: center;
   position: absolute;
   align-items: center;
-  background-size: cover;
-  background-image: ${({ withPattern }) =>
-    withPattern ? 'url("./assets/icon/Details.svg")' : "none"};
-`;
-const Image = styled(LazyLoadImage)`
-  position: absolute;
 `;

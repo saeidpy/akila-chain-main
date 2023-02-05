@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Header from "../../../components/Header";
 import Image from "../../../components/Image";
 import Seo from "../../../components/Seo";
-import Whitepaper from "../../../components/Whitepaper";
+import Whitepaper from "../../../components/Common/Whitepaper";
 import { fetchAPI } from "../../../lib/api";
 
 export async function getServerSideProps({ params }) {
@@ -24,7 +24,7 @@ export async function getServerSideProps({ params }) {
   return { props: { project: projects?.data[0] } };
 }
 
-const ProjectDetails = ({ project }) => {
+const ProjectDetails = ({ project, global }) => {
   const seo = {
     meta_title: project?.attributes?.title,
     meta_description: project?.attributes?.description,
@@ -41,7 +41,7 @@ const ProjectDetails = ({ project }) => {
           {parse(project?.attributes?.content)}
         </Content>
       </Title>
-      <Whitepaper />
+      <Whitepaper link={global?.attributes?.whitePaper} />
     </BlogRoot>
   );
 };

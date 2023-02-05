@@ -1,10 +1,13 @@
 import styled from "styled-components";
-import { Button } from "./Common/Button";
-import Subtract from "./Subtract";
+import { Button } from "./Button";
+import Subtract from "../Subtract";
 import React from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
-
-export default function Whitepaper() {
+import Image from "next/image";
+import { FILELINE_SVG } from "../../assets/static";
+import { getMedia } from "../../lib/media";
+export default function Whitepaper({ link }) {
+  console.log("🚀 ~ file: Whitepaper.js ~ line 9 ~ Whitepaper ~ link", link);
+  const href = getMedia(link);
   return (
     <Subtract7>
       <Circle />
@@ -17,11 +20,10 @@ export default function Whitepaper() {
           </Paragraph19>
         </Topbar>
         <Button1 width={"162px"}>
-          <Text10>Whitepaper (Eng)</Text10>
-          <Riarrowrightline
-            alt="right arrow icon"
-            src={"/assets/icon/fileLine.svg"}
-          />
+          <Text10 href={href} download>
+            Whitepaper (Eng)
+          </Text10>
+          <Image alt="right arrow icon" src={FILELINE_SVG} />
         </Button1>
       </Topbar>
     </Subtract7>
@@ -91,12 +93,8 @@ const Button1 = styled(Button)`
   padding: 12px 27px;
   box-sizing: content-box;
 `;
-const Riarrowrightline = styled(LazyLoadImage)`
-  width: 20px;
-  height: 20px;
-`;
 
-const Text10 = styled.p`
+const Text10 = styled.a`
   font-size: 16px;
   font-weight: 600;
   color: var(--primary);
