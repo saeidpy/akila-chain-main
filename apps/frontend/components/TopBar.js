@@ -9,8 +9,9 @@ import Menu from "./Common/Menu";
 import Image from "next/image";
 import { v4 } from "uuid";
 import { useRouter } from "next/router";
-import { LOGO_FULL_SVG } from "../assets/static";
+import { FLAGS, LOGO_FULL_SVG } from "../assets/static";
 import MenuSelect from "./Common/MenuSelect";
+import config from "../next.config";
 const MenuList = [
   {
     childText: "Home",
@@ -38,6 +39,9 @@ const MenuList = [
       "Metaverse ",
       "Messenger",
     ],
+    props: {
+      withHoverOpen: true,
+    },
   },
   {
     childText: "Blog",
@@ -55,12 +59,7 @@ const MenuList = [
 
 export default function TopBar() {
   const [open, setOpen] = useState(false);
-  const { pathname } = useRouter();
-  const ref = useRef();
-
-  const onOpen = () => {
-    ref.current?.openMenu?.();
-  };
+  const { pathname, locale } = useRouter();
 
   const node = useRef();
   const menuId = "main-menu";
@@ -75,7 +74,6 @@ export default function TopBar() {
     if (open) document.body.style.overflow = "hidden";
     else document.body.style.overflow = "unset";
   }, [open]);
-
   return (
     <TopBarElement>
       <MenuParent ref={node}>
@@ -100,13 +98,9 @@ export default function TopBar() {
             if (data.menu) {
               return (
                 <MenuSelect
-                  instanceRef={ref}
+                  {...data?.props}
                   menuButton={
-                    <Text2
-                      onMouseOver={onOpen}
-                      selected={data.link === pathname}
-                      key={v4()}
-                    >
+                    <Text2 selected={data.link === pathname} key={v4()}>
                       {data.childText}
                     </Text2>
                   }
@@ -122,6 +116,33 @@ export default function TopBar() {
                 </Link>
               );
           })}
+        </Element1>
+        <Element1>
+          <MenuSelect
+            menuButton={
+              <Image
+                width={24}
+                height={24}
+                alt="flags"
+                title={locale}
+                src={FLAGS[locale]}
+              />
+            }
+            items={config.i18n.locales
+              .filter((item) => item !== locale)
+              .map((item, index) => (
+                <Link key={index} href={"/"} locale={item}>
+                  <a title={item}>
+                    <Image
+                      width={24}
+                      height={24}
+                      alt="flags"
+                      src={FLAGS[item]}
+                    />
+                  </a>
+                </Link>
+              ))}
+          />
         </Element1>
       </Element>
     </TopBarElement>

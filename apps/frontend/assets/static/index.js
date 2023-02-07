@@ -96,3 +96,16 @@ export { default as PICTURE9_PNG } from "../../public/assets/img/picture9.png";
 export { default as PROFILE_PNG } from "../../public/assets/img/profile.png";
 export { default as VISA_SVG } from "../../public/assets/icon/visa.svg";
 export { default as SIM_CARD_SVG } from "../../public/assets/icon/flat-color-icons_sim-card-chip.svg";
+
+//flags
+import { default as EN_FLAG } from "../../public/assets/img/united-states.png";
+import { default as NL_FLAG } from "../../public/assets/img/germany.png";
+import { default as FR_FLAG } from "../../public/assets/img/france.png";
+import { default as SP_FLAG } from "../../public/assets/img/spain.png";
+
+export const FLAGS = {
+  "en-US": EN_FLAG,
+  fr: FR_FLAG,
+  "nl-NL": NL_FLAG,
+  sp: SP_FLAG,
+};

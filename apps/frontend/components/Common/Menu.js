@@ -2,10 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import config from "../../next.config";
+import Image from "next/image";
+import { FLAGS } from "../../assets/static";
 
 const Menu = ({ open = false, menuList, ...props }) => {
   const isHidden = open ? true : false;
-  const { pathname } = useRouter();
+  const { pathname, locale } = useRouter();
   return (
     <StyledMenu open={open} aria-hidden={!isHidden} {...props}>
       {menuList
@@ -17,11 +20,25 @@ const Menu = ({ open = false, menuList, ...props }) => {
             </TextLink>
           </Link>
         ))}
+      <Flags>
+        {config.i18n.locales.map((item, index) => (
+          <Link key={index} href={"/"} locale={item}>
+            <a title={item}>
+              <Image width={24} height={24} alt="flags" src={FLAGS[item]} />
+            </a>
+          </Link>
+        ))}
+      </Flags>
     </StyledMenu>
   );
 };
 export default Menu;
-
+const Flags = styled.div`
+  display: flex;
+  align-self: center;
+  gap: 16px;
+  margin: 2rem 2.5rem;
+`;
 const StyledMenu = styled.nav`
   display: flex;
   flex-direction: column;
