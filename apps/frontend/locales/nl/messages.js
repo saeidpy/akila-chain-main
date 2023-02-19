@@ -1,0 +1,1 @@
+/*eslint-disable*/module.exports={messages:JSON.parse("{\"___ An open, permissionless, decentralized crypto banking platform\":\"___ Een open, toestemmingloos, gedecentraliseerd platform voor cryptobankieren\"}")};

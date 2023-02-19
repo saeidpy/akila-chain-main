@@ -104,8 +104,8 @@ import { default as FR_FLAG } from "../../public/assets/img/france.png";
 import { default as SP_FLAG } from "../../public/assets/img/spain.png";
 
 export const FLAGS = {
-  "en-US": EN_FLAG,
+  en: EN_FLAG,
   fr: FR_FLAG,
-  "nl-NL": NL_FLAG,
+  nl: NL_FLAG,
   sp: SP_FLAG,
 };

@@ -1,6 +1,6 @@
 import App from "next/app";
 import Head from "next/head";
-import React, { createContext } from "react";
+import React, { createContext, useEffect } from "react";
 import SnackbarProvider from "react-simple-snackbar";
 import styled, { ThemeProvider } from "styled-components";
 import Loading from "../components/Common/Loading";
@@ -8,8 +8,12 @@ import Footer from "../components/Footer";
 import TopBar from "../components/TopBar";
 import { useLoading } from "../hooks";
 import { fetchAPI } from "../lib/api";
+import { activate } from "../lib/i18n";
 import { getMedia } from "../lib/media";
 import GlobalStyle from "../theme/globalStyle";
+import { I18nProvider } from "@lingui/react";
+import { i18n } from "@lingui/core";
+import { useRouter } from "next/router";
 const theme = {
   primaryDark: "#0D0C1D",
   primaryLight: "#0055FF",
@@ -22,33 +26,41 @@ export const GlobalContext = createContext({});
 export default function MyApp({ Component, pageProps }) {
   const loading = useLoading();
   const { global } = pageProps;
+  const { locale } = useRouter();
+
+  useEffect(() => {
+    activate(locale);
+  }, [locale]);
+
   return (
-    <ThemeProvider theme={theme}>
-      <SnackbarProvider>
-        <GlobalStyle />
-        <Head>
-          <link
-            rel="shortcut icon"
-            href={getMedia(global?.attributes?.favicon)}
-          />
-          <meta
-            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-            name="viewport"
-          />
-        </Head>
-        <Root>
-          <GlobalContext.Provider value={global?.attributes}>
-            <HomeRoot>
-              <TopBar {...pageProps} />
-              <QapStyle>
-                {loading ? <Loading /> : <Component {...pageProps} />}
-              </QapStyle>
-              <Footer {...pageProps} />
-            </HomeRoot>
-          </GlobalContext.Provider>
-        </Root>
-      </SnackbarProvider>
-    </ThemeProvider>
+    <I18nProvider i18n={i18n}>
+      <ThemeProvider theme={theme}>
+        <SnackbarProvider>
+          <GlobalStyle />
+          <Head>
+            <link
+              rel="shortcut icon"
+              href={getMedia(global?.attributes?.favicon)}
+            />
+            <meta
+              content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+              name="viewport"
+            />
+          </Head>
+          <Root>
+            <GlobalContext.Provider value={global?.attributes}>
+              <HomeRoot>
+                <TopBar {...pageProps} />
+                <QapStyle>
+                  {loading ? <Loading /> : <Component {...pageProps} />}
+                </QapStyle>
+                <Footer {...pageProps} />
+              </HomeRoot>
+            </GlobalContext.Provider>
+          </Root>
+        </SnackbarProvider>
+      </ThemeProvider>
+    </I18nProvider>
   );
 }
 

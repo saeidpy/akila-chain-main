@@ -8,9 +8,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "extract": "lingui extract",
+    "compile": "lingui compile"
   },
   "dependencies": {
+    "@lingui/macro": "^3.17.1",
+    "@lingui/react": "^3.17.1",
     "@szhsin/react-menu": "^3.4.0",
     "html-react-parser": "^2.0.0",
     "moment": "^2.29.3",
@@ -27,11 +31,17 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "@lingui/cli": "^3.17.1",
+    "@lingui/loader": "^3.17.1",
+    "@lingui/swc-plugin": "^0.2.0",
     "@types/react": "17.0.37",
+    "babel-plugin-macros": "^3.1.0",
     "babel-plugin-styled-components": "^2.0.7",
     "eslint": "7.32.0",
     "eslint-config-next": "12.0.6",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-i18n-lingui": "^1.3.1",
     "typescript": "^4.5.3"
   },
   "engines": {

@@ -10,6 +10,7 @@ import Image from "next/image";
 import { IPHONE_SVG } from "../assets/static";
 import { fetchAPI } from "../lib/api";
 import RoadMap from "../components/Common/RoadMap";
+import { Trans } from "@lingui/react";
 
 export async function getServerSideProps() {
   const featuresRes = await fetchAPI("/feature", {
@@ -42,15 +43,25 @@ const Home = ({ featuresRes, roadMap }) => {
         <Element39>
           <Body>
             <Paragraph>
-              ___ An open, permissionless, decentralized crypto banking platform
+              <Trans
+                id="___ An open, permissionless, decentralized crypto banking
+                platform"
+              />
             </Paragraph>
             <Title>
-              <Text9>One Platform to</Text9>
-              <Text8>Power Smart Future</Text8>
+              <Text9>
+                <Trans id="One Platform to" />
+              </Text9>
+              <Text8>
+                <Trans id="Power Smart Future" />
+              </Text8>
             </Title>
             <Paragraph1>
-              Supporting a more decentralized future Grow your wealth and let it
-              be secured with <LogoTextPer>Akila</LogoTextPer>
+              <Trans
+                id="Supporting a more decentralized future Grow your wealth and let it
+              be secured with "
+              />
+              <LogoTextPer>Akila</LogoTextPer>
               <LogoTextSec>Banq</LogoTextSec>
             </Paragraph1>
           </Body>

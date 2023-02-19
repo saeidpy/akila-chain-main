@@ -3,8 +3,8 @@
  */
 const nextConfig = {
   i18n: {
-    locales: ["en-US", "fr", "nl-NL"],
-    defaultLocale: "en-US",
+    locales: ["en", "fr", "nl"],
+    defaultLocale: "en",
   },
   compress: true,
   compiler: {
@@ -20,6 +20,44 @@ const nextConfig = {
   images: {
     domains: ["localhost"],
     // minimumCacheTTL: 10000,
+  },
+  experimental: {
+    swcPlugins: [
+      [
+        "@lingui/swc-plugin",
+        {
+          $schema: "https://json.schemastore.org/swcrc",
+          jsc: {
+            experimental: {
+              plugins: [
+                "@lingui/swc-plugin",
+                {
+                  // Optional
+                  // Unlike the JS version this option must be passed as object only.
+                  // Docs https://lingui.js.org/ref/conf.html#std-config-runtimeConfigModule
+                  runtimeModules: {
+                    i18n: ["@lingui/core", "i18n"],
+                    trans: ["@lingui/react", "Trans"],
+                  },
+                },
+              ],
+            },
+          },
+        },
+      ],
+    ],
+  },
+  webpack: (config) => {
+    console.log("🚀 ~ file: next.config.js:61 ~ config", config);
+
+    config.resolve.fallback = {
+      ...config.resolve.fallback,
+      fs: false,
+      path: false,
+      "ts-node": false,
+    };
+
+    return config;
   },
 };
 

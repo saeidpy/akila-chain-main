@@ -1,0 +1,13 @@
+{
+  "extends": ["next", "prettier"],
+  "plugins": ["i18n-lingui"],
+  "rules": {
+    "no-html-link-for-pages": "off",
+    "react/no-unescaped-entities": "off",
+    "@next/next/no-page-custom-font": "off",
+    "no-unused-vars": "warn",
+    "no-console": "warn",
+    "i18n-lingui/no-eval-in-placeholder": 1, // warning
+    "i18n-lingui/prefer-unicode-ellipsis": 2 // error
+  }
+}
