@@ -1,12 +1,11 @@
 import Link from "next/link";
 import React from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import styled from "styled-components";
 import { Button } from "../../components/Common/Button";
 import Header from "../../components/Header";
 import Image from "../../components/Image";
 import Seo from "../../components/Seo";
-import Whitepaper from "../../components/Whitepaper";
+import Whitepaper from "../../components/Common/Whitepaper";
 import { fetchAPI } from "../../lib/api";
 export async function getServerSideProps() {
   const projects = await fetchAPI("/projects", { populate: "*" });
@@ -17,7 +16,7 @@ const seo = {
   meta_title: "Projects",
   og_type: "Projects",
 };
-const Projects = ({ projects }) => {
+const Projects = ({ projects, global }) => {
   return (
     <Root>
       <Seo seo={seo} />
@@ -33,7 +32,11 @@ const Projects = ({ projects }) => {
           <Boxes gap={"32px 43px"}>
             {projects?.map((item) => {
               return (
-                <Link href={`projects/${item?.attributes?.slug}`} key={item} passHref>
+                <Link
+                  href={`projects/${item?.attributes?.slug}`}
+                  key={item}
+                  passHref
+                >
                   <Element11 key={item?.attributes?.slug}>
                     <Icon image={item?.attributes?.image} />
                     <Documents gap={"8px"}>
@@ -47,7 +50,7 @@ const Projects = ({ projects }) => {
           </Boxes>
         </Documents>
       </BodyRoot>
-      <Whitepaper />
+      <Whitepaper link={global?.attributes?.whitePaper} />
     </Root>
   );
 };
@@ -73,19 +76,6 @@ const BodyRoot = styled.div`
   margin: auto;
   width: 100%;
 `;
-const Element5 = styled.div`
-  box-shadow: var(--box-shadow);
-  width: 100%;
-  flex: 1 1 524px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  justify-content: flex-start;
-  align-items: start;
-  border-radius: 10px;
-  padding: 18px;
-  margin: auto;
-`;
 const BountyPlans = styled.p`
   font-size: 21px;
   font-weight: 600;
@@ -101,19 +91,6 @@ const Documents = styled.div`
   gap: ${(props) => props.gap};
   width: 100%;
 `;
-const Bg = styled(LazyLoadImage)`
-  width: 34px;
-  height: 34px;
-  position: absolute;
-`;
-const StartFromHere = styled.p`
-  font-size: 21px;
-  text-transform: capitalize;
-  color: var(--text-primary);
-  display: contents;
-  white-space: pre-wrap;
-  font-weight: ${(props) => props.fontWeight};
-`;
 const Boxes = styled.div`
   display: flex;
   flex-direction: row;
@@ -122,33 +99,6 @@ const Boxes = styled.div`
   gap: ${(props) => props.gap};
   width: 100%;
   flex-wrap: wrap;
-`;
-const Title1 = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  gap: ${(props) => props.gap};
-`;
-const Rifileline = styled(LazyLoadImage)`
-  width: 30px;
-  height: 30px;
-`;
-const Text1 = styled.p`
-  font-size: 16px;
-  font-weight: 700;
-  text-transform: capitalize;
-  color: var(--text-primary);
-`;
-const Uilarrowtoright = styled(LazyLoadImage)`
-  width: 21px;
-  height: 21px;
-`;
-const Text2 = styled.p`
-  font-size: 15px;
-  font-weight: 400;
-  line-height: 23.33px;
-  color: var(--text-secondary);
 `;
 const Element11 = styled(Button)`
   box-shadow: var(--box-shadow);
@@ -174,12 +124,6 @@ const Text11 = styled.p`
   font-weight: 600;
   text-transform: capitalize;
   color: var(--text-primary);
-`;
-const Text12 = styled.p`
-  font-size: 14px;
-  font-weight: 300;
-  text-transform: capitalize;
-  color: #4f4f4f;
 `;
 
 const Title13 = styled.div`

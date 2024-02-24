@@ -2,12 +2,20 @@
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
+  compress: true,
   compiler: {
     styledComponents: true,
   },
+  headers: [
+    {
+      key: "Cache-Control",
+      value: "public, s-maxage=31536000, stale-while-revalidate",
+    },
+  ],
   reactStrictMode: true,
   images: {
-    domains: ["localhost", "akila-chain.herokuapp.com", "154.91.170.48"],
+    domains: ["localhost"],
+    // minimumCacheTTL: 10000,
   },
 };
 

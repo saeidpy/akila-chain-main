@@ -1,12 +1,13 @@
 import Link from "next/link";
 import React from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+import Image from "next/image";
 import styled from "styled-components";
 import Header from "../../components/Header";
 import Seo from "../../components/Seo";
-import Whitepaper from "../../components/Whitepaper";
+import Whitepaper from "../../components/Common/Whitepaper";
 import { fetchAPI } from "../../lib/api";
 import { groupByCategory } from "../../utils/index";
+import { ARROWLINE_SVG, CODELINE_SVG, FILELINE_SVG } from "../../assets/static";
 
 export async function getServerSideProps() {
   const development = await fetchAPI("/developments");
@@ -14,15 +15,12 @@ export async function getServerSideProps() {
   return { props: { development: development?.data } };
 }
 
-const Developer = ({ development }) => {
+const Developer = ({ development, global }) => {
   const arrayOfGroup = Object.entries(
     groupByCategory(development?.map((item) => item?.attributes) ?? [], "type")
   )?.map((item, index) => ({
     name: "develoepr " + item[0],
-    icon:
-      index % 2 === 0
-        ? "/assets/icon/fileLine.svg"
-        : "/assets/icon/codeLine.svg",
+    icon: index % 2 === 0 ? FILELINE_SVG : CODELINE_SVG,
     data: item[1],
   }));
   const seo = {
@@ -47,16 +45,13 @@ const Developer = ({ development }) => {
               return (
                 <Element5 key={index}>
                   <Title1 gap={"10px"}>
-                    <Rifileline alt="file icon" src={item.icon} />
+                    <Image alt="file icon" src={item.icon} />
                     <Text1>{item?.name}</Text1>
                   </Title1>
                   <Documents gap={"9px"}>
                     {item?.data?.map((title, index) => (
                       <Title1 gap={"7px"} key={index}>
-                        <Uilarrowtoright
-                          alt="arrow icon"
-                          src={"/assets/icon/arrowLine.svg"}
-                        />
+                        <Image alt="arrow icon" src={ARROWLINE_SVG} />
                         <Link
                           href={title.link ?? ""}
                           key={index}
@@ -73,7 +68,7 @@ const Developer = ({ development }) => {
           </Boxes>
         </Documents>
       </BodyRoot>
-      <Whitepaper />
+      <Whitepaper link={global?.attributes?.whitePaper} />
     </Root>
   );
 };
@@ -111,13 +106,6 @@ const Element5 = styled.div`
   border-radius: 10px;
   padding: 18px;
 `;
-const BountyPlans = styled.p`
-  font-size: 21px;
-  font-weight: 600;
-  text-transform: capitalize;
-  color: var(--primary);
-  display: contents;
-`;
 const Documents = styled.div`
   display: flex;
   flex-direction: column;
@@ -125,11 +113,6 @@ const Documents = styled.div`
   align-items: start;
   gap: ${(props) => props.gap};
   width: 100%;
-`;
-const Bg = styled(LazyLoadImage)`
-  width: 34px;
-  height: 34px;
-  position: absolute;
 `;
 const StartFromHere = styled.p`
   font-size: 21px;
@@ -155,19 +138,11 @@ const Title1 = styled.div`
   align-items: center;
   gap: ${(props) => props.gap};
 `;
-const Rifileline = styled(LazyLoadImage)`
-  width: 30px;
-  height: 30px;
-`;
 const Text1 = styled.p`
   font-size: 16px;
   font-weight: 700;
   text-transform: capitalize;
   color: var(--text-primary);
-`;
-const Uilarrowtoright = styled(LazyLoadImage)`
-  width: 21px;
-  height: 21px;
 `;
 const Text2 = styled.a`
   font-size: 15px;
@@ -178,36 +153,6 @@ const Text2 = styled.a`
   &:hover {
     color: var(--text-primary-color) !important;
   }
-`;
-const Element11 = styled.div`
-  box-shadow: var(--box-shadow);
-  display: flex;
-  flex-direction: row;
-  gap: 27px;
-  justify-content: flex-start;
-  align-items: center;
-  border-radius: 12px;
-  padding: 16px;
-  flex: 1 1 323px;
-  width: 100%;
-  margin: auto;
-`;
-const Icon = styled(LazyLoadImage)`
-  width: 73px;
-  height: 73px;
-`;
-const Text11 = styled.p`
-  text-align: center;
-  font-size: 16px;
-  font-weight: 600;
-  text-transform: capitalize;
-  color: var(--text-primary);
-`;
-const Text12 = styled.p`
-  font-size: 14px;
-  font-weight: 300;
-  text-transform: capitalize;
-  color: #4f4f4f;
 `;
 
 const Title13 = styled.div`

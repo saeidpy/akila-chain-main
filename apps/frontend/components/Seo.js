@@ -11,6 +11,7 @@ const Seo = ({ seo }) => {
   const fullSeo = {
     ...seoWithDefaults,
     // Add title suffix
+    seoWithDefaults,
     meta_title: `${
       seoWithDefaults?.meta_title ? seoWithDefaults?.meta_title + "|" : ""
     }  ${site_name ?? ""}`,
@@ -29,7 +30,10 @@ const Seo = ({ seo }) => {
         <>
           <meta name="description" content={fullSeo?.meta_description} />
           <meta property="og:description" content={fullSeo?.meta_description} />
-          <meta name="twitter:description" content={fullSeo?.meta_description} />
+          <meta
+            name="twitter:description"
+            content={fullSeo?.meta_description}
+          />
         </>
       )}
 
@@ -37,7 +41,9 @@ const Seo = ({ seo }) => {
       {fullSeo?.og_title && (
         <meta property="og:title" content={fullSeo?.og_title} />
       )}
-      {fullSeo?.og_type && <meta property="og:type" content={fullSeo?.og_type} />}
+      {fullSeo?.og_type && (
+        <meta property="og:type" content={fullSeo?.og_type} />
+      )}
       {fullSeo?.og_site_name && (
         <meta property="og:site_name" content={fullSeo?.og_site_name} />
       )}

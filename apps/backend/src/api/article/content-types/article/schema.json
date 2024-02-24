@@ -43,15 +43,6 @@
       "target": "api::category.category",
       "mappedBy": "article"
     },
-    "blocks": {
-      "type": "dynamiczone",
-      "components": [
-        "shared.media",
-        "shared.quote",
-        "shared.rich-text",
-        "shared.slider"
-      ]
-    },
     "content": {
       "type": "richtext"
     }

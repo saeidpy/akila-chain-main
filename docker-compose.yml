@@ -17,7 +17,7 @@ services:
       - /app/apps/frontend/.next
       - /app/apps/backend/build
       - /app/apps/backend/.cache
-    restart: on-failure
+    restart: always
 
 networks:
   turbo-network:

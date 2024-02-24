@@ -1,16 +1,27 @@
+import ImageNext from "next/image";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+import React from "react";
 import Moment from "react-moment";
 import styled from "styled-components";
 import { v4 } from "uuid";
+import {
+  ARROWBUTTON_SVG,
+  BTCICON_AKILA_SVG,
+  ICONSECTION2_SVG,
+  ICONSECTION3_SVG,
+  ICONSECTION_SVG,
+  LOGO_TOKEN_SVG,
+  RIAWARD_SVG,
+  RIGHTARROW_SVG,
+} from "../../assets/static";
 import { Button } from "../../components/Common/Button";
 import Divider from "../../components/Common/Divider";
-import { Ellipse } from "../../components/Ellipse";
+import { Ellipse } from "../../components/Common/Ellipse";
+import RoadMap from "../../components/Common/RoadMap";
+import Whitepaper from "../../components/Common/Whitepaper";
 import Image from "../../components/Image";
 import Seo from "../../components/Seo";
 import Subtract from "../../components/Subtract";
-import Whitepaper from "../../components/Whitepaper";
 import { FeaturesContent, technicalChar } from "../../constant/index";
 import { fetchAPI } from "../../lib/api";
 
@@ -24,29 +35,26 @@ export async function getServerSideProps() {
     populate: ["*"],
   });
 
-  if (!articlesRes?.data?.length) {
-    return {
-      notFound: true,
-    };
-  }
-
   return {
     props: { recentArticle: articlesRes?.data, roadMap: chainRoadMap?.data },
   };
 }
 
-const Home = ({ recentArticle, roadMap }) => {
-  const [selectRoadMap, setSelectRoadMap] = useState(0);
+const Home = ({ recentArticle, roadMap, global }) => {
   const { push } = useRouter();
-  const Button1Function = (e, name) => {};
-  const Button2Function = (e, name) => {};
+  const Button1Function = () => {};
+  const Button2Function = () => {};
   const articleOnClick = (e, slug) => {
     push(`blog/${slug}`);
   };
   const roadMapContent = roadMap?.map((item) => item?.["attributes"]);
+
+  const seo = {
+    meta_title: "Chain",
+  };
   return (
     <HomeRoot>
-      <Seo />
+      <Seo seo={seo} />
       <Header>
         <Element39>
           <Body>
@@ -68,17 +76,14 @@ const Home = ({ recentArticle, roadMap }) => {
             </Paragraph1>
             <Button1 onClick={(e) => Button1Function(e, "Button1")}>
               <Text10>Learn More</Text10>
-              <Riarrowrightline
-                alt="right arrow icon"
-                src={"./assets/icon/rightArrow.svg"}
-              />
+              <ImageNext alt="right arrow icon" src={RIGHTARROW_SVG} />
             </Button1>
           </Body>
           <Design>
             <Element40>
               <Height2>
                 <Height color={"rgba(0, 0,0, 0.7)"}>Height: </Height>
-                <Height color={"#0055ff"}>917523</Height>
+                <Height color={"#0055ff"}>0</Height>
               </Height2>
               <WhiteText>
                 Current Supply:
@@ -88,11 +93,11 @@ const Home = ({ recentArticle, roadMap }) => {
                     color: "rgba(0, 0,0, 0.7)",
                   },
                   {
-                    childText: "4,370,092",
+                    childText: " 0",
                     color: "#0055ff",
                   },
                   {
-                    childText: " Of 14,000,000 ( Total supply after 23 years )",
+                    childText: " Of 0 ( Total supply after 0 years )",
                     color: "rgba(0, 0,0, 0.7)",
                   },
                 ].map((data) => (
@@ -101,7 +106,9 @@ const Home = ({ recentArticle, roadMap }) => {
                   </Height>
                 ))}
               </WhiteText>
-              <Icons alt="btc eth" src={"./assets/icon/BtcIcon.svg"} />
+              <Icons>
+                <ImageNext alt="btc eth" src={BTCICON_AKILA_SVG} />
+              </Icons>
             </Element40>
           </Design>
         </Element39>
@@ -123,16 +130,19 @@ const Home = ({ recentArticle, roadMap }) => {
               Create, Store and transfer tokens over Akila Blockchain. Join the
               revolutionary movement and don’t miss the opportunity.
             </Paragraph3>
-            <Button2 onClick={(e) => Button2Function(e, "Button2")}>
+            {/* <Button2 onClick={(e) => Button2Function(e, "Button2")}>
               <Text15>Buy Tokens -25% off</Text15>
-              <Rishoppingcartline
-                alt="shopping cart icon"
-                src={"./assets/icon/shoppingCart.svg"}
-              />
-            </Button2>
+              <ImageNext alt="shopping cart icon" src={SHOPPINGCART_SVG} />
+            </Button2> */}
           </Texts1>
         </Element41>
         <Bg>
+          <ImageNext
+            alt="logo"
+            height={"250px"}
+            width={"400px"}
+            src={LOGO_TOKEN_SVG}
+          />
           {/* <ParentCircle>
             <Circle />
             <Circle />
@@ -145,7 +155,7 @@ const Home = ({ recentArticle, roadMap }) => {
             <Circle />
             <Circle />
           </ParentCircle> */}
-          <Text16>Token sale ends in</Text16>
+          {/* <Text16>Token sale ends in</Text16>
           <WhiteFlexColumn>
             <Element11>
               {[
@@ -231,7 +241,7 @@ const Home = ({ recentArticle, roadMap }) => {
               </SoftcapInDays1>
               <SoftcapInDays1 textAlign={"right"}>Hardcap</SoftcapInDays1>
             </Buttom>
-          </Cap>
+          </Cap> */}
         </Bg>
       </SpecialOffer>
       <CustomSubtract>
@@ -264,10 +274,7 @@ const Home = ({ recentArticle, roadMap }) => {
           <FlexColumn key={v4()}>
             <Head>
               <WhiteFlexColumn1>
-                <Riawardline
-                  alt="riaward icon"
-                  src={"./assets/icon/riaward.svg"}
-                />
+                <ImageNext alt="riaward icon" src={RIAWARD_SVG} />
               </WhiteFlexColumn1>
               <Text30>{item.title}</Text30>
             </Head>
@@ -276,10 +283,10 @@ const Home = ({ recentArticle, roadMap }) => {
         ))}
       </Features>
       <Section gap={"42px"}>
-        <Icon6 alt="board icon" src={"./assets/icon/iconSection.svg"} />
+        <ImageNext alt="board icon" src={ICONSECTION_SVG} />
         <Topbar gap={"33px"}>
           <WhatIsAkilaChain2>
-            Technical Characteristics of{" "}
+            Technical Characteristics of
             <WhatIsAkilaChain color={"#fe762f"}>Akila Chain</WhatIsAkilaChain>?
           </WhatIsAkilaChain2>
           <Paragraph11>
@@ -322,10 +329,10 @@ const Home = ({ recentArticle, roadMap }) => {
             funds, firms, litigation and intangible assets.
           </Paragraph11>
         </Topbar>
-        <Icon6 alt="board icon" src={"./assets/icon/iconSection2.svg"} />
+        <ImageNext alt="board icon" src={ICONSECTION2_SVG} />
       </Section1>
       <Section gap={"58px"}>
-        <Icon6 alt="board icon" src={"./assets/icon/iconSection3.svg"} />
+        <ImageNext alt="board icon" src={ICONSECTION3_SVG} />
         <Topbar gap={"23px"}>
           <WhatIsAkilaChain2>
             Fungible tokens and non-fungible <Text37>tokens (NFT)</Text37>
@@ -351,61 +358,16 @@ const Home = ({ recentArticle, roadMap }) => {
           </Paragraph11>
         </Topbar>
       </Section>
-      <Roadmap>
-        <Head6>
-          <Ellipse9 />
-          <Title1>
-            <RoadMap1>
-              road<RoadMap display={"contents"}> map</RoadMap>
-            </RoadMap1>
-            <Text55>The Proccess Of ICO Program</Text55>
-          </Title1>
-        </Head6>
-        <Element42>
-          <TopbarRoadMap gap={"15px"}>
-            {roadMapContent.map((item, index) => (
-              <>
-                <Nav>
-                  <No1
-                    onClick={(e) => setSelectRoadMap(index)}
-                    selected={selectRoadMap === index}
-                  >
-                    <Text40>{index + 1}</Text40>
-                  </No1>
-                  <Title2>
-                    <Text41>{item.name}</Text41>
-                    <Text42>{item.date}</Text42>
-                  </Title2>
-                </Nav>
-                {roadMapContent.length !== index + 1 && (
-                  <RoadMapDivider
-                    isVertical
-                    height="26px"
-                    color="rgba(0, 0, 0, 0.5)"
-                  />
-                )}
-              </>
-            ))}
-          </TopbarRoadMap>
-          {roadMapContent[selectRoadMap] && (
-            <Content3>
-              <Topbar gap={"2px"}>
-                <Text56>{roadMapContent[selectRoadMap].date}</Text56>
-                <Text57>{roadMapContent[selectRoadMap].name}</Text57>
-              </Topbar>
-              <Topbar gap={"11px"}>
-                <Paragraph17>
-                  {roadMapContent[selectRoadMap].description}
-                </Paragraph17>
-              </Topbar>
-            </Content3>
-          )}
-        </Element42>
-      </Roadmap>
-      <Whitepaper />
+      {roadMapContent?.length ? (
+        <RoadMap roadMapContent={roadMapContent} />
+      ) : (
+        ""
+      )}
+      <Whitepaper link={global?.attributes?.whitePaper} />
       <Posts>
         {recentArticle?.map((article) => (
           <Picture key={article}>
+            <Image1 image={article?.attributes?.cover} />
             <WhiteFlexColumn7>
               <Topbar gap={"16px"}>
                 <Topbar gap={"9px"}>
@@ -422,34 +384,14 @@ const Home = ({ recentArticle, roadMap }) => {
               <Button4
                 onClick={(e) => articleOnClick(e, article?.attributes?.slug)}
               >
-                <Line1 alt="arrow icon" src="./assets/icon/arrowButton.svg" />
+                <ImageNext alt="arrow icon" src={ARROWBUTTON_SVG} />
               </Button4>
             </WhiteFlexColumn7>
-            <Image1 image={article?.attributes?.cover} />
           </Picture>
         ))}
       </Posts>
-      <Brands>
-        <Head7>
-          <Ellipse16>
-            <Bg4 />
-          </Ellipse16>
-          <Title12>
-            <RoadMap display={"block"}>
-              Where To Trade <Text67 href="/">Akila Chain</Text67>
-              <RoadMap display={"contents"}> Coin</RoadMap>
-            </RoadMap>
-            <Paragraph23>
-              Akila Chain is listed in various popular crypto exchange
-            </Paragraph23>
-          </Title12>
-        </Head7>
-        <Element1 gap={"29px"}>
-          {[0, 1, 2, 3, 4].map((i) => (
-            <WhiteRectangle key={v4()} />
-          ))}
-        </Element1>
-      </Brands>
+      {/* THIS IS DISABLE TEMPORARY */}
+      {/* <Brands /> */}
     </HomeRoot>
   );
 };
@@ -487,7 +429,6 @@ const Body = styled.div`
   flex: 1.4;
   gap: var(--x5);
 `;
-const Line1 = styled(LazyLoadImage)``;
 const Paragraph = styled.p`
   font-size: 14px;
   font-weight: 600;
@@ -542,9 +483,9 @@ const Element40 = styled.div`
   border-radius: 999px 999px 0px 0px;
   position: relative;
 `;
-const Icons = styled(LazyLoadImage)`
-  height: 295px;
-  top: 91px;
+const Icons = styled.div`
+  width: 300px;
+  height: 290px;
   position: absolute;
   left: -50px;
   top: 84px;
@@ -648,10 +589,6 @@ const Text15 = styled.p`
   font-weight: 600;
   color: var(--text-secondary-color);
 `;
-const Rishoppingcartline = styled(LazyLoadImage)`
-  width: 18px;
-  height: 18px;
-`;
 const Bg = styled.div`
   justify-content: center;
   align-items: center;
@@ -667,6 +604,7 @@ const Bg = styled.div`
   width: 100%;
   position: relative;
   background: var(--primary-background);
+  height: 350px;
 `;
 const Text16 = styled.p`
   text-align: center;
@@ -798,161 +736,15 @@ const Section1 = styled(Subtract)`
     flex-direction: column;
   }
 `;
-const Roadmap = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 38px;
-  justify-content: center;
-  align-items: flex-start;
-  width: 100%;
-  @media (max-width: 1024px) {
-    flex-direction: column;
-  }
-`;
 
-const RoadMapDivider = styled(Divider)`
-  margin-left: 30px;
-`;
-const Text40 = styled.p`
-  text-align: center;
-  display: flex;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 26.46px;
-`;
-const Text52 = styled.p`
-  text-align: center;
-  display: flex;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 26.46px;
-  color: var(--text-primary);
-`;
-const Title6 = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  justify-content: center;
-  align-items: start;
-`;
-const Element42 = styled.div`
-  flex: 2;
-  display: flex;
-  flex-direction: row;
-  gap: 64px;
-  @media (max-width: 1024px) {
-    flex-direction: column;
-  }
-`;
-const Head6 = styled.div`
-  position: relative;
-  margin: 0 35% auto;
-  @media (max-width: 1024px) {
-    margin: unset;
-  }
-`;
-const Ellipse9 = styled(Ellipse)`
-  width: 112px;
-  height: 112px;
-`;
-const Title1 = styled.div`
-  width: 234px;
-  height: 70.5px;
-  position: absolute;
-  top: 26px;
-  left: 58px;
-`;
-const RoadMap1 = styled.h1`
-  font-size: 30px;
-  font-weight: 600;
-  line-height: 39.69px;
-  text-transform: capitalize;
-  color: var(--primary);
-`;
-const Text55 = styled.p`
-  font-size: 16.5px;
-  font-weight: 300;
-  line-height: 21.83px;
-  color: var(--text-secondary);
-`;
-const Content3 = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-  justify-content: flex-start;
-  align-items: start;
-`;
-const Text56 = styled.p`
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 21.17px;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-`;
-const Text57 = styled.p`
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 23.81px;
-  text-transform: uppercase;
-  color: var(--text-primary);
-`;
 const Posts = styled.div`
   display: flex;
   flex-direction: row;
   gap: 64px;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   flex-wrap: wrap;
   width: 100%;
-`;
-const Brands = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 67px;
-  justify-content: center;
-  align-items: center;
-`;
-const Head7 = styled.div`
-  display: flex;
-  align-items: center;
-  position: relative;
-`;
-const Bg4 = styled.div`
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background-color: var(--primary);
-  position: absolute;
-  right: 0;
-`;
-const Ellipse16 = styled(Ellipse)`
-  width: 112px;
-  height: 112px;
-  position: absolute;
-  top: -20px;
-  left: -70px;
-`;
-const Title12 = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 9px;
-  justify-content: flex-start;
-  align-items: start;
-`;
-const Text67 = styled.p`
-  font-size: 30px;
-  text-decoration: underline;
-  line-height: 39.69px;
-  text-transform: capitalize;
-  color: var(--primary);
-  display: contents;
-  cursor: pointer;
-`;
-const Paragraph23 = styled.p`
-  font-size: 16.5px;
-  font-weight: 300;
-  line-height: 21.83px;
-  color: var(--text-secondary);
 `;
 
 const Topbar = styled.div`
@@ -963,41 +755,7 @@ const Topbar = styled.div`
   align-items: start;
   gap: ${(props) => props.gap};
 `;
-const TopbarRoadMap = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: start;
-  gap: ${(props) => props.gap};
-  flex: 1;
-  border-right: 1px solid var(--borders);
-  padding-right: 32px;
-  @media (max-width: 1024px) {
-    border-right: none;
-    border-bottom: 1px solid var(--borders);
-    margin-top: 0px;
-    align-items: center;
-    flex-wrap: wrap;
-    flex-direction: row;
-    padding-right: 0px;
-    padding-bottom: 32px;
-  }
-`;
-const Nav = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-`;
-const Element1 = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: start;
-  gap: ${(props) => props.gap};
-  flex-wrap: wrap;
-`;
+
 const Element22 = styled.div`
   display: flex;
   flex-direction: row;
@@ -1025,10 +783,6 @@ const Text10 = styled.p`
   font-size: 16px;
   font-weight: 600;
   color: var(--primary);
-`;
-const Riarrowrightline = styled(LazyLoadImage)`
-  width: 20px;
-  height: 20px;
 `;
 const Height = styled.p`
   font-size: 14px;
@@ -1118,10 +872,6 @@ const WhiteFlexColumn1 = styled.div`
   border-radius: 10px;
   padding: 0px 13px 0px 14px;
 `;
-const Riawardline = styled(LazyLoadImage)`
-  width: 28px;
-  height: 28px;
-`;
 const Text30 = styled.p`
   text-align: center;
   font-size: 18px;
@@ -1149,10 +899,6 @@ const Section = styled.div`
   @media (max-width: 1024px) {
     flex-direction: column;
   }
-`;
-const Icon6 = styled(LazyLoadImage)`
-  width: 223px;
-  height: 223px;
 `;
 const WhatIsAkilaChain2 = styled.h1`
   font-size: 25px;
@@ -1183,10 +929,6 @@ const Element19 = styled.div`
   gap: ${(props) => props.gap};
   flex: 1;
 `;
-const Dots = styled(LazyLoadImage)`
-  width: 6px;
-  height: 66px;
-`;
 const Paragraph12 = styled.p`
   font-size: 14px;
   font-weight: 500;
@@ -1203,66 +945,11 @@ const Text37 = styled.p`
   color: var(--text-secondary-color);
   display: contents;
 `;
-const No1 = styled(Button)`
-  min-width: 61px;
-  min-height: 61px;
-  align-items: center;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  background: ${({ selected }) =>
-    selected && "linear-gradient(180deg, #fe983f 0%, #ff551f 100%)"};
-  color: ${({ selected }) => (selected ? "#fff" : "var(--text-primary)")};
-  box-shadow: var(--box-shadow);
-`;
-const No2 = styled.div`
-  width: 61px;
-  height: 61px;
-  align-items: center;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  box-shadow: var(--box-shadow);
-`;
-const Title2 = styled.div`
+const Picture = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  align-items: start;
-`;
-const Text41 = styled.p`
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 21.17px;
-  text-transform: uppercase;
-  color: var(--text-primary);
-`;
-const Text42 = styled.p`
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 18.52px;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-`;
-const RoadMap = styled.h1`
-  font-size: 30px;
-  font-weight: 600;
-  line-height: 39.69px;
-  text-transform: capitalize;
-  color: var(--text-primary);
-  white-space: pre-wrap;
-  display: ${(props) => props.display};
-`;
-const Paragraph17 = styled.p`
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 26.39px;
-  color: var(--text-primary);
-`;
-const Picture = styled.div`
-  width: 339px;
-  height: 526px;
-  position: relative;
+  width: 300px;
 `;
 const WhiteFlexColumn7 = styled.div`
   box-shadow: var(--box-shadow);
@@ -1270,14 +957,13 @@ const WhiteFlexColumn7 = styled.div`
   height: 100%;
   width: 100%;
   display: flex;
-  position: absolute;
-  top: 228px;
   flex-direction: column;
   gap: 10px;
   justify-content: center;
   align-items: center;
   border-radius: 0px 0px 10px 10px;
-  padding: 0px 17px;
+  padding: 16px 24px;
+  flex: 2;
 `;
 const Text60 = styled.p`
   text-align: start;
@@ -1295,12 +981,16 @@ const Text61 = styled.p`
   color: var(--text-primary);
 `;
 const Paragraph20 = styled.p`
-  width: 305px;
-  height: 92px;
   font-size: 14px;
   font-weight: 400;
   line-height: 21.06px;
   color: var(--text-secondary);
+  text-align: start;
+  width: 100%;
+  height: 50px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 `;
 const Button4 = styled(Button)`
   width: 48px;
@@ -1309,16 +999,14 @@ const Button4 = styled(Button)`
   align-self: flex-end;
 `;
 const Image1 = styled(Image)`
-  width: 339px;
-  height: 229px;
-  position: absolute;
   border-radius: 10px 10px 0 0;
-`;
-const WhiteRectangle = styled.div`
-  box-shadow: var(--box-shadow);
-  width: 184px;
-  height: 62px;
-  border-radius: 5px;
+  flex: 1;
+  flex-basis: 200px;
+  object-fit: cover !important;
+  max-height: 200px !important;
+  > span {
+    height: 100% !important;
+  }
 `;
 
 const CustomEllipse = styled(Ellipse)`
@@ -1331,23 +1019,4 @@ const CustomEllipse2 = styled(Ellipse)`
   position: absolute;
   left: -102px;
   top: -100px;
-`;
-
-const ParentCircle = styled.div`
-  display: flex;
-  position: absolute;
-  top: -20px;
-  left: 0;
-  width: 100%;
-  justify-content: space-around;
-  padding: 0px 12px;
-`;
-
-const Circle = styled.div`
-  width: 37px;
-  height: 37px;
-  border-radius: 50%;
-  border-radius: 50%;
-  background: #f0f0f3;
-  box-shadow: inset 3px 0px 13px #dfdfdf, inset 0px 0px 0px #f2f2f5;
 `;

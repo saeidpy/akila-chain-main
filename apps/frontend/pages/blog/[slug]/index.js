@@ -7,9 +7,8 @@ import Divider from "../../../components/Common/Divider";
 import Header from "../../../components/Header";
 import Image from "../../../components/Image";
 import Seo from "../../../components/Seo";
-import Whitepaper from "../../../components/Whitepaper";
+import Whitepaper from "../../../components/Common/Whitepaper";
 import { fetchAPI } from "../../../lib/api";
-import _ from "lodash";
 export async function getServerSideProps({ params }) {
   const articlesRes = await fetchAPI("/articles", {
     filters: {
@@ -37,9 +36,8 @@ export async function getServerSideProps({ params }) {
     props: { article: articlesRes?.data?.[0] ?? {}, recentArticle },
   };
 }
-const BlogDetails = ({ article, recentArticle }) => {
-  console.log("🚀 ~ file: index.js ~ line 41 ~ BlogDetails ~ article", article);
-  const { query, push } = useRouter();
+const BlogDetails = ({ article, recentArticle, global }) => {
+  const { push } = useRouter();
 
   const handleBlogClick = (article) => {
     push(`/blog/${article?.attributes?.slug}`);
@@ -58,11 +56,12 @@ const BlogDetails = ({ article, recentArticle }) => {
         title="News"
         des="Here you can get the latest news"
         leftElement={
-          <Text9>
-            <Text09>Latest</Text09>
-            <Text10>Announcement</Text10>
-            <Text10>Information</Text10>
-          </Text9>
+          <></>
+          // <Text9>
+          //   <Text09>Latest</Text09>
+          //   <Text10>Announcement</Text10>
+          //   <Text10>Information</Text10>
+          // </Text9>
         }
       />
       <BigPost>
@@ -120,7 +119,7 @@ const BlogDetails = ({ article, recentArticle }) => {
           </Content>
         </Content>
       </BigPost>
-      <Whitepaper />
+      <Whitepaper link={global?.attributes?.whitePaper} />
     </BlogRoot>
   );
 };
@@ -208,28 +207,8 @@ const ContentItem = styled.div`
     background-color: var(--borders);
   }
 `;
-const Text13 = styled.p`
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 31.59px;
-  color: var(--text-primary);
-`;
 const ImageArticle = styled(Image)`
   border-radius: 10px 10px 0px 0px;
-`;
-const Paragraph1 = styled.p`
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 29.09px;
-  text-transform: capitalize;
-  color: var(--text-secondary);
-`;
-const Nav = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: ${(props) => props.gap};
 `;
 const Title = styled.div`
   display: flex;
@@ -254,12 +233,6 @@ const Text12 = styled.p`
   font-size: 14px;
   font-weight: 400;
   color: var(--text-primary);
-`;
-const Paragraph = styled.p`
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24.57px;
-  color: var(--text-secondary);
 `;
 const WhiteText = styled.div`
   text-align: center;
@@ -307,14 +280,6 @@ const Text70 = styled.p`
   left: var(--x3);
   position: absolute;
 `;
-
-const Paragraph3 = styled.p`
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 25.48px;
-  text-transform: capitalize;
-  color: var(--text-secondary);
-`;
 const Paragraph4 = styled.p`
   font-size: 16px;
   font-weight: 400;
@@ -335,11 +300,4 @@ const Tags = styled.div`
   justify-content: start;
   width: 100%;
   flex-wrap: wrap;
-`;
-const FlexRow = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  gap: 18px;
-  align-items: center;
 `;

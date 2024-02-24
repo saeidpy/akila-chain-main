@@ -1,9 +1,9 @@
-'use strict';
+"use strict";
 
 /**
  * chain-road-map router.
  */
 
-const { createCoreRouter } = require('@strapi/strapi').factories;
+const { createCoreRouter } = require("@strapi/strapi").factories;
 
-module.exports = createCoreRouter('api::chain-road-map.chain-road-map');
+module.exports = createCoreRouter("api::chain-road-map.chain-road-map");

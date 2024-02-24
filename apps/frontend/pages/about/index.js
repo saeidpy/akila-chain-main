@@ -1,6 +1,5 @@
 import parse from "html-react-parser";
 import React from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import styled from "styled-components";
 import Header from "../../components/Header";
 import Image from "../../components/Image";
@@ -61,7 +60,7 @@ const About = ({ global, team }) => {
         <Title13>
           <BgItem />
           <Text70>
-            What they Say <WhatTheySayAboutUs>About Us</WhatTheySayAboutUs>
+            Team <WhatTheySayAboutUs>Members</WhatTheySayAboutUs>
           </Text70>
         </Title13>
         <Reviews>
@@ -79,7 +78,6 @@ const About = ({ global, team }) => {
           ))}
         </Reviews>
       </Testomontials>
-      {/* <Whitepaper /> */}
     </AboutRoot>
   );
 };
@@ -93,15 +91,6 @@ const AboutRoot = styled.div`
   width: 100%;
   align-items: flex-start;
   gap: 64px;
-`;
-const Services = styled.div`
-  display: flex;
-  flex-direction: row;
-  gap: 32px;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  width: 100%;
 `;
 const Section = styled.div`
   display: flex;
@@ -161,51 +150,60 @@ const Reviews = styled.div`
   flex-direction: row;
   gap: 32px;
   justify-content: start;
-  align-items: center;
+  align-items: safe;
   flex-wrap: wrap;
   @media (max-width: 1024px) {
     justify-content: center;
   }
 `;
-const Title = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: ${(props) => props.gap};
-`;
-const Element3 = styled.div`
-  box-shadow: var(--box-shadow);
-  display: flex;
-  flex-direction: row;
-  gap: 23px;
-  justify-content: flex-start;
-  align-items: center;
-  border-radius: 10px;
-  padding: 16px;
-  max-width: 332px;
-  width: 100%;
-  margin: auto;
-`;
-const Icon = styled(LazyLoadImage)`
-  width: 66.4px;
-  height: 66.4px;
-`;
-const Text12 = styled.p`
-  text-align: center;
-  font-size: 16px;
-  font-weight: 600;
-  text-transform: capitalize;
-  color: var(--text-primary);
-  align-self: flex-start;
-`;
-const Paragraph = styled.p`
-  width: 197px;
-  font-size: 14px;
-  line-height: 20.64px;
-  text-transform: lowercase;
-  color: var(--text-secondary);
-`;
+// const Title = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   gap: ${(props) => props.gap};
+// `;
+// const Element3 = styled.div`
+//   box-shadow: var(--box-shadow);
+//   display: flex;
+//   flex-direction: row;
+//   gap: 23px;
+//   justify-content: flex-start;
+//   align-items: center;
+//   border-radius: 10px;
+//   padding: 16px;
+//   max-width: 332px;
+//   width: 100%;
+//   margin: auto;
+// `;
+// const Icon = styled(LazyLoadImage)`
+//   width: 66.4px;
+//   height: 66.4px;
+// `;
+// const Text12 = styled.p`
+//   text-align: center;
+//   font-size: 16px;
+//   font-weight: 600;
+//   text-transform: capitalize;
+//   color: var(--text-primary);
+//   align-self: flex-start;
+// `;
+// const Paragraph = styled.p`
+//   width: 197px;
+//   font-size: 14px;
+//   line-height: 20.64px;
+//   text-transform: lowercase;
+//   color: var(--text-secondary);
+// `;
+// const Services = styled.div`
+//   display: flex;
+//   flex-direction: row;
+//   gap: 32px;
+//   justify-content: space-between;
+//   align-items: center;
+//   flex-wrap: wrap;
+//   width: 100%;
+// `;
 const Content = styled.div`
   display: flex;
   flex-direction: column;
