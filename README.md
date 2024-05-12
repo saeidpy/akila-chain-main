@@ -53,6 +53,10 @@ To develop all apps and packages, run the following command (in the project root
 ```bash
 docker-compose up -d
 ```
+## Preview 
+```bash
+https://akila-chain.vercel.app/
+```
 
 ## Credits
 
