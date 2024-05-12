@@ -15,7 +15,7 @@ git clone https://github.com/saeidpy/akila-chain-main
 2. Change directory
 
 ```bash
-cd Akilawebsite
+cd akila-chain-main
 ```
 
 3. Install dependences
