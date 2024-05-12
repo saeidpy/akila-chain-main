@@ -9,7 +9,7 @@
 1. Clone this repository :
 
 ```bash
-git clone https://github.com/drbabaei2927/Akilawebsite
+git clone https://github.com/saeidpy/akila-chain-main
 ```
 
 2. Change directory
